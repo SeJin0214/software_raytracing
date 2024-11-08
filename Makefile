@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2024/10/31 18:04:39 by sejjeong         ###   ########.fr        #
+#    Updated: 2024/11/08 17:29:35 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,16 @@ LIBRARY_LINK = -L/user/lib -l Xext -l X11 -l m -l bsd
 LINK = $(LIBFT_LINK) $(MLX_LINK) $(LIBRARY_LINK)
 
 SRCS = $(SRCS_DIR)/main.c \
+	$(SRCS_DIR)/solid_shape.c \
+	$(SRCS_DIR)/world.c \
 	  
 OBJS = ${SRCS:.c=.o}
 
 all:$(NAME)
 
 $(NAME):$(OBJS)
+		make -C $(MLX_DIR)
+		make -C $(LIBFT_DIR)
 		$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(INCLUDE) $^ $(LINK) -o $@
 
 %.o: %.c
@@ -49,6 +53,7 @@ bonus:
 	make ON_BONUS_FLAG=1 all
 
 clean:
+	make -C $(MLX_DIR) clean
 	make -C $(LIBFT_DIR) clean
 	$(RM) $(RFLAGS) $(OBJS)
 	$(RM) $(RFLAGS) $(BONUS_OBJS)

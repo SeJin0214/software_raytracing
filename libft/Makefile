@@ -97,6 +97,9 @@ SRCS = $(SRC_DIR)/ft_isalpha.c \
 	$(SRC_DIR)/append_string_builder.c \
 	$(SRC_DIR)/build_string.c \
 	$(SRC_DIR)/do_nothing.c \
+	$(SRC_DIR)/try_atof.c \
+	$(SRC_DIR)/array_list.c \
+	$(SRC_DIR)/list_getter.c \
 
 HEADER_DIR = -I .
 

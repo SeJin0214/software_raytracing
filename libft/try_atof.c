@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:16:14 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/07 21:07:32 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:49:30 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 static bool	try_convert_int(char *nums, int index, \
 int *out_integer, int *out_float);
 static float	add_place(float integer_place, float float_place);
+static bool	try_atoi_only_digit(char *nums, int *out_result);
 
 bool	try_atof(char *nums, float *out_result)
 {

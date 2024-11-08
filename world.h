@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:08:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/07 22:12:04 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:09:03 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,6 @@
 # include "vector3.h"
 # define VECTOR_ATTRIBUTE_COUNT 3
 # define COLORS_ATTRIBUTE_COUNT 3
-
-typedef struct s_world
-{
-	t_camera		camera;
-	bool			is_valid_camera;
-	t_ambient_light	ambient_light;
-	bool			is_valid_ambient_light;
-	t_light			light;
-	bool			is_valid_light;
-	t_array_list	*spheres;
-	t_array_list	*planes;
-	t_array_list	*cylinders;
-}	t_world;
 
 typedef struct s_ambient_light
 {
@@ -66,6 +53,19 @@ typedef struct s_light
 	int			colors;
 }	t_light;
 
+typedef struct s_world
+{
+	t_camera		camera;
+	bool			is_valid_camera;
+	t_ambient_light	ambient_light;
+	bool			is_valid_ambient_light;
+	t_light			light;
+	bool			is_valid_light;
+	t_array_list	spheres;
+	t_array_list	planes;
+	t_array_list	cylinders;
+}	t_world;
+
 typedef enum light_attribute
 {
 	LIGHT_ATTRIBUTE_COORDINATES = 1,
@@ -83,5 +83,9 @@ bool	try_add_camera_to_world(char **attributes, t_world *world);
 bool	try_parse_vector3(char *attribute, t_vector3 *out_result);
 bool	try_parse_color(char *attribute, int *out_result);
 int		convert_colors(t_ivector3 colors);
+
+bool	is_invalid_normalized_vector3(t_vector3 vector);
+bool	is_invalid_ratio_in_range(float ratio_in_range);
+bool	is_invalid_colors(t_ivector3 colors);
 
 #endif

@@ -6,10 +6,12 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:04:43 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/07 22:38:27 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:09:03 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <float.h>
+#include <math.h>
 #include "libft.h"
 #include "world.h"
 
@@ -18,16 +20,16 @@ void	init_world(t_world *world)
 	world->is_valid_ambient_light = false;
 	world->is_valid_camera = false;
 	world->is_valid_light = false;
-	init_array_list(world->cylinders, sizeof(t_cylinder));
-	init_array_list(world->planes, sizeof(t_plane));
-	init_array_list(world->spheres, sizeof(t_sphere));
+	init_array_list(&world->cylinders, sizeof(t_cylinder));
+	init_array_list(&world->planes, sizeof(t_plane));
+	init_array_list(&world->spheres, sizeof(t_sphere));
 }
 
 void	destroy_world(t_world *world)
 {
-	world->cylinders->clear(world->cylinders, do_nothing);
-	world->planes->clear(world->planes, do_nothing);
-	world->spheres->clear(world->spheres, do_nothing);
+	world->cylinders.clear(&world->cylinders, do_nothing);
+	world->planes.clear(&world->planes, do_nothing);
+	world->spheres.clear(&world->spheres, do_nothing);
 }
 
 bool	try_add_ambient_light_to_world(char **attributes, t_world *world)
@@ -156,7 +158,7 @@ int	convert_colors(t_ivector3 colors)
 	return ((colors.x << 16) + (colors.y << 8) + colors.z);
 }
 
-bool	is_valid_normalized_vector3(t_vector3 vector)
+bool	is_invalid_normalized_vector3(t_vector3 vector)
 {
 	return (vector.x > 1.0f || vector.x < -1.0f \
 	|| vector.y > 1.0f || vector.y < -1.0f \

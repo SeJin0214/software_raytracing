@@ -6,15 +6,18 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/07 21:10:53 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:10:57 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "libft.h"
+#include "get_next_line.h"
 #include "world.h"
+
 
 bool	try_parse(int argc, char **argv, t_world *out_world);
 bool	is_valid_file(char *filename);
@@ -28,8 +31,13 @@ int	main(int argc, char **argv)
 	if (try_parse(argc, argv, &world) == false)
 	{
 		printf("Error\n");
-		return (0);
+		return (1);
 	}
+
+	// 오브젝트가 모두 잘 들어갔는지 출력하기
+	// 전체 다 출력 foreach 돌면서
+	destroy_world(&world);
+	return (0);
 }
 
 bool	try_parse(int argc, char **argv, t_world *out_world)
@@ -44,7 +52,6 @@ bool	try_parse(int argc, char **argv, t_world *out_world)
 		destroy_world(out_world);
 		return (false);
 	}
-	
 	return (true);
 }
 
@@ -70,24 +77,24 @@ bool	try_parse_file(char *filename, t_world *out_world)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-	{
 		return (false);
-	}
 	is_succeed = true;
 	while (true)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
+		line[ft_strlen(line) - 1] = '\0';
 		attributes = ft_split(line, ' ');
 		if (attributes[0] != NULL)
 			is_succeed = try_parse_attributes(attributes, out_world);
 		clear_words(attributes);
 		free(line);
 		if (is_succeed == false)
-			return (false);
+			break ;
 	}
-	return (true);
+	close(fd);
+	return (is_succeed);
 }
 
 bool	try_parse_attributes(char **attributes, t_world *out_world)

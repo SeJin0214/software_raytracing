@@ -6,13 +6,15 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/07 18:08:38 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:14:21 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLID_SHAPE_H
 # define SOLID_SHAPE_H
 # include "vector3.h"
+
+typedef	struct s_world	t_world;	
 
 typedef struct s_sphere
 {

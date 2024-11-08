@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:27:18 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/05 16:21:18 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:57:34 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,21 @@ typedef struct s_array_list
 	size_t	count;
 	size_t	size;
 	size_t	memory_offset;
-	size_t	(*get_count)(t_array_list *);
-	void	(*add)(t_array_list *, void *);
-	void	(*clear)(t_array_list *, void (*del)(void *));
-	void	(*foreach)(t_array_list *, void (*execute)(void *));
-	void	(*get_element_or_null)(t_array_list *, int);
+	size_t	(*get_count)(struct s_array_list *);
+	void	(*add)(struct s_array_list *, void *);
+	void	(*clear)(struct s_array_list *, void (*del)(void *));
+	void	(*foreach)(struct s_array_list *, void (*execute)(void *));
+	void	*(*get_element_or_null)(struct s_array_list *, size_t);
 }	t_array_list;
 
+/* array_list.c */
 void	init_array_list(t_array_list *list, size_t memory_offset);
-size_t	get_count_in_list(t_array_list *list);
 void	add_in_list(t_array_list *list, void *element);
 void	clear_in_list(t_array_list *list, void (*del)(void *));
 void	do_foreach(t_array_list *list, void (*execute)(void *));
-void	*get_element_or_null_in_list(t_array_list *list, int index);
+
+/* list_getter.c */
+void	*get_element_or_null_in_list(t_array_list *list, size_t index);
+size_t	get_count_in_list(t_array_list *list);
 
 #endif
