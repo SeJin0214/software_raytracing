@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/08 19:09:22 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/09 20:39:29 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,6 @@ bool	try_add_plane_to_world(char **attributes, t_world *world)
 	&plane.colors) == false;
 	if (is_invalid_value)
 	{
-		printf("x %.65f\n", plane.normalized_orientation_vector_of_axis.x);
-		printf("y %.65f\n", plane.normalized_orientation_vector_of_axis.y);
-		printf("z %.65f\n", plane.normalized_orientation_vector_of_axis.z);
 		return (false);
 	}
 	world->planes.add(&world->planes, &plane);
@@ -85,7 +82,6 @@ bool	try_add_cylinder_to_world(char **attributes, t_world *world)
 {
 	t_cylinder	cylinder;
 
-	// 다 개수 체크해야해
 	if (get_count_to_words(attributes) != CYLINDER_ATTRIBUTE_LENGTH \
 	|| get_count_words(attributes[CYLINDER_ATTRIBUTE_COORDINATES], ',') \
 	!= VECTOR_ATTRIBUTE_COUNT \

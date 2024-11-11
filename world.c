@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:04:43 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/08 19:09:03 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/11 11:54:01 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	init_world(t_world *world)
 
 void	destroy_world(t_world *world)
 {
-	world->cylinders.clear(&world->cylinders, do_nothing);
-	world->planes.clear(&world->planes, do_nothing);
-	world->spheres.clear(&world->spheres, do_nothing);
+	world->planes.destroy(&world->planes);
+	world->spheres.destroy(&world->spheres);
+	world->cylinders.destroy(&world->cylinders);
 }
 
 bool	try_add_ambient_light_to_world(char **attributes, t_world *world)
@@ -54,6 +54,7 @@ bool	try_add_ambient_light_to_world(char **attributes, t_world *world)
 	{
 		return (false);
 	}
+	world->is_valid_ambient_light = true;
 	return (true);
 }
 
@@ -83,6 +84,7 @@ bool	try_add_camera_to_world(char **attributes, t_world *world)
 	{
 		return (false);
 	}
+	world->is_valid_camera = true;
 	return (true);
 }
 
@@ -112,6 +114,7 @@ bool	try_add_light_to_world(char **attributes, t_world *world)
 	{
 		return (false);
 	}
+	world->is_valid_light = true;
 	return (true);
 }
 

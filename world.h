@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:08:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/08 19:09:03 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/09 20:16:15 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_light
 {
 	t_vector3	coordinates;
 	float		ratio_in_range;
+	// color는 그냥 vector로 만드는 게 나을 듯
 	int			colors;
 }	t_light;
 
