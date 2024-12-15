@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   canvas.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/04 18:25:33 by sejjeong          #+#    #+#             */
+/*   Updated: 2024/11/19 21:14:50 by sejjeong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CANVAS_H
+# define CANVAS_H
+# include "mlx.h"
+# include "mlx_int.h"
+# include "vector3.h"
+# include "screen.h"
+
+typedef struct s_canvas
+{
+	t_xvar		*xvar;
+	t_win_list	*win;
+	t_img		*img;
+	int			bit_per_pixel;
+	int			line_bit_size;
+	int			endian;
+	t_screen	screen;
+	t_vector3	anchor;
+	t_vector3	start_anchor;
+}t_canvas;
+
+void	init_canvas(t_canvas *out_canvas);
+void	free_canvas(t_canvas *out_canvas);
+t_img	*init_img(t_canvas *pa_canvas);
+
+#endif

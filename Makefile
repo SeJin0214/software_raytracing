@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2024/11/08 17:29:35 by sejjeong         ###   ########.fr        #
+#    Updated: 2024/11/19 21:27:51 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS_DIR = .
 LIBFT_DIR = ./libft
 MLX_DIR = ./mlx
 
-INCLUDE = -I ./includes
+INCLUDE = -I ./
 LIBFT_INCLUDE = -I $(LIBFT_DIR)
 MLX_INCLUDE = -I $(MLX_DIR)
 
@@ -34,7 +34,8 @@ LINK = $(LIBFT_LINK) $(MLX_LINK) $(LIBRARY_LINK)
 SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/solid_shape.c \
 	$(SRCS_DIR)/world.c \
-	  
+	$(SRCS_DIR)/init_canvas.c \
+
 OBJS = ${SRCS:.c=.o}
 
 all:$(NAME)
@@ -42,11 +43,11 @@ all:$(NAME)
 $(NAME):$(OBJS)
 		make -C $(MLX_DIR)
 		make -C $(LIBFT_DIR)
-		$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(INCLUDE) $^ $(LINK) -o $@
+		$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(MLX_INCLUDE) $(INCLUDE) $^ $(LINK) -o $@
 
 %.o: %.c
 	touch $<
-	$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(MLX_INCLUDE) $(INCLUDE) -c $< -o $@
 
 bonus:
 	make fclean

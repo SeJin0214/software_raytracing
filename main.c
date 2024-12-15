@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/11 11:56:48 by sejjeong         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:35:17 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 #include "libft.h"
 #include "get_next_line.h"
 #include "world.h"
-
+#include "mlx.h"
+#include "mlx_int.h"
+#include "canvas.h"
+#define X_BUTTON (17)
 
 bool	try_parse(int argc, char **argv, t_world *out_world);
 bool	is_valid_file(char *filename);
@@ -30,7 +33,8 @@ void	print_cylinder(void *arg);
 
 int	main(int argc, char **argv)
 {
-	t_world	world;
+	t_world		world;
+	t_canvas	canvas;
 	
 	ft_memset(&world, 0, sizeof(t_world));
 	if (try_parse(argc, argv, &world) == false)
@@ -38,16 +42,20 @@ int	main(int argc, char **argv)
 		printf("Error\n");
 		return (1);
 	}
-	print_world(world);
-	// 오브젝트가 모두 잘 들어갔는지 출력하기
-	// 전체 다 출력 foreach 돌면서
+	init_canvas(&canvas);
+	// print_world(world);
+	// draw_graphic
+	// key 입력에 따라 다시 drawing 하고 
+	mlx_hook(canvas.win, X_BUTTON, 0, mlx_loop_end, canvas.xvar);
+	mlx_loop(canvas.xvar);
+	free_canvas(&canvas);
 	destroy_world(&world);
 	return (0);
 }
 
 bool	try_parse(int argc, char **argv, t_world *out_world)
 {
-	if (argc != 2 && is_valid_file(argv[1]) == false)
+	if (argc != 2 || is_valid_file(argv[1]) == false)
 	{
 		return (false);
 	}
