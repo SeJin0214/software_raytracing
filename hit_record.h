@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   canvas.h                                           :+:      :+:    :+:   */
+/*   hit_record.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/04 18:25:33 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/23 10:36:54 by sejjeong         ###   ########.fr       */
+/*   Created: 2025/01/24 16:25:48 by sejjeong          #+#    #+#             */
+/*   Updated: 2025/01/26 15:44:35 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CANVAS_H
-# define CANVAS_H
-# include "mlx.h"
-# include "mlx_int.h"
+#ifndef HIT_TRACER_H
+# define HIT_TRACER_H
 # include "vector.h"
-# include "screen.h"
 
-typedef struct s_canvas
+typedef struct s_hit_record
 {
-	t_xvar		*xvar;
-	t_win_list	*win;
-	t_img		*img;
-	int			bit_per_pixel;
-	int			line_bit_size;
-	int			endian;
-	t_screen	screen;
-}t_canvas;
+	t_vector3	point;
+	t_vector3	normal;
+	t_ivector3	color;
+	float		t;
+	void		*object;
+}	t_hit_record;
 
-void	init_canvas(t_canvas *out_canvas);
-void	free_canvas(t_canvas *out_canvas);
-t_img	*init_img(t_canvas *pa_canvas);
+t_hit_record	get_hit_record();
 
 #endif

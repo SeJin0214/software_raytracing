@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   canvas.h                                           :+:      :+:    :+:   */
+/*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/04 18:25:33 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/23 10:36:54 by sejjeong         ###   ########.fr       */
+/*   Created: 2025/01/24 16:31:36 by sejjeong          #+#    #+#             */
+/*   Updated: 2025/01/26 13:49:00 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CANVAS_H
-# define CANVAS_H
-# include "mlx.h"
-# include "mlx_int.h"
-# include "vector.h"
-# include "screen.h"
+#include "ray.h"
+#include "vector.h"
 
-typedef struct s_canvas
+t_ray		get_ray(const t_vector3 origin, const t_vector3 direction)
 {
-	t_xvar		*xvar;
-	t_win_list	*win;
-	t_img		*img;
-	int			bit_per_pixel;
-	int			line_bit_size;
-	int			endian;
-	t_screen	screen;
-}t_canvas;
+	t_ray	ray;
+	
+	ray.origin = origin;
+	ray.direction = direction;
+	return (ray);
+}
 
-void	init_canvas(t_canvas *out_canvas);
-void	free_canvas(t_canvas *out_canvas);
-t_img	*init_img(t_canvas *pa_canvas);
-
-#endif
+t_vector3	get_point_in_ray(const t_ray ray, const float t)
+{
+	return (add_vector3(ray.origin, multiply_vector3(ray.direction, t)));
+}

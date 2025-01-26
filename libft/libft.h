@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:49:21 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/07 21:07:53 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/01/23 15:58:58 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ int				get_max(int num0, int num1);
 int				get_abs(int num0, int num1);
 unsigned int	generate_hash_65599(const char *str);
 int				lerp_int(int int1, int int2, float t);
+float			get_degree(float radian);
 
 void			sprint_itoa(char *dest, int num);
 void			sprint_uitoa(char *dest, unsigned int num);

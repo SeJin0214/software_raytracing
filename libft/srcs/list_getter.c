@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   canvas.h                                           :+:      :+:    :+:   */
+/*   list_getter.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/04 18:25:33 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/23 10:36:54 by sejjeong         ###   ########.fr       */
+/*   Created: 2024/11/05 16:22:44 by sejjeong          #+#    #+#             */
+/*   Updated: 2025/01/14 13:43:58 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CANVAS_H
-# define CANVAS_H
-# include "mlx.h"
-# include "mlx_int.h"
-# include "vector.h"
-# include "screen.h"
+#include "array_list.h"
 
-typedef struct s_canvas
+void	*get_element_or_null_in_list(t_array_list *list, size_t index)
 {
-	t_xvar		*xvar;
-	t_win_list	*win;
-	t_img		*img;
-	int			bit_per_pixel;
-	int			line_bit_size;
-	int			endian;
-	t_screen	screen;
-}t_canvas;
+	if (index >= list->count)
+	{
+		return (NULL);
+	}
+	return (list->list + (index * list->memory_offset));
+}
 
-void	init_canvas(t_canvas *out_canvas);
-void	free_canvas(t_canvas *out_canvas);
-t_img	*init_img(t_canvas *pa_canvas);
-
-#endif
+size_t	get_count_in_list(t_array_list *list)
+{
+	return (list->count);
+}

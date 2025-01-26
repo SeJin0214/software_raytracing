@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:04:43 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/19 23:07:40 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/01/24 19:19:01 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <math.h>
 #include "libft.h"
 #include "world.h"
+#include "solid_shape.h"
 
 void	init_world(t_world *world)
 {
@@ -27,9 +28,9 @@ void	init_world(t_world *world)
 
 void	destroy_world(t_world *world)
 {
-	world->planes.destroy(&world->planes);
-	world->spheres.destroy(&world->spheres);
-	world->cylinders.destroy(&world->cylinders);
+	world->planes.destroy(&world->planes, destory_plane);
+	world->spheres.destroy(&world->spheres, destory_sphere);
+	world->cylinders.destroy(&world->cylinders, destory_cylinder);
 }
 
 bool	try_add_ambient_light_to_world(char **attributes, t_world *world)
@@ -40,7 +41,7 @@ bool	try_add_ambient_light_to_world(char **attributes, t_world *world)
 	|| get_count_words(attributes[AMBIENT_ATTRIBUTE_COLORS], ',') \
 	!= COLORS_ATTRIBUTE_COUNT;
 	
-	if (is_invalid_format)
+	if (is_invalid_format || world->is_valid_ambient_light)
 	{
 		return (false);
 	}
@@ -58,7 +59,7 @@ bool	try_add_ambient_light_to_world(char **attributes, t_world *world)
 	return (true);
 }
 
-bool	try_add_camera_to_world(char **attributes, t_world *world)
+bool	try_add_camera_to_world(char **attributes, t_world *world, t_canvas *canvas)
 {
 	bool		is_invalid_value;
 	const bool	is_invalid_format = \
@@ -68,10 +69,8 @@ bool	try_add_camera_to_world(char **attributes, t_world *world)
 	|| get_count_words(attributes[CAMERA_ATTRIBUTE_ORIENTATION_VECTOR], ',') \
 	!= VECTOR_ATTRIBUTE_COUNT;
 	 
-	if (is_invalid_format)
-	{
+	if (is_invalid_format || world->is_valid_camera)
 		return (false);
-	}
 	is_invalid_value = \
 	try_parse_vector3(attributes[CAMERA_ATTRIBUTE_COORDINATES], \
 	&world->camera.coordinates) == false \
@@ -81,9 +80,11 @@ bool	try_add_camera_to_world(char **attributes, t_world *world)
 	&world->camera.field_of_view) == false \
 	|| world->camera.field_of_view > 180 || world->camera.field_of_view < 0;
 	if (is_invalid_value)
-	{
 		return (false);
-	}
+	world->camera.x_theta = world->camera.field_of_view / 2;
+	world->camera.y_theta = world->camera.x_theta * \
+	(canvas->screen.height / canvas->screen.width);
+	world->camera.focal_length = 10;
 	world->is_valid_camera = true;
 	return (true);
 }
@@ -98,7 +99,7 @@ bool	try_add_light_to_world(char **attributes, t_world *world)
 	|| get_count_words(attributes[LIGHT_ATTRIBUTE_COLORS], ',') \
 	!= COLORS_ATTRIBUTE_COUNT;
 
-	if (is_invalid_format)
+	if (is_invalid_format || world->is_valid_light)
 	{
 		return (false);
 	}
@@ -133,26 +134,26 @@ bool	try_parse_vector3(char *attribute, t_vector3 *out_result)
 	return (is_succeed_x && is_succeed_y && is_succeed_z);
 }
 
-bool	try_parse_color(char *attribute, int *out_result)
+bool	try_parse_color(char *attribute, t_ivector3 *out_result)
 {
 	char		**temp;
 	bool		is_succeed_r;
 	bool		is_succeed_g;
 	bool		is_succeed_b;
-	t_ivector3	colors;
 
 	temp = ft_split(attribute, ',');
-	is_succeed_r = try_atoi(temp[0], &colors.x);
-	is_succeed_g = try_atoi(temp[1], &colors.y);
-	is_succeed_b = try_atoi(temp[2], &colors.z);
+	is_succeed_r = try_atoi(temp[0], &out_result->x);
+	is_succeed_g = try_atoi(temp[1], &out_result->y);
+	is_succeed_b = try_atoi(temp[2], &out_result->z);
 	clear_words(temp);
 	if (is_succeed_r == false || is_succeed_g == false \
-	|| is_succeed_b == false || is_invalid_colors(colors))
+	|| is_succeed_b == false || is_invalid_colors(*out_result))
 	{
-		*out_result = 0;
+		out_result->x = 0;
+		out_result->y = 0;
+		out_result->z = 0;
 		return (false);
 	}
-	*out_result = convert_colors(colors);
 	return (true);
 }
 

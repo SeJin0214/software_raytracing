@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   canvas.h                                           :+:      :+:    :+:   */
+/*   quadratic_equation.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/04 18:25:33 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/23 10:36:54 by sejjeong         ###   ########.fr       */
+/*   Created: 2025/01/26 12:24:34 by sejjeong          #+#    #+#             */
+/*   Updated: 2025/01/26 12:53:48 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CANVAS_H
-# define CANVAS_H
-# include "mlx.h"
-# include "mlx_int.h"
-# include "vector.h"
-# include "screen.h"
+#ifndef QUADRATIC_EQUATION_H
+# define QUADRATIC_EQUATION_H
 
-typedef struct s_canvas
+typedef struct s_quadratic_equation
 {
-	t_xvar		*xvar;
-	t_win_list	*win;
-	t_img		*img;
-	int			bit_per_pixel;
-	int			line_bit_size;
-	int			endian;
-	t_screen	screen;
-}t_canvas;
-
-void	init_canvas(t_canvas *out_canvas);
-void	free_canvas(t_canvas *out_canvas);
-t_img	*init_img(t_canvas *pa_canvas);
+	float	a;
+	float	b;
+	float	c;
+}	t_quadratic_equation;
 
 #endif

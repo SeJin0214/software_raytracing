@@ -6,15 +6,17 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/09 20:39:29 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/01/26 15:16:45 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 #include "libft.h"
 #include "world.h"
 #include "solid_shape.h"
+#include "vector.h"
 
 bool	try_add_sphere_to_world(char **attributes, t_world *world)
 {
@@ -39,11 +41,23 @@ bool	try_add_sphere_to_world(char **attributes, t_world *world)
 	|| try_parse_color(attributes[SPHERE_ATTRIBUTE_COLORS], \
 	&sphere.colors) == false;
 	if (is_invalid_value)
-	{
 		return (false);
-	}
+	load_sphere_points(&sphere);
 	world->spheres.add(&world->spheres, &sphere);
 	return (true);
+}
+
+void	load_sphere_points(t_sphere *sphere)
+{
+	(void)sphere;
+}
+
+void	destory_sphere(void *obj)
+{
+	t_sphere	*sphere;
+
+	sphere = obj;
+	(void)sphere;
 }
 
 bool	try_add_plane_to_world(char **attributes, t_world *world)
@@ -71,11 +85,23 @@ bool	try_add_plane_to_world(char **attributes, t_world *world)
 	|| try_parse_color(attributes[PLANE_ATTRIBUTE_COLORS], \
 	&plane.colors) == false;
 	if (is_invalid_value)
-	{
 		return (false);
-	}
+	load_plane_points(&plane);
 	world->planes.add(&world->planes, &plane);
 	return (true);
+}
+
+void	load_plane_points(t_plane *plane)
+{
+	(void) plane;
+}
+
+void	destory_plane(void *obj)
+{
+	t_plane	*plane;
+
+	plane = obj;
+	(void) plane;
 }
 
 bool	try_add_cylinder_to_world(char **attributes, t_world *world)
@@ -102,6 +128,20 @@ bool	try_add_cylinder_to_world(char **attributes, t_world *world)
 	|| try_parse_color(attributes[CYLINDER_ATTRIBUTE_COLORS], \
 	&cylinder.colors) == false)
 		return (false);
+	load_cylinder_points(&cylinder);
 	world->cylinders.add(&world->cylinders, &cylinder);
 	return (true);
+}
+
+void	load_cylinder_points(t_cylinder *cylinder)
+{
+	(void) cylinder;
+}
+
+void	destory_cylinder(void *obj)
+{
+	t_cylinder	*cylinder;
+
+	cylinder = obj;
+	(void)cylinder;
 }

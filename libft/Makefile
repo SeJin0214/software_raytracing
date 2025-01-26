@@ -20,7 +20,7 @@ AR_FLAGS = rc
 RM =rm
 RM_FLAGS = -rf
 
-SRC_DIR = .
+SRC_DIR = ./srcs
 
 SRCS = $(SRC_DIR)/ft_isalpha.c \
 	$(SRC_DIR)/ft_isdigit.c \
@@ -69,7 +69,7 @@ SRCS = $(SRC_DIR)/ft_isalpha.c \
 	$(SRC_DIR)/print_digit.c \
 	$(SRC_DIR)/print_str.c \
 	$(SRC_DIR)/ft_printf.c \
-	$(SRC_DIR)/ft_lstnew.c\
+	$(SRC_DIR)/ft_lstnew.c \
 	$(SRC_DIR)/ft_lstadd_front.c \
 	$(SRC_DIR)/ft_lstsize.c \
 	$(SRC_DIR)/ft_lstlast.c \
@@ -100,6 +100,8 @@ SRCS = $(SRC_DIR)/ft_isalpha.c \
 	$(SRC_DIR)/try_atof.c \
 	$(SRC_DIR)/array_list.c \
 	$(SRC_DIR)/list_getter.c \
+	$(SRC_DIR)/vector.c \
+	$(SRC_DIR)/matrix.c \
 
 HEADER_DIR = -I .
 

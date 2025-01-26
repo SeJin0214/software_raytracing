@@ -6,46 +6,75 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/11/20 16:35:17 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:23:40 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
-#include "get_next_line.h"
 #include "world.h"
 #include "mlx.h"
 #include "mlx_int.h"
 #include "canvas.h"
+#include "parse.h"
+#include "render.h"
 #define X_BUTTON (17)
 
-bool	try_parse(int argc, char **argv, t_world *out_world);
-bool	is_valid_file(char *filename);
-bool	try_parse_file(char *filename, t_world *out_world);
-bool	try_parse_attributes(char **attributes, t_world *out_world);
+
 void	print_world(t_world world);
 void	print_plane(void *arg);
 void	print_sphere(void *arg);
 void	print_cylinder(void *arg);
 
+
+// transform 컴포넌트를 들고 있어야 할 거 같다.
+
+// 카메라 위치로 보여주는 것 
+
+// 카메라 시선에 보여주기 
+
+// fov
+
+// viewport
+
+// 월드 좌표 -> 카메라 좌표
+
+// 자르는 과정이 클립 스페이스를 이용
+// 어디까지 클리핑 하는 가?
+
+// 회전, 무브, 스케일 (모델링 행렬)
+
+// 뷰 행렬
+
+// 원근 투영
+
+// point
+
+// 벡터의 방정식
+
+// 좌표를 찍긴 했지만, 가득 채워줄 래스터라이저가 필요하긴 하다.
+
+
 int	main(int argc, char **argv)
 {
 	t_world		world;
 	t_canvas	canvas;
-	
+
 	ft_memset(&world, 0, sizeof(t_world));
-	if (try_parse(argc, argv, &world) == false)
+	init_canvas(&canvas);
+	if (try_parse(argc, argv, &world, &canvas) == false)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	init_canvas(&canvas);
-	// print_world(world);
-	// draw_graphic
-	// key 입력에 따라 다시 drawing 하고 
+	//print_world(world);
+
+	// update_camera
+	// update_light
+	render(&world, &canvas);
+	
 	mlx_hook(canvas.win, X_BUTTON, 0, mlx_loop_end, canvas.xvar);
 	mlx_loop(canvas.xvar);
 	free_canvas(&canvas);
@@ -53,105 +82,11 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-bool	try_parse(int argc, char **argv, t_world *out_world)
-{
-	if (argc != 2 || is_valid_file(argv[1]) == false)
-	{
-		return (false);
-	}
-	init_world(out_world);
-	if (try_parse_file(argv[1], out_world) == false \
-	|| out_world->is_valid_ambient_light == false \
-	|| out_world->is_valid_camera == false \
-	|| out_world->is_valid_light == false)	
-	{
-		destroy_world(out_world);
-		return (false);
-	}
-	return (true);
-}
-
-bool	is_valid_file(char *filename)
-{
-	while (*filename != '\0')
-	{
-		if (ft_strcmp(filename, ".rt") == 0)
-		{
-			return (true);
-		}
-		++filename;
-	}
-	return (false);
-}
-
-bool	try_parse_file(char *filename, t_world *out_world)
-{
-	int			fd;
-	char		*line;
-	char		**attributes;
-	bool		is_succeed;
-
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		return (false);
-	is_succeed = true;
-	while (true)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		line[ft_strlen(line) - 1] = '\0';
-		attributes = ft_split(line, ' ');
-		if (attributes[0] != NULL)
-			is_succeed = try_parse_attributes(attributes, out_world);
-		clear_words(attributes);
-		free(line);
-		if (is_succeed == false)
-			break ;
-	}
-	close(fd);
-	return (is_succeed);
-}
-
-bool	try_parse_attributes(char **attributes, t_world *out_world)
-{
-	bool	is_succeed;
-
-	if (ft_strcmp(attributes[0], "A") == 0)
-	{
-		is_succeed = try_add_ambient_light_to_world(attributes, out_world);
-	}
-	else if (ft_strcmp(attributes[0], "L") == 0)
-	{
-		is_succeed = try_add_light_to_world(attributes, out_world);
-	}
-	else if (ft_strcmp(attributes[0], "C") == 0)
-	{
-		is_succeed = try_add_camera_to_world(attributes, out_world);
-	}
-	else if (ft_strcmp(attributes[0], "sp") == 0)
-	{
-		is_succeed = try_add_sphere_to_world(attributes, out_world);
-	}
-	else if (ft_strcmp(attributes[0], "pl") == 0)
-	{
-		is_succeed = try_add_plane_to_world(attributes, out_world);
-	}
-	else if (ft_strcmp(attributes[0], "cy") == 0)
-	{
-		is_succeed = try_add_cylinder_to_world(attributes, out_world);
-	}
-	else
-	{
-		return (false);
-	}
-	return (is_succeed);
-}
 
 void	print_world(t_world world)
 {
 	printf("---------------------ambient_light------------------\n");
-	printf("color->%d|\n", world.ambient_light.colors);
+	printf("color->%d, %d, %d|\n", world.ambient_light.colors.x, world.ambient_light.colors.y, world.ambient_light.colors.z);
 	printf("ratio_in_range->%f|\n", world.ambient_light.ratio_in_range);
 	printf("\n\n\n");
 
@@ -166,7 +101,7 @@ void	print_world(t_world world)
 	printf("\n\n\n");
 
 	printf("---------------------light------------------\n");
-	printf("color->%d|\n", world.light.colors);
+	printf("color->%d, %d, %d|\n", world.light.colors.x, world.light.colors.y, world.light.colors.z);
 	printf("cordinate_x->%f\n", world.light.coordinates.x);
 	printf("cordinate_y->%f\n", world.light.coordinates.y);
 	printf("cordinate_z->%f\n", world.light.coordinates.z);
@@ -190,7 +125,7 @@ void	print_plane(void *arg)
 {
 	t_plane	*plane = arg;
 	
-	printf("color->%d|\n", plane->colors);
+	printf("color->%d, %d, %d|\n", plane->colors.x, plane->colors.y, plane->colors.z);
 	printf("cordinate_x->%f\n", plane->coordinates.x);
 	printf("cordinate_y->%f\n", plane->coordinates.y);
 	printf("cordinate_z->%f\n", plane->coordinates.z);
@@ -204,11 +139,15 @@ void	print_sphere(void *arg)
 {
 	t_sphere	*sphere = arg;
 
-	printf("color->%d|\n", sphere->colors);
-	printf("center->%f\n", sphere->center.x);
-	printf("center->%f\n", sphere->center.y);
-	printf("center->%f\n", sphere->center.z);
+	printf("color->%d, %d, %d|\n", sphere->colors.x, sphere->colors.y, sphere->colors.z);
+	printf("center-> x = %f, y = %f, z = %f\n", sphere->center.x, sphere->center.y, sphere->center.z);
 	printf("diameter->%f\n", sphere->diameter);
+
+	// for (size_t i = 0; i < sphere->points.count; ++i)
+	// {
+	// 	t_vector4 *point = sphere->points.get_element_or_null(&sphere->points, i);
+	// 	printf("x = %f, y = %f, z = %f, a = %f\n", point->x, point->y, point->z, point->a);
+	// }
 	printf("\n\n");
 }
 
@@ -216,7 +155,7 @@ void	print_cylinder(void *arg)
 {
 	t_cylinder	*cylinder = arg;
 
-	printf("color->%d|\n", cylinder->colors);
+	printf("color->%d, %d, %d|\n", cylinder->colors.x, cylinder->colors.y, cylinder->colors.z);
 	printf("cordinate_x->%f\n", cylinder->coordinates.x);
 	printf("cordinate_y->%f\n", cylinder->coordinates.y);
 	printf("cordinate_z->%f\n", cylinder->coordinates.z);
