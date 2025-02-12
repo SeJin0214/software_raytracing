@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:08:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/26 13:32:35 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:54:12 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,12 @@ typedef enum ambient_attribute
 typedef struct s_camera
 {
 	t_vector3	coordinates;
+	t_matrix3x3	local_basis;
 	t_vector3	normalized_orientation_vector_of_axis; // [-1, 1]  * 180
 	size_t		focal_length;
 	int			field_of_view; // 제거
-	int			x_theta;
-	int			y_theta;
+	float		x_theta;
+	float		y_theta;
 }	t_camera;
 
 typedef enum camera_attribute
@@ -90,7 +91,7 @@ void	destroy_world(t_world *world);
 bool	try_add_ambient_light_to_world(char **attributes, t_world *world);
 bool	try_add_light_to_world(char **attributes, t_world *world);
 bool	try_add_camera_to_world(char **attributes, t_world *world, t_canvas *canvas);
-
+void	init_camera(t_world *world, t_canvas *canvas);
 bool	try_parse_vector3(char *attribute, t_vector3 *out_result);
 bool	try_parse_color(char *attribute, t_ivector3 *out_result);
 int		convert_colors(t_ivector3 colors);

@@ -6,13 +6,14 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/01/26 14:29:11 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/12 16:09:34 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
+#CFLAGS = -Wall -Wextra -Werror -g -DROTATION
 
 RM = rm
 RFLAGS = -rf
@@ -39,6 +40,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/render.c \
 	$(SRCS_DIR)/ray.c \
 	$(SRCS_DIR)/hit_record.c \
+	$(SRCS_DIR)/equation.c \
 
 OBJS = ${SRCS:.c=.o}
 
@@ -52,6 +54,7 @@ $(NAME):$(OBJS)
 %.o: %.c
 	touch $<
 	$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(MLX_INCLUDE) $(INCLUDE) -c $< -o $@
+
 
 bonus:
 	make fclean

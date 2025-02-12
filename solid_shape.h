@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/26 14:41:06 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:02:39 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,21 @@
 # include <stdbool.h>
 # include "vector.h"
 # include "array_list.h"
-
-// 중점과 점만 있으면 이동 벡터를 구할 수 있음 
-// 이동 벡터 가지고 앞 뒤를 판별 가능해 
+# include "matrix.h"
+# define X (0)
+# define Y (1)
+# define Z (2)
 
 typedef	struct s_world	t_world;
 
 typedef struct s_sphere
 {
+	// solid_shape
 	t_vector3	center;
-	float		diameter;
 	t_ivector3	colors;
+	// 가상 테이블 만들기
+	// 생성할 때 부모 테이블에 주소 담아주기
+	float		diameter;
 }	t_sphere;
 
 typedef enum sphere_attribute
@@ -39,8 +43,8 @@ typedef enum sphere_attribute
 typedef struct s_plane
 {
 	t_vector3	coordinates;
-	t_vector3	normalized_orientation_vector_of_axis;
 	t_ivector3	colors;
+	t_vector3	normalized_orientation_vector_of_axis;
 }	t_plane;
 
 typedef enum plane_attribute
@@ -54,11 +58,12 @@ typedef enum plane_attribute
 typedef struct s_cylinder
 {
 	t_vector3	coordinates;
+	t_ivector3	colors;
 	t_vector3	normalized_orientation_vector_of_axis;
 	float		diameter;
 	float		height;
-	t_ivector3	colors;
 }	t_cylinder;
+
 
 typedef enum cylinder_attribute
 {

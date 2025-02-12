@@ -6,23 +6,38 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:42:03 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/26 13:43:39 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:03:36 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <math.h>
+#include <float.h>
 #include "vector.h"
 
-t_vector4	init_vector4(const float x, const float y, const float z, const float a)
+t_vector3	get_vector3(const float x, const float y, const float z)
 {
-	t_vector4	result;
+	t_vector3	result;
 
 	result.x = x;
 	result.y = y;
 	result.z = z;
-	result.a = a;
 	return (result);
+}
+
+t_ivector3	get_ivector3(const int x, const int y, const int z)
+{
+	t_ivector3	result;
+
+	result.x = x;
+	result.y = y;
+	result.z = z;
+	return (result);
+}
+
+bool	is_uneqaul_vector3(const t_vector3 v0, const t_vector3 v1)
+{	
+	return (fabsf(v0.x - v1.x) > FLT_EPSILON || fabsf(v0.y - v1.y) > FLT_EPSILON || fabsf(v0.z - v1.z) > FLT_EPSILON);
 }
 
 float	dot_product3x3(const t_vector3 vector0, const t_vector3 vector1)
@@ -41,9 +56,9 @@ t_vector3	cross_product3x3(const t_vector3 vector0, const t_vector3 vector1)
 {
 	t_vector3	result;
 
-	result.x = vector0.y * vector1.z + vector0.z * vector1.y;
-	result.y = vector0.z * vector1.x + vector0.x * vector1.z;
-	result.z = vector0.x * vector1.y + vector0.y * vector1.x;
+	result.x = vector0.y * vector1.z - vector0.z * vector1.y;
+	result.y = vector0.z * vector1.x - vector0.x * vector1.z;
+	result.z = vector0.x * vector1.y - vector0.y * vector1.x;
 	return (result);
 }
 
@@ -114,7 +129,7 @@ t_vector3	divide_vector3(const t_vector3 v, const float t)
 	return (result);
 }
 
-void	print_vector3(const t_vector3 v)
+void	print_vector3(const char *message, const t_vector3 v)
 {
-	printf("v = %f, %f, %f\n", v.x, v.y, v.z);
+	printf("%s, v = %f, %f, %f\n", message, v.x, v.y, v.z);
 }

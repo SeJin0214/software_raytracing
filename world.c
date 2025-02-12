@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:04:43 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/24 19:19:01 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:55:26 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ bool	try_add_camera_to_world(char **attributes, t_world *world, t_canvas *canvas
 	!= VECTOR_ATTRIBUTE_COUNT \
 	|| get_count_words(attributes[CAMERA_ATTRIBUTE_ORIENTATION_VECTOR], ',') \
 	!= VECTOR_ATTRIBUTE_COUNT;
-	 
+	
 	if (is_invalid_format || world->is_valid_camera)
 		return (false);
 	is_invalid_value = \
@@ -80,13 +80,30 @@ bool	try_add_camera_to_world(char **attributes, t_world *world, t_canvas *canvas
 	&world->camera.field_of_view) == false \
 	|| world->camera.field_of_view > 180 || world->camera.field_of_view < 0;
 	if (is_invalid_value)
-		return (false);
-	world->camera.x_theta = world->camera.field_of_view / 2;
+		return (false);	
+	init_camera(world, canvas);
+	return (true);
+}
+
+void	init_camera(t_world *world, t_canvas *canvas)
+{
+	const t_vector3	n = world->camera.normalized_orientation_vector_of_axis;
+	t_vector3		up;
+
+	up = get_vector3(0.0f, 1.0f, 0.0f);
+	if (is_uneqaul_vector3(up, n) == false)
+	{
+		up = get_vector3(0.0f, 0.0f, -1.0f);
+	}
+	world->camera.local_basis.row[X] = cross_product3x3(up, n);
+	world->camera.local_basis.row[Y] = cross_product3x3(n, world->camera.local_basis.row[X]);
+	world->camera.local_basis.row[Z] = n;
+	print_matrix3x3(world->camera.local_basis);
+	world->camera.x_theta = world->camera.field_of_view / 2.0f;
 	world->camera.y_theta = world->camera.x_theta * \
-	(canvas->screen.height / canvas->screen.width);
+	((float)canvas->screen.width / canvas->screen.height);
 	world->camera.focal_length = 10;
 	world->is_valid_camera = true;
-	return (true);
 }
 
 bool	try_add_light_to_world(char **attributes, t_world *world)

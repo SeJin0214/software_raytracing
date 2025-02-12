@@ -1,23 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quadratic_equation.h                               :+:      :+:    :+:   */
+/*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 12:24:34 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/26 12:53:48 by sejjeong         ###   ########.fr       */
+/*   Created: 2025/02/07 16:46:14 by sejjeong          #+#    #+#             */
+/*   Updated: 2025/02/07 16:46:19 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef QUADRATIC_EQUATION_H
-# define QUADRATIC_EQUATION_H
+#include "solid_shape.h"
 
-typedef struct s_quadratic_equation
-{
-	float	a;
-	float	b;
-	float	c;
-}	t_quadratic_equation;
-
-#endif
