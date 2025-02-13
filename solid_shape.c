@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/11 13:00:15 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:23:06 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	try_add_sphere_to_world(char **attributes, t_world *world)
 	!= VECTOR_ATTRIBUTE_COUNT \
 	|| get_count_words(attributes[SPHERE_ATTRIBUTE_COLORS], ',') \
 	!= COLORS_ATTRIBUTE_COUNT;
-	
+
 	if (is_invalid_format)
 	{
 		return (false);
@@ -42,6 +42,7 @@ bool	try_add_sphere_to_world(char **attributes, t_world *world)
 	&sphere.colors) == false;
 	if (is_invalid_value)
 		return (false);
+		
 	load_sphere_points(&sphere);
 	world->spheres.add(&world->spheres, &sphere);
 	return (true);
@@ -72,7 +73,7 @@ bool	try_add_plane_to_world(char **attributes, t_world *world)
 	!= VECTOR_ATTRIBUTE_COUNT \
 	|| get_count_words(attributes[PLANE_ATTRIBUTE_COLORS], ',') \
 	!= COLORS_ATTRIBUTE_COUNT;
-	
+
 	if (is_invalid_format)
 		return (false);
 	is_invalid_value = \

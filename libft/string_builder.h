@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:10:34 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/10/08 13:38:01 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:44 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_string_builder
 	void	(*clear)(struct s_string_builder *builder);
 	bool	(*is_empty)(struct s_string_builder *);
 	char	*(*to_string)(struct s_string_builder *builder);
-}t_string_builder;
+}	t_string_builder;
 
 /* string_builder.c */
 void	init_string_builder(t_string_builder *builder);

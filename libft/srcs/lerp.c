@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lerp.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:41:02 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/08/06 11:45:03 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:14 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,9 @@ int	lerp_int(int from, int to, float t)
 
 	result = (1.0f - t) * from + t * to;
 	return (result);
+}
+
+float	lerp(const float a, const float b, const float t)
+{
+	return ((1.0f - t) * a + t * b);
 }

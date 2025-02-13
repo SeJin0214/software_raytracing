@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:17:36 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/24 19:55:42 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:26 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	try_parse(int argc, char **argv, t_world *out_world, t_canvas *canvas)
 	if (try_parse_file(argv[1], out_world, canvas) == false \
 	|| out_world->is_valid_ambient_light == false \
 	|| out_world->is_valid_camera == false \
-	|| out_world->is_valid_light == false)	
+	|| out_world->is_valid_light == false)
 	{
 		destroy_world(out_world);
 		return (false);
@@ -79,7 +79,8 @@ bool	try_parse_file(char *filename, t_world *out_world, t_canvas *canvas)
 	return (is_succeed);
 }
 
-bool	try_parse_attributes(char **attributes, t_world *out_world, t_canvas *canvas)
+bool	try_parse_attributes(char **attributes, \
+t_world *out_world, t_canvas *canvas)
 {
 	bool	is_succeed;
 
@@ -87,32 +88,18 @@ bool	try_parse_attributes(char **attributes, t_world *out_world, t_canvas *canva
 	// 아니면 노멀라이즈 해주기 
 	// 양수만 나와야 되는 것 확인
 	if (ft_strcmp(attributes[0], "A") == 0)
-	{
 		is_succeed = try_add_ambient_light_to_world(attributes, out_world);
-	}
 	else if (ft_strcmp(attributes[0], "L") == 0)
-	{
 		is_succeed = try_add_light_to_world(attributes, out_world);
-	}
 	else if (ft_strcmp(attributes[0], "C") == 0)
-	{
 		is_succeed = try_add_camera_to_world(attributes, out_world, canvas);
-	}
 	else if (ft_strcmp(attributes[0], "sp") == 0)
-	{
 		is_succeed = try_add_sphere_to_world(attributes, out_world);
-	}
 	else if (ft_strcmp(attributes[0], "pl") == 0)
-	{
 		is_succeed = try_add_plane_to_world(attributes, out_world);
-	}
 	else if (ft_strcmp(attributes[0], "cy") == 0)
-	{
 		is_succeed = try_add_cylinder_to_world(attributes, out_world);
-	}
 	else
-	{
 		return (false);
-	}
 	return (is_succeed);
 }

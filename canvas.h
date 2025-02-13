@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 18:25:33 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/03 11:46:25 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:23 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_canvas
 	int			line_bit_size;
 	int			endian;
 	t_screen	screen;
-}t_canvas;
+}	t_canvas;
 
 void	init_canvas(t_canvas *out_canvas);
 void	free_canvas(t_canvas *out_canvas);

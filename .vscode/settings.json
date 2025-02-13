@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"random": "c",
-		"equation.h": "c"
+		"equation.h": "c",
+		"float.h": "c"
 	}
 }

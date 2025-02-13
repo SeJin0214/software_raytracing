@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:49:21 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/23 15:58:58 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:11 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 # define LIBFT_H
 # include <stddef.h>
 # include <stdbool.h>
-# define TRUE (1)
-# define FALSE (0)
+# define TRUE 1
+# define FALSE 0
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}t_list;
+}	t_list;
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
@@ -111,7 +111,7 @@ int				get_max(int num0, int num1);
 int				get_abs(int num0, int num1);
 unsigned int	generate_hash_65599(const char *str);
 int				lerp_int(int int1, int int2, float t);
-float			get_degree(float radian);
+float			lerp(const float a, const float b, const float t);
 
 void			sprint_itoa(char *dest, int num);
 void			sprint_uitoa(char *dest, unsigned int num);

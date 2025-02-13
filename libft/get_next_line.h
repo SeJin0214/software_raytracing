@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:59:50 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/08/27 16:30:24 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:38 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE (1024)
+#  define BUFFER_SIZE 1024
 # endif
 
 # include <unistd.h>
 # include <stdbool.h>
 # include <stddef.h>
 # include <stdlib.h>
-# define TABLE_SIZE (67)
+# define TABLE_SIZE 67
 
 typedef struct s_node
 {

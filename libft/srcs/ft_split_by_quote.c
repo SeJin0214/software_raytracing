@@ -6,14 +6,14 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/09/01 14:57:47 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:38:32 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include "libft.h"
-#define QUOTE_LENGTH (2)
+#define QUOTE_LENGTH 2
 
 static size_t	get_word_length(const char *str, const char delim, size_t nth);
 static size_t	try_get_length_in_quote(const char **str);

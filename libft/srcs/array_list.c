@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:34:03 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/14 17:08:23 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:45 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,12 @@ void	init_array_list(t_array_list *list, size_t memory_offset)
 void	add_in_list(t_array_list *list, void *element)
 {
 	char	*p;
-	
+
 	if (list->count == list->capacity)
 	{
-		list->list = ft_realloc(list->list, list->capacity * list->memory_offset, \
-		list->capacity * list->memory_offset * 2);
+		list->list = ft_realloc(list->list, list->capacity * \
+		list->memory_offset, list->capacity * list->memory_offset * 2);
 		list->capacity *= 2;
-		
 		if (list->list == NULL)
 		{
 			return ;

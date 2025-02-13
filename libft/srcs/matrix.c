@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:54:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/11 13:00:25 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:38:07 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,18 @@ const t_matrix3x3 right)
 		}
 		++j;
 	}
-	//print_vector3(result);
 	return (result);
 }
 
 t_matrix3x3	transpose(const t_matrix3x3 m)
 {
-	const t_matrix3x3	result = {{
-		{m.row_f[0][0], m.row_f[1][0], m.row_f[2][0]},
-		{m.row_f[0][1], m.row_f[1][1], m.row_f[2][1]},
-		{m.row_f[0][2], m.row_f[1][2], m.row_f[2][2]}
+	const t_matrix3x3	result = \
+	{{\
+	{m.row_f[0][0], m.row_f[1][0], m.row_f[2][0]}, \
+	{m.row_f[0][1], m.row_f[1][1], m.row_f[2][1]}, \
+	{m.row_f[0][2], m.row_f[1][2], m.row_f[2][2]} \
 	}};
-	
+
 	return (result);
 }
 

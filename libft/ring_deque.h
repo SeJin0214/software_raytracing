@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ring_deque.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:00:27 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/07/22 12:00:29 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:39 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_ring_deque
 	int		*arr;
 	size_t	count;
 	size_t	size;
-}t_ring_deque;
+}	t_ring_deque;
 
 /* ring_deque.c */
 t_ring_deque	*init_ring_deque(const size_t size);

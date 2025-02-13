@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:08:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/10 17:54:12 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:22:08 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ typedef struct s_camera
 	t_vector3	coordinates;
 	t_matrix3x3	local_basis;
 	t_vector3	normalized_orientation_vector_of_axis; // [-1, 1]  * 180
-	size_t		focal_length;
-	int			field_of_view; // 제거
+	float		field_of_view;
 	float		x_theta;
 	float		y_theta;
 }	t_camera;
@@ -58,6 +57,10 @@ typedef struct s_light
 	t_ivector3	colors;
 }	t_light;
 
+	// hits 를 들고 있는다?
+	// void * 받아서 
+	// 함수마다 다형성 구현
+	// 그러면 array_list로 넣을 때, 포인터로 넣어야 한다.
 typedef struct s_world
 {
 	t_camera		camera;
@@ -66,13 +69,6 @@ typedef struct s_world
 	bool			is_valid_ambient_light;
 	t_light			light;
 	bool			is_valid_light;
-	
-	// hits 를 들고 있는다?
-	// void * 받아서 
-	// 함수마다 다형성 구현
-	// 그러면 array_list로 넣을 때, 포인터로 넣어야 한다.
-	
-	
 	t_array_list	spheres;
 	t_array_list	planes;
 	t_array_list	cylinders;
@@ -90,7 +86,8 @@ void	init_world(t_world *world);
 void	destroy_world(t_world *world);
 bool	try_add_ambient_light_to_world(char **attributes, t_world *world);
 bool	try_add_light_to_world(char **attributes, t_world *world);
-bool	try_add_camera_to_world(char **attributes, t_world *world, t_canvas *canvas);
+bool	try_add_camera_to_world(char **attributes, \
+t_world *world, t_canvas *canvas);
 void	init_camera(t_world *world, t_canvas *canvas);
 bool	try_parse_vector3(char *attribute, t_vector3 *out_result);
 bool	try_parse_color(char *attribute, t_ivector3 *out_result);

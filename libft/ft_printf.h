@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:58:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/07/22 11:58:51 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:36 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdbool.h>
-# define NULL_SIZE (6)
-# define NIL_SIZE (5)
-# define BIT_SIZE64 (64)
-# define MAX_DIGIT8 (8)
-# define MAX_DIGIT_INT (11)
-# define MAX_DIGIT_LONG_HEXA (16)
-# define BUFFER_SIZE (1024)
+# define NULL_SIZE 6
+# define NIL_SIZE 5
+# define BIT_SIZE64 64
+# define MAX_DIGIT8 8
+# define MAX_DIGIT_INT 11
+# define MAX_DIGIT_LONG_HEXA 16
+# define BUFFER_SIZE 1024
 
 typedef struct s_data
 {

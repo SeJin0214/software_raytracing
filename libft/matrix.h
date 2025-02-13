@@ -6,12 +6,12 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:42:46 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/10 16:15:25 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:13 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef METRIX_H
-# define METRIX_H
+#ifndef MATRIX_H
+# define MATRIX_H
 # include "vector.h"
 
 typedef union s_matrix3x3
@@ -31,9 +31,5 @@ const t_matrix3x3 right);
 t_vector3	multiply_vector_and_matrix3x3(const t_vector3 left, \
 const t_matrix3x3 right);
 t_matrix3x3	transpose(const t_matrix3x3 m);
-
 void		print_matrix3x3(const t_matrix3x3 m);
-
-
-
 #endif

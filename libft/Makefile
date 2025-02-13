@@ -101,6 +101,9 @@ SRCS = $(SRC_DIR)/ft_isalpha.c \
 	$(SRC_DIR)/array_list.c \
 	$(SRC_DIR)/list_getter.c \
 	$(SRC_DIR)/vector.c \
+	$(SRC_DIR)/vector_operation.c \
+	$(SRC_DIR)/vector_product.c \
+	$(SRC_DIR)/ivector.c \
 	$(SRC_DIR)/matrix.c \
 
 HEADER_DIR = -I .

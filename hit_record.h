@@ -6,12 +6,12 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:25:48 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/01/26 15:44:35 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:46:28 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HIT_TRACER_H
-# define HIT_TRACER_H
+#ifndef HIT_RECORD_H
+# define HIT_RECORD_H
 # include "vector.h"
 
 typedef struct s_hit_record
@@ -23,6 +23,6 @@ typedef struct s_hit_record
 	void		*object;
 }	t_hit_record;
 
-t_hit_record	get_hit_record();
+t_hit_record	get_hit_record(void);
 
 #endif
