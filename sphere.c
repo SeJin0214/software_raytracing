@@ -1,0 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sphere.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
+/*   Updated: 2025/02/13 20:08:34 by sejjeong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+#include <math.h>
+#include "solid_shape.h"
+#include "equation.h"
+
+t_sphere	*copy_construction_to_sphere(const t_sphere sphere)
+{
+	t_sphere	*result;
+
+	result = malloc(sizeof(t_sphere));
+	result->shape.coordinates = sphere.shape.coordinates;
+	result->shape.colors = sphere.shape.colors;
+	result->shape.is_hit = is_hit_sphere;
+	result->shape.delete = delete_sphere;
+	result->diameter = sphere.diameter;
+	return (result);
+}
+
+void	delete_sphere(void *obj)
+{
+	free(obj);
+}
+
+bool	is_hit_sphere(const t_ray ray, const void *obj, t_hit_record *out)
+{
+	const t_sphere			*sphere = obj;
+	const t_vector3			oc = \
+	subtract_vector3(ray.origin, sphere->shape.coordinates);
+	t_quadratic_equation	equation;
+	float					solution;
+
+	equation.a = dot_product3x3(ray.direction, ray.direction);
+	equation.b = 2.0f * dot_product3x3(oc, ray.direction);
+	equation.c = dot_product3x3(oc, oc) - (sphere->diameter / 2) \
+	* (sphere->diameter / 2);
+	equation.discriminant = equation.b * equation.b \
+	- 4 * equation.a * equation.c;
+	if (equation.discriminant <= 0)
+		return (false);
+	solution = (-equation.b - sqrtf(equation.b * equation.b \
+	- 4 * equation.a * equation.c)) / (2 * equation.a);
+	if (solution <= 0 || out->t <= solution)
+	{
+		solution = (-equation.b + sqrtf(equation.b * equation.b \
+		- 4 * equation.a * equation.c)) / (2 * equation.a);
+		if (solution <= 0 || out->t <= solution)
+			return (false);
+	}
+	out->t = solution;
+	out->point = get_point_in_ray(ray, out->t);
+	out->normal = divide_vector3(subtract_vector3(out->point, \
+	sphere->shape.coordinates), sphere->diameter);
+	out->color = sphere->shape.colors;
+	out->object = (void *)sphere;
+	return (true);
+}

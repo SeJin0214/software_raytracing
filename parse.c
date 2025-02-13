@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:17:36 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/12 19:46:26 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:08:33 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,6 @@ t_world *out_world, t_canvas *canvas)
 {
 	bool	is_succeed;
 
-	// 방향 벡터는 길이가 1이 아닐 경우 false
-	// 아니면 노멀라이즈 해주기 
-	// 양수만 나와야 되는 것 확인
 	if (ft_strcmp(attributes[0], "A") == 0)
 		is_succeed = try_add_ambient_light_to_world(attributes, out_world);
 	else if (ft_strcmp(attributes[0], "L") == 0)

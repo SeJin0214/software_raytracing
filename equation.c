@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:22:38 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/12 19:46:34 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:18:32 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ const t_cylinder cylinder)
 	t_quadratic_equation	result;
 	const t_vector3			n = cylinder.normalized_orientation_vector_of_axis;
 	const t_vector3			m = subtract_vector3(ray.origin, \
-	cylinder.coordinates);
+	cylinder.shape.coordinates);
 	const t_vector3			orthogonal_d = subtract_vector3(ray.direction, \
 	multiply_vector3(n, dot_product3x3(ray.direction, n)));
 	const t_vector3			orthogonal_m = subtract_vector3(m, \
@@ -68,5 +68,5 @@ const t_cylinder cylinder, float t)
 	multiply_vector3(ray.direction, t));
 
 	return (fabsf(dot_product3x3(n, \
-	subtract_vector3(p, cylinder.coordinates))));
+	subtract_vector3(p, cylinder.shape.coordinates))));
 }

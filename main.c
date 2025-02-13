@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/12 19:46:30 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:07:12 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 	if (try_parse(argc, argv, &world, &canvas) == false)
 	{
 		printf("Error\n");
+		free_canvas(&canvas);
 		return (1);
 	}
 	render(&world, &canvas);

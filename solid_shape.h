@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 17:20:05 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:34:15 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,18 @@
 
 typedef struct s_world	t_world;
 
-// 자료구조에 object를 넣어야 겠고.. 
-// 할당한 애들을
-// array_list를 그럼 .. 
-
 typedef struct s_solid_shape
 {
 	t_vector3	coordinates;
 	t_ivector3	colors;
-	bool		(*is_hit)(const t_ray , const void *, t_hit_record *);
+	bool		(*is_hit)(const t_ray, const void *, t_hit_record *);
+	void		(*delete)(void *);
 }	t_solid_shape;
 
 typedef struct s_sphere
 {
-	t_vector3	center;
-	t_ivector3	colors;
-	float		diameter;
+	t_solid_shape	shape;
+	float			diameter;
 }	t_sphere;
 
 typedef enum sphere_attribute
@@ -52,9 +48,8 @@ typedef enum sphere_attribute
 
 typedef struct s_plane
 {
-	t_vector3	coordinates;
-	t_ivector3	colors;
-	t_vector3	normalized_orientation_vector_of_axis;
+	t_solid_shape	shape;
+	t_vector3		normalized_orientation_vector_of_axis;
 }	t_plane;
 
 typedef enum plane_attribute
@@ -67,11 +62,10 @@ typedef enum plane_attribute
 
 typedef struct s_cylinder
 {
-	t_vector3	coordinates;
-	t_ivector3	colors;
-	t_vector3	normalized_orientation_vector_of_axis;
-	float		diameter;
-	float		height;
+	t_solid_shape	shape;
+	t_vector3		normalized_orientation_vector_of_axis;
+	float			diameter;
+	float			height;
 }	t_cylinder;
 
 typedef enum cylinder_attribute
@@ -84,15 +78,18 @@ typedef enum cylinder_attribute
 	CYLINDER_ATTRIBUTE_LENGTH
 }	t_cylinder_attribute;
 
-bool	try_add_plane_to_world(char **attributes, t_world *world);
-bool	try_add_cylinder_to_world(char **attributes, t_world *world);
-bool	try_add_sphere_to_world(char **attributes, t_world *world);
+bool		is_hit_plane(const t_ray ray, const void *plane, t_hit_record *out);
+bool		is_hit_sphere(const t_ray ray, \
+const void *sphere, t_hit_record *out);
+bool		is_hit_cylinder(const t_ray ray, \
+const void *cylinder, t_hit_record *out);
 
-void	load_sphere_points(t_sphere *sphere);
-void	destory_sphere(void *obj);
-void	load_cylinder_points(t_cylinder *cylinder);
-void	destory_cylinder(void *obj);
-void	load_plane_points(t_plane *plane);
-void	destory_plane(void *obj);
+t_sphere	*copy_construction_to_sphere(const t_sphere sphere);
+void		delete_sphere(void *obj);
+t_cylinder	*copy_construction_to_cylinder(const t_cylinder cylinder);
+void		delete_cylinder(void *obj);
+t_plane		*copy_construction_to_plane(const t_plane plane);
+void		delete_plane(void *obj);
+void		destroy_shapes(t_array_list *list);
 
 #endif

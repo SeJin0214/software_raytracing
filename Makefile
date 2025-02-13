@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/12 16:09:34 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/13 20:13:46 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,14 +33,22 @@ LIBRARY_LINK = -L/user/lib -l Xext -l X11 -l m -l bsd
 LINK = $(LIBFT_LINK) $(MLX_LINK) $(LIBRARY_LINK)
 
 SRCS = $(SRCS_DIR)/main.c \
-	$(SRCS_DIR)/solid_shape.c \
-	$(SRCS_DIR)/world.c \
+	$(SRCS_DIR)/camera.c \
+	$(SRCS_DIR)/cylinder.c \
+	$(SRCS_DIR)/equation.c \
+	$(SRCS_DIR)/hit_record.c \
 	$(SRCS_DIR)/init_canvas.c \
 	$(SRCS_DIR)/parse.c \
-	$(SRCS_DIR)/render.c \
+	$(SRCS_DIR)/parse_util.c \
+	$(SRCS_DIR)/parse_solid_shape.c \
+	$(SRCS_DIR)/plane.c \
 	$(SRCS_DIR)/ray.c \
-	$(SRCS_DIR)/hit_record.c \
-	$(SRCS_DIR)/equation.c \
+	$(SRCS_DIR)/render.c \
+	$(SRCS_DIR)/shadow.c \
+	$(SRCS_DIR)/solid_shape.c \
+	$(SRCS_DIR)/sphere.c \
+	$(SRCS_DIR)/world.c \
+	
 
 OBJS = ${SRCS:.c=.o}
 

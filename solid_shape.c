@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 17:23:06 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:06:21 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,131 +18,18 @@
 #include "solid_shape.h"
 #include "vector.h"
 
-bool	try_add_sphere_to_world(char **attributes, t_world *world)
+void	destroy_shapes(t_array_list *list)
 {
-	t_sphere	sphere;
-	bool		is_invalid_value;
-	const bool	is_invalid_format = \
-	get_count_to_words(attributes) != SPHERE_ATTRIBUTE_LENGTH \
-	|| get_count_words(attributes[SPHERE_ATTRIBUTE_CENTER], ',') \
-	!= VECTOR_ATTRIBUTE_COUNT \
-	|| get_count_words(attributes[SPHERE_ATTRIBUTE_COLORS], ',') \
-	!= COLORS_ATTRIBUTE_COUNT;
+	size_t			i;
+	t_solid_shape	**shape;
 
-	if (is_invalid_format)
+	i = 0;
+	while (i < list->count)
 	{
-		return (false);
+		shape = list->get_element_or_null(list, i);
+		(*shape)->delete((*shape));
+		++i;
 	}
-	is_invalid_value = \
-	try_parse_vector3(attributes[SPHERE_ATTRIBUTE_CENTER], \
-	&sphere.center) == false \
-	|| try_atof(attributes[SPHERE_ATTRIBUTE_DIAMETER], \
-	&sphere.diameter) == false \
-	|| try_parse_color(attributes[SPHERE_ATTRIBUTE_COLORS], \
-	&sphere.colors) == false;
-	if (is_invalid_value)
-		return (false);
-		
-	load_sphere_points(&sphere);
-	world->spheres.add(&world->spheres, &sphere);
-	return (true);
-}
-
-void	load_sphere_points(t_sphere *sphere)
-{
-	(void)sphere;
-}
-
-void	destory_sphere(void *obj)
-{
-	t_sphere	*sphere;
-
-	sphere = obj;
-	(void)sphere;
-}
-
-bool	try_add_plane_to_world(char **attributes, t_world *world)
-{
-	t_plane		plane;
-	bool		is_invalid_value;
-	const bool	is_invalid_format = \
-	get_count_to_words(attributes) != PLANE_ATTRIBUTE_LENGTH \
-	|| get_count_words(attributes[PLANE_ATTRIBUTE_COORDINATES], ',') \
-	!= VECTOR_ATTRIBUTE_COUNT \
-	|| get_count_words(attributes[PLANE_ATTRIBUTE_ORIENTATION_VECTOR], ',') \
-	!= VECTOR_ATTRIBUTE_COUNT \
-	|| get_count_words(attributes[PLANE_ATTRIBUTE_COLORS], ',') \
-	!= COLORS_ATTRIBUTE_COUNT;
-
-	if (is_invalid_format)
-		return (false);
-	is_invalid_value = \
-	try_parse_vector3(attributes[PLANE_ATTRIBUTE_COORDINATES], \
-	&plane.coordinates) == false \
-	|| try_parse_vector3(attributes[PLANE_ATTRIBUTE_ORIENTATION_VECTOR], \
-	&plane.normalized_orientation_vector_of_axis) == false \
-	|| is_invalid_normalized_vector3(plane.\
-	normalized_orientation_vector_of_axis) \
-	|| try_parse_color(attributes[PLANE_ATTRIBUTE_COLORS], \
-	&plane.colors) == false;
-	if (is_invalid_value)
-		return (false);
-	load_plane_points(&plane);
-	world->planes.add(&world->planes, &plane);
-	return (true);
-}
-
-void	load_plane_points(t_plane *plane)
-{
-	(void) plane;
-}
-
-void	destory_plane(void *obj)
-{
-	t_plane	*plane;
-
-	plane = obj;
-	(void) plane;
-}
-
-bool	try_add_cylinder_to_world(char **attributes, t_world *world)
-{
-	t_cylinder	cylinder;
-
-	if (get_count_to_words(attributes) != CYLINDER_ATTRIBUTE_LENGTH \
-	|| get_count_words(attributes[CYLINDER_ATTRIBUTE_COORDINATES], ',') \
-	!= VECTOR_ATTRIBUTE_COUNT \
-	|| get_count_words(attributes[CYLINDER_ATTRIBUTE_NORMALIZED_VECTOR], ',') \
-	!= VECTOR_ATTRIBUTE_COUNT \
-	|| get_count_words(attributes[CYLINDER_ATTRIBUTE_COLORS], ',') \
-	!= COLORS_ATTRIBUTE_COUNT)
-		return (false);
-	if (try_parse_vector3(attributes[CYLINDER_ATTRIBUTE_COORDINATES], \
-	&cylinder.coordinates) == false \
-	|| try_parse_vector3(attributes[CYLINDER_ATTRIBUTE_NORMALIZED_VECTOR], \
-	&cylinder.normalized_orientation_vector_of_axis) == false \
-	|| is_invalid_normalized_vector3(cylinder.\
-	normalized_orientation_vector_of_axis) \
-	|| try_atof(attributes[CYLINDER_ATTRIBUTE_DIAMETER], \
-	&cylinder.diameter) == false || try_atof(\
-	attributes[CYLINDER_ATTRIBUTE_HEIGHT], &cylinder.height) == false \
-	|| try_parse_color(attributes[CYLINDER_ATTRIBUTE_COLORS], \
-	&cylinder.colors) == false)
-		return (false);
-	load_cylinder_points(&cylinder);
-	world->cylinders.add(&world->cylinders, &cylinder);
-	return (true);
-}
-
-void	load_cylinder_points(t_cylinder *cylinder)
-{
-	(void) cylinder;
-}
-
-void	destory_cylinder(void *obj)
-{
-	t_cylinder	*cylinder;
-
-	cylinder = obj;
-	(void)cylinder;
+	free(list->list);
+	list->list = NULL;
 }

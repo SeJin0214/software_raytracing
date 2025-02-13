@@ -6,13 +6,31 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:32:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/12 19:46:27 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:08:43 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "solid_shape.h"
-#include "hit_record.h"
-#include "ray.h"
+
+t_plane	*copy_construction_to_plane(const t_plane plane)
+{
+	t_plane	*result;
+
+	result = malloc(sizeof(t_plane));
+	result->shape.coordinates = plane.shape.coordinates;
+	result->shape.colors = plane.shape.colors;
+	result->shape.is_hit = is_hit_plane;
+	result->shape.delete = delete_plane;
+	result->normalized_orientation_vector_of_axis = \
+	plane.normalized_orientation_vector_of_axis;
+	return (result);
+}
+
+void	delete_plane(void *obj)
+{
+	free(obj);
+}
 
 /**
  * N : normal
@@ -23,11 +41,12 @@
  * tND = Np1 - NO
  * t = (Np1 - NO) / ND 
  */
-bool	is_hit_plane(const t_ray ray, const t_plane *plane, t_hit_record *out)
+bool	is_hit_plane(const t_ray ray, const void *obj, t_hit_record *out)
 {
+	const t_plane	*plane = obj;
 	const t_vector3	n = plane->normalized_orientation_vector_of_axis;
 	const float		numerator = dot_product3x3(n, \
-	subtract_vector3(plane->coordinates, ray.origin));
+	subtract_vector3(plane->shape.coordinates, ray.origin));
 	const float		denominator = dot_product3x3(n, ray.direction);
 
 	if (denominator == 0 \
@@ -39,7 +58,7 @@ bool	is_hit_plane(const t_ray ray, const t_plane *plane, t_hit_record *out)
 	out->t = numerator / denominator;
 	out->point = get_point_in_ray(ray, out->t);
 	out->normal = n;
-	out->color = plane->colors;
+	out->color = plane->shape.colors;
 	out->object = (void *)plane;
 	return (true);
 }
