@@ -2,6 +2,18 @@
 	"files.associations": {
 		"random": "c",
 		"equation.h": "c",
-		"float.h": "c"
+		"float.h": "c",
+		"canvas.h": "c",
+		"render.h": "c",
+		"world.h": "c",
+		"world_bonus.h": "c",
+		"solid_shape.h": "c",
+		"solid_shape_bonus.h": "c",
+		"equation_bonus.h": "c",
+		"stdlib.h": "c",
+		"hit_record_bonus.h": "c",
+		"float_bonus.h": "c",
+		"libft.h": "c",
+		"render_bonus.h": "c"
 	}
 }

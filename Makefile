@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/14 16:36:04 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/14 16:42:27 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 RM = rm
 RFLAGS = -rf
 
-SRCS_DIR = .
+SRCS_DIR = ./mandatory
 LIBFT_DIR = ./libft
 MLX_DIR = ./mlx
 
@@ -51,12 +51,40 @@ SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/render_util.c \
 	$(SRCS_DIR)/light.c \
 	
+BONUS_DIR = ./bonus
+
+BONUS_SRCS = $(BONUS_DIR)/main_bonus.c \
+	$(BONUS_DIR)/camera_bonus.c \
+	$(BONUS_DIR)/cylinder_bonus.c \
+	$(BONUS_DIR)/cylinder_object_bonus.c \
+	$(BONUS_DIR)/equation_bonus.c \
+	$(BONUS_DIR)/hit_record_bonus.c \
+	$(BONUS_DIR)/init_canvas_bonus.c \
+	$(BONUS_DIR)/parse_bonus.c \
+	$(BONUS_DIR)/parse_util_bonus.c \
+	$(BONUS_DIR)/parse_solid_shape_bonus.c \
+	$(BONUS_DIR)/plane_bonus.c \
+	$(BONUS_DIR)/ray_bonus.c \
+	$(BONUS_DIR)/render_bonus.c \
+	$(BONUS_DIR)/shadow_bonus.c \
+	$(BONUS_DIR)/solid_shape_bonus.c \
+	$(BONUS_DIR)/sphere_bonus.c \
+	$(BONUS_DIR)/world_bonus.c \
+	$(BONUS_DIR)/render_util_bonus.c \
+	$(BONUS_DIR)/light_bonus.c \
+
 
 OBJS = ${SRCS:.c=.o}
 
 all:$(NAME)
 
-$(NAME):$(OBJS)
+ifdef ON_BONUS_FLAG
+	OBJECTS = $(BONUS_OBJS)
+else
+	OBJECTS = $(OBJS)
+endif
+
+$(NAME):$(OBJECTS)
 		make -C $(MLX_DIR)
 		make -C $(LIBFT_DIR)
 		$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(MLX_INCLUDE) $(INCLUDE) $^ $(LINK) -o $@
@@ -64,7 +92,6 @@ $(NAME):$(OBJS)
 %.o: %.c
 	touch $<
 	$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(MLX_INCLUDE) $(INCLUDE) -c $< -o $@
-
 
 bonus:
 	make fclean
