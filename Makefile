@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/14 16:42:27 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/14 19:26:04 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS_DIR = ./mandatory
 LIBFT_DIR = ./libft
 MLX_DIR = ./mlx
 
-INCLUDE = -I ./
+INCLUDE = -I $(SRCS_DIR)
 LIBFT_INCLUDE = -I $(LIBFT_DIR)
 MLX_INCLUDE = -I $(MLX_DIR)
 
@@ -49,7 +49,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/sphere.c \
 	$(SRCS_DIR)/world.c \
 	$(SRCS_DIR)/render_util.c \
-	$(SRCS_DIR)/light.c \
+	$(SRCS_DIR)/light.c
 	
 BONUS_DIR = ./bonus
 
@@ -73,16 +73,18 @@ BONUS_SRCS = $(BONUS_DIR)/main_bonus.c \
 	$(BONUS_DIR)/render_util_bonus.c \
 	$(BONUS_DIR)/light_bonus.c \
 
-
 OBJS = ${SRCS:.c=.o}
+BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
-all:$(NAME)
 
 ifdef ON_BONUS_FLAG
 	OBJECTS = $(BONUS_OBJS)
+	INCLUDE = -I $(BONUS_DIR)
 else
 	OBJECTS = $(OBJS)
 endif
+
+all:$(NAME)
 
 $(NAME):$(OBJECTS)
 		make -C $(MLX_DIR)
@@ -94,8 +96,11 @@ $(NAME):$(OBJECTS)
 	$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(MLX_INCLUDE) $(INCLUDE) -c $< -o $@
 
 bonus:
-	make fclean
 	make ON_BONUS_FLAG=1 all
+
+bonusre:
+	make fclean
+	make bonus
 
 clean:
 	make -C $(MLX_DIR) clean
@@ -111,4 +116,4 @@ re:
 	make fclean 
 	make all
 
-.PHONY : all clean fclean re bonus
+.PHONY : all clean fclean re bonus bonusre

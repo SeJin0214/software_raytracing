@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 16:49:32 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:11:34 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "vector.h"
 # include "array_list.h"
 # include "matrix.h"
-# include "hit_record.h"
-# include "ray.h"
+# include "hit_record_bonus.h"
+# include "ray_bonus.h"
 # define X 0
 # define Y 1
 # define Z 2
