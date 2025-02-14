@@ -6,14 +6,13 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/14 13:10:28 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/14 16:36:04 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-#CFLAGS = -Wall -Wextra -Werror -g -DROTATION
 
 RM = rm
 RFLAGS = -rf
@@ -35,6 +34,7 @@ LINK = $(LIBFT_LINK) $(MLX_LINK) $(LIBRARY_LINK)
 SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/camera.c \
 	$(SRCS_DIR)/cylinder.c \
+	$(SRCS_DIR)/cylinder_object.c \
 	$(SRCS_DIR)/equation.c \
 	$(SRCS_DIR)/hit_record.c \
 	$(SRCS_DIR)/init_canvas.c \
@@ -50,7 +50,6 @@ SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/world.c \
 	$(SRCS_DIR)/render_util.c \
 	$(SRCS_DIR)/light.c \
-
 	
 
 OBJS = ${SRCS:.c=.o}

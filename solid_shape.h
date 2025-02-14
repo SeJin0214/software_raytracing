@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 13:32:58 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:25:45 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,23 +78,31 @@ typedef enum cylinder_attribute
 	CYLINDER_ATTRIBUTE_LENGTH
 }	t_cylinder_attribute;
 
+/* plane.c */
+t_plane		*copy_construction_to_plane(const t_plane plane);
+void		delete_plane(void *obj);
 bool		is_hit_plane(const t_ray ray, const void *plane, t_hit_record *out);
 
 /* sphere.c */
+t_sphere	*copy_construction_to_sphere(const t_sphere sphere);
+void		delete_sphere(void *obj);
 bool		is_hit_sphere(const t_ray ray, \
 const void *sphere, t_hit_record *out);
 void		set_hit_record_by_sphere(t_hit_record *out, \
 const float solution, const t_ray ray, const t_sphere *sphere);
 
-bool		is_hit_cylinder(const t_ray ray, \
-const void *cylinder, t_hit_record *out);
-
-t_sphere	*copy_construction_to_sphere(const t_sphere sphere);
-void		delete_sphere(void *obj);
+/* cylinder.c */
 t_cylinder	*copy_construction_to_cylinder(const t_cylinder cylinder);
 void		delete_cylinder(void *obj);
-t_plane		*copy_construction_to_plane(const t_plane plane);
-void		delete_plane(void *obj);
+bool		is_hit_cylinder(const t_ray ray, \
+const void *cylinder, t_hit_record *out);
+bool		is_hit_cylinder_end_cap(const t_ray ray, \
+const t_cylinder *cylinder, t_hit_record *out);
+bool		is_hit_up_cap(const t_ray ray, const t_cylinder *cylinder, \
+const t_vector3 up_c, t_hit_record *out);
+bool		is_hit_down_cap(const t_ray ray, const t_cylinder *cylinder, \
+const t_vector3 down_c, t_hit_record *out);
+
 void		destroy_shapes(t_array_list *list);
 
 #endif
