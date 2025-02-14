@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:32:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 20:08:43 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:01:33 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ t_plane	*copy_construction_to_plane(const t_plane plane)
 	result->shape.colors = plane.shape.colors;
 	result->shape.is_hit = is_hit_plane;
 	result->shape.delete = delete_plane;
+	result->shape.rotate = rotate_plane;
+	result->shape.scale_diameter = update_scale_diameter_plane;
+	result->shape.scale_height = update_scale_height_plane;
 	result->normalized_orientation_vector_of_axis = \
 	plane.normalized_orientation_vector_of_axis;
 	return (result);

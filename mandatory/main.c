@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 20:24:33 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:13:10 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	input_key(int key, t_input *input)
 	{
 		mlx_loop_end(input->canvas->xvar);
 	}
+	// key 입력에 따라 enum input 넣어서 호출하기
 	return (0);
 }
 

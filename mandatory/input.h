@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:01:32 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 20:23:13 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:13:01 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define INPUT_H
 # include "world.h"
 # define ESC 0xFF1B
-# define LEFT 65361
-# define UP 65362
-# define RIGHT 65363
-# define DOWN 65364
+# define ARROW_LEFT 65361
+# define ARROW_UP 65362
+# define ARROW_RIGHT 65363
+# define ARROW_DOWN 65364
 # define X_BUTTON 17
 
 typedef	struct s_input

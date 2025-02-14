@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/14 19:26:04 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/14 20:33:28 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/camera.c \
 	$(SRCS_DIR)/cylinder.c \
 	$(SRCS_DIR)/cylinder_object.c \
+	$(SRCS_DIR)/cylinder_action.c \
 	$(SRCS_DIR)/equation.c \
 	$(SRCS_DIR)/hit_record.c \
 	$(SRCS_DIR)/init_canvas.c \
@@ -42,11 +43,13 @@ SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/parse_util.c \
 	$(SRCS_DIR)/parse_solid_shape.c \
 	$(SRCS_DIR)/plane.c \
+	$(SRCS_DIR)/plane_action.c \
 	$(SRCS_DIR)/ray.c \
 	$(SRCS_DIR)/render.c \
 	$(SRCS_DIR)/shadow.c \
 	$(SRCS_DIR)/solid_shape.c \
 	$(SRCS_DIR)/sphere.c \
+	$(SRCS_DIR)/sphere_action.c \
 	$(SRCS_DIR)/world.c \
 	$(SRCS_DIR)/render_util.c \
 	$(SRCS_DIR)/light.c

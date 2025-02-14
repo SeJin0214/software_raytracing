@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 16:31:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 16:33:40 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:01:53 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ t_cylinder	*copy_construction_to_cylinder(const t_cylinder cylinder)
 	result->shape.colors = cylinder.shape.colors;
 	result->shape.is_hit = is_hit_cylinder;
 	result->shape.delete = delete_cylinder;
+	result->shape.rotate = rotate_cylinder;
+	result->shape.scale_diameter = update_scale_diameter_cylinder;
+	result->shape.scale_height = update_scale_height_cylinder;
 	result->normalized_orientation_vector_of_axis = \
 	cylinder.normalized_orientation_vector_of_axis;
 	result->diameter = cylinder.diameter;
