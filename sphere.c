@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 20:08:34 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:30:30 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,17 @@ bool	is_hit_sphere(const t_ray ray, const void *obj, t_hit_record *out)
 		if (solution <= 0 || out->t <= solution)
 			return (false);
 	}
+	set_hit_record_by_sphere(out, solution, ray, sphere);
+	return (true);
+}
+
+void	set_hit_record_by_sphere(t_hit_record *out, \
+const float solution, const t_ray ray, const t_sphere *sphere)
+{
 	out->t = solution;
 	out->point = get_point_in_ray(ray, out->t);
 	out->normal = divide_vector3(subtract_vector3(out->point, \
 	sphere->shape.coordinates), sphere->diameter);
 	out->color = sphere->shape.colors;
 	out->object = (void *)sphere;
-	return (true);
 }

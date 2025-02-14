@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 19:34:15 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:32:58 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,13 @@ typedef enum cylinder_attribute
 }	t_cylinder_attribute;
 
 bool		is_hit_plane(const t_ray ray, const void *plane, t_hit_record *out);
+
+/* sphere.c */
 bool		is_hit_sphere(const t_ray ray, \
 const void *sphere, t_hit_record *out);
+void		set_hit_record_by_sphere(t_hit_record *out, \
+const float solution, const t_ray ray, const t_sphere *sphere);
+
 bool		is_hit_cylinder(const t_ray ray, \
 const void *cylinder, t_hit_record *out);
 

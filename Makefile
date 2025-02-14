@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/13 20:13:46 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/14 13:10:28 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,9 @@ SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/solid_shape.c \
 	$(SRCS_DIR)/sphere.c \
 	$(SRCS_DIR)/world.c \
+	$(SRCS_DIR)/render_util.c \
+	$(SRCS_DIR)/light.c \
+
 	
 
 OBJS = ${SRCS:.c=.o}
