@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 21:00:22 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:07:22 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ t_sphere	*copy_construction_to_sphere(const t_sphere sphere)
 	t_sphere	*result;
 
 	result = malloc(sizeof(t_sphere));
-	result->shape.coordinates = sphere.shape.coordinates;
-	result->shape.colors = sphere.shape.colors;
+	result->shape = sphere.shape;
 	result->shape.is_hit = is_hit_sphere;
 	result->shape.delete = delete_sphere;
-	result->shape.rotate = rotate_sphere;
 	result->shape.scale_diameter = update_scale_diameter_sphere;
 	result->shape.scale_height = update_scale_height_sphere;
 	result->diameter = sphere.diameter;

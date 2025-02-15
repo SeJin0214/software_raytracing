@@ -6,15 +6,16 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 18:18:05 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/12 19:46:46 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 21:15:19 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
 # include <stdbool.h>
+# include <stdalign.h>
 
-typedef union s_vector3
+typedef union __attribute__((aligned(16))) s_vector3
 {
 	struct
 	{
@@ -22,10 +23,10 @@ typedef union s_vector3
 		float	y;
 		float	z;
 	};
-	float	xyz[3];
+	float	xyz[4];
 }	t_vector3;
 
-typedef union s_ivector3
+typedef union __attribute__((aligned(16))) s_ivector3
 {
 	struct
 	{
@@ -33,10 +34,10 @@ typedef union s_ivector3
 		int	y;
 		int	z;
 	};
-	int	xyz[3];
+	int	xyz[4];
 }	t_ivector3;
 
-typedef union s_vector4
+typedef union __attribute__((aligned(16))) s_vector4
 {
 	struct
 	{
@@ -48,7 +49,7 @@ typedef union s_vector4
 	float	xyza[4];
 }	t_vector4;
 
-typedef union s_ivector4
+typedef union __attribute__((aligned(16))) s_ivector4
 {
 	struct
 	{

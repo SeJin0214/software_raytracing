@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:22:38 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 18:18:32 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 19:34:42 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_quadratic_equation	load_hit_cylinder_equation(const t_ray ray, \
 const t_cylinder cylinder)
 {
 	t_quadratic_equation	result;
-	const t_vector3			n = cylinder.normalized_orientation_vector_of_axis;
+	const t_vector3			n = cylinder.shape.local_basis.row[Z];
 	const t_vector3			m = subtract_vector3(ray.origin, \
 	cylinder.shape.coordinates);
 	const t_vector3			orthogonal_d = subtract_vector3(ray.direction, \
@@ -63,7 +63,7 @@ const t_cylinder cylinder)
 float	calculate_cylinder_hit_height(const t_ray ray, \
 const t_cylinder cylinder, float t)
 {
-	const t_vector3	n = cylinder.normalized_orientation_vector_of_axis;
+	const t_vector3	n = cylinder.shape.local_basis.row[Z];
 	const t_vector3	p = add_vector3(ray.origin, \
 	multiply_vector3(ray.direction, t));
 

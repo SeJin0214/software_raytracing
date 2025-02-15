@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:00:10 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/07/22 12:00:12 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 16:44:13 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	print_strn_fd(const char *str, const int fd, const int n)
 
 	if (n < length)
 	{
-		write(fd, str, n);
-		return (n);
+		return (write(fd, str, n));
 	}
 	ft_putstr_fd((char *)str, fd);
 	return (length);

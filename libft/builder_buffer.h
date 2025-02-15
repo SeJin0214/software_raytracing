@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:28:02 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/12 19:46:37 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 16:48:33 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ typedef struct s_builder_buffer
 void				clear_buffer(void *buffer);
 t_builder_buffer	*create_buffer(void);
 bool				is_full_buffer(t_builder_buffer buffer);
-size_t				get_build_buffer_size(void);
+size_t				get_build_buffer_capacity(void);
 
 #endif

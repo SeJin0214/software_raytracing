@@ -6,14 +6,14 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 21:14:16 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 16:24:43 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLID_SHAPE_H
 # define SOLID_SHAPE_H
 # include <stdbool.h>
-# include "vector.h"
+# include <stdalign.h>
 # include "array_list.h"
 # include "matrix.h"
 # include "hit_record.h"
@@ -27,15 +27,13 @@ typedef struct s_world	t_world;
 
 typedef struct s_solid_shape
 {
-	t_vector3	coordinates;
-	t_ivector3	colors;
-	// local_basis로 그냥 방향 벡터 더해버리면 된다.
-	// local_basis를 다 통일하자
+	alignas(16) t_vector3 coordinates;
+	alignas(16) t_ivector3 colors;
+	t_matrix3x3	local_basis;
 	bool		(*is_hit)(const t_ray, const void *, t_hit_record *);
 	void		(*delete)(void *);
-	void		(*rotate)(void *, t_action);
-	void		(*scale_height)(void *, t_action);
-	void		(*scale_diameter)(void *, t_action);
+	void		(*scale_height)(void *, const t_action);
+	void		(*scale_diameter)(void *, const t_action);
 }	t_solid_shape;
 
 typedef struct s_sphere
@@ -55,7 +53,6 @@ typedef enum sphere_attribute
 typedef struct s_plane
 {
 	t_solid_shape	shape;
-	t_vector3		normalized_orientation_vector_of_axis;
 }	t_plane;
 
 typedef enum plane_attribute
@@ -69,7 +66,6 @@ typedef enum plane_attribute
 typedef struct s_cylinder
 {
 	t_solid_shape	shape;
-	t_vector3		normalized_orientation_vector_of_axis;
 	float			diameter;
 	float			height;
 }	t_cylinder;
@@ -90,11 +86,10 @@ void		delete_plane(void *obj);
 bool		is_hit_plane(const t_ray ray, const void *plane, t_hit_record *out);
 
 /* plane_action.c */
-void		update_scale_diameter_plane(const void *plane, \
+void		update_scale_diameter_plane(void *plane, \
 const t_action action);
-void		update_scale_height_plane(const void *plane, \
+void		update_scale_height_plane(void *plane, \
 const t_action action);
-void		rotate_plane(const void *plane, const t_action action);
 
 /* sphere.c */
 t_sphere	*copy_construction_to_sphere(const t_sphere sphere);
@@ -105,11 +100,10 @@ void		set_hit_record_by_sphere(t_hit_record *out, \
 const float solution, const t_ray ray, const t_sphere *sphere);
 
 /* sphere_action.c */
-void		update_scale_diameter_sphere(const void *sphere, \
+void		update_scale_diameter_sphere(void *sphere, \
 const t_action action);
-void		update_scale_height_sphere(const void *sphere, \
+void		update_scale_height_sphere(void *sphere, \
 const t_action action);
-void		rotate_sphere(const void *sphere, const t_action action);
 
 /* cylinder_object.c */
 t_cylinder	*copy_construction_to_cylinder(const t_cylinder cylinder);
@@ -126,12 +120,15 @@ bool		is_hit_down_cap(const t_ray ray, const t_cylinder *cylinder, \
 const t_vector3 down_c, t_hit_record *out);
 
 /* cylinder_action.c */
-void		update_scale_diameter_cylinder(const void *cylinder, \
+void		update_scale_diameter_cylinder(void *cylinder, \
 const t_action action);
-void		update_scale_height_cylinder(const void *cylinder, \
+void		update_scale_height_cylinder(void *cylinder, \
 const t_action action);
-void		rotate_cylinder(const void *cylinder, const t_action action);
 
+/* solid_shape.c */
+void		move_shape(void *obj, const t_action action);
+void		rotate_shape(void *obj, const t_action action);
+t_matrix3x3	get_local_basis(t_vector3 n);
 void		destroy_shapes(t_array_list *list);
 
 #endif

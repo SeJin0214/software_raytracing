@@ -6,25 +6,24 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:31:40 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 21:01:38 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 13:54:08 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solid_shape.h"
 
-void		update_scale_diameter_plane(const void *plane, \
+void		update_scale_diameter_plane(void *obj, \
 const t_action action)
 {
-
+	(void) obj;
+	(void) action;
+	return ;
 }
 
-void		update_scale_height_plane(const void *plane, \
+void		update_scale_height_plane(void *obj, \
 const t_action action)
 {
-
-}
-
-void		rotate_plane(const void *plane, const t_action action)
-{
-
+	(void) obj;
+	(void) action;
+	return ;
 }

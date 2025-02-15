@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:31:31 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 20:10:05 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:05:57 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ bool	try_add_sphere_to_world(char **attributes, t_world *world)
 	attributes[SPHERE_ATTRIBUTE_COLORS], &sphere.shape.colors) == false;
 	if (is_invalid_value)
 		return (false);
+	sphere.shape.local_basis = \
+	get_local_basis((t_vector3){{0.0f, 0.0f, 1.0f}});
 	sp = copy_construction_to_sphere(sphere);
 	world->solid_shapes.add(&world->solid_shapes, &sp);
 	return (true);
@@ -57,6 +59,9 @@ bool	try_add_plane_to_world(char **attributes, t_world *world)
 	{
 		return (false);
 	}
+	plane.shape.local_basis.row[Z] = \
+	normalize_vector3(plane.shape.local_basis.row[Z]);
+	plane.shape.local_basis = get_local_basis(plane.shape.local_basis.row[Z]);
 	pl = copy_construction_to_plane(plane);
 	world->solid_shapes.add(&world->solid_shapes, &pl);
 	return (true);
@@ -68,14 +73,14 @@ bool	is_invalid_value_in_plane(char **attributes, t_plane *plane)
 	attributes[PLANE_ATTRIBUTE_COORDINATES], &plane->shape.coordinates);
 	const bool	is_converted_normalized_orientation_vector = try_parse_vector3(\
 	attributes[PLANE_ATTRIBUTE_ORIENTATION_VECTOR], \
-	&plane->normalized_orientation_vector_of_axis);
+	&plane->shape.local_basis.row[Z]);
 	const bool	is_converted_color = try_parse_color(\
 	attributes[PLANE_ATTRIBUTE_COLORS], &plane->shape.colors);
 
 	return (is_converted_coordinate == false \
 	|| is_converted_normalized_orientation_vector == false \
 	|| is_invalid_normalized_vector3(\
-	plane->normalized_orientation_vector_of_axis) \
+	plane->shape.local_basis.row[Z]) \
 	|| is_converted_color == false);
 }
 
@@ -97,6 +102,10 @@ bool	try_add_cylinder_to_world(char **attributes, t_world *world)
 	{
 		return (false);
 	}
+	cylinder.shape.local_basis.row[Z] = \
+	normalize_vector3(cylinder.shape.local_basis.row[Z]);
+	cylinder.shape.local_basis = \
+	get_local_basis(cylinder.shape.local_basis.row[Z]);
 	cy = copy_construction_to_cylinder(cylinder);
 	world->solid_shapes.add(&world->solid_shapes, &cy);
 	return (true);
@@ -107,9 +116,9 @@ bool	is_invalid_value_in_cylinder(char **attributes, t_cylinder *cylinder)
 	return (try_parse_vector3(attributes[CYLINDER_ATTRIBUTE_COORDINATES], \
 	&cylinder->shape.coordinates) == false \
 	|| try_parse_vector3(attributes[CYLINDER_ATTRIBUTE_NORMALIZED_VECTOR], \
-	&cylinder->normalized_orientation_vector_of_axis) == false \
+	&cylinder->shape.local_basis.row[Z]) == false \
 	|| is_invalid_normalized_vector3(\
-	cylinder->normalized_orientation_vector_of_axis) \
+	cylinder->shape.local_basis.row[Z]) \
 	|| try_atof(\
 	attributes[CYLINDER_ATTRIBUTE_DIAMETER], &cylinder->diameter) == false \
 	|| try_atof(\

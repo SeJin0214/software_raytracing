@@ -6,12 +6,13 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:08:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 19:36:39 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 18:26:05 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WORLD_H
 # define WORLD_H
+# include <stdalign.h>
 # include "solid_shape.h"
 # include "array_list.h"
 # include "vector.h"
@@ -21,8 +22,8 @@
 
 typedef struct s_ambient_light
 {
-	float		ratio_in_range;
-	t_ivector3	colors;
+	float	ratio_in_range;
+	alignas(16) t_ivector3 colors;
 }	t_ambient_light;
 
 typedef enum ambient_attribute
@@ -34,9 +35,8 @@ typedef enum ambient_attribute
 
 typedef struct s_camera
 {
-	t_vector3	coordinates;
+	alignas(16) t_vector3 coordinates;
 	t_matrix3x3	local_basis;
-	t_vector3	normalized_orientation_vector_of_axis;
 	float		field_of_view;
 	float		x_theta;
 	float		y_theta;
@@ -66,6 +66,7 @@ typedef struct s_world
 	t_light			light;
 	bool			is_valid_light;
 	t_array_list	solid_shapes;
+	size_t			current_object_index;
 }	t_world;
 
 typedef enum light_attribute

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:13:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 20:18:56 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 17:01:46 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ const t_vector3 surface, void *object)
 	hit_record = get_hit_record();
 	while (i < world->solid_shapes.count)
 	{
-		shape = world->solid_shapes.get_element_or_null(\
-		&world->solid_shapes, i);
+		shape = get_element_or_null_in_list(&world->solid_shapes, i);
 		++i;
 		if (object == *shape)
 			continue ;

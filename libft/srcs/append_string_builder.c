@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 06:06:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/10 17:40:15 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 16:54:20 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	append_to_string_builder(t_string_builder *builder, const char *str)
 		buffer = (t_builder_buffer *)temp->content;
 		if (is_full_buffer(*buffer) == false)
 		{
-			if (get_build_buffer_size() - buffer->size <= remain_len)
+			if (get_build_buffer_capacity() - buffer->size <= remain_len)
 			{
 				ft_lstadd_back(&builder->buffer, ft_lstnew(create_buffer()));
 			}
@@ -58,6 +58,12 @@ void	append_char_to_builder(t_string_builder *builder, const char ch)
 			break ;
 		}
 		temp = temp->next;
+	}
+	if (temp == NULL)
+	{
+		ft_lstadd_back(&builder->buffer, ft_lstnew(create_buffer()));
+		append_char_to_builder(builder, ch);
+		return ;
 	}
 	buffer->str[buffer->size++] = ch;
 	++(builder->total_size);

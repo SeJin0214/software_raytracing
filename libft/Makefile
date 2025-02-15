@@ -6,13 +6,14 @@
 #    By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 10:11:40 by sejjeong          #+#    #+#              #
-#    Updated: 2024/08/30 15:31:14 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/15 21:17:52 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -O3 -march=native -mavx2 -fno-stack-protector -funroll-loops -pg
+ 
 
 AR = ar
 AR_FLAGS = rc
@@ -49,7 +50,6 @@ SRCS = $(SRC_DIR)/ft_isalpha.c \
 	$(SRC_DIR)/ft_strjoin.c \
 	$(SRC_DIR)/ft_strtrim.c \
 	$(SRC_DIR)/ft_split.c \
-	$(SRC_DIR)/ft_split_by_quote.c \
 	$(SRC_DIR)/ft_itoa.c \
 	$(SRC_DIR)/ft_strmapi.c \
 	$(SRC_DIR)/ft_striteri.c \

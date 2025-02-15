@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   write_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:01:38 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/04/30 16:17:01 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 16:43:46 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	write_uint_fd(unsigned int ui, const int fd)
 
 	if (ui == 0)
 	{
-		write(fd, "0", 1);
-		return (1);
+		return (write(fd, "0", 1));
 	}
 	count = write_nbr_recursive_fd(ui, fd);
 	return (count);
@@ -37,13 +36,11 @@ int	write_int_fd(int nbr, const int fd)
 	num = nbr;
 	if (num == 0)
 	{
-		write(fd, "0", 1);
-		return (1);
+		return (write(fd, "0", 1));
 	}
 	else if (num < 0)
 	{
-		write(fd, "-", 1);
-		++count;
+		count = write(fd, "-", 1);
 		num *= -1;
 	}
 	count += write_nbr_recursive_fd(num, fd);
@@ -77,8 +74,8 @@ static int	write_nbr_recursive_fd(unsigned long nb, const int fd)
 	}
 	remain = nb % 10 + '0';
 	nb /= 10;
-	count = 1;
+	count = 0;
 	count += write_nbr_recursive_fd(nb, fd);
-	write(fd, &remain, 1);
+	count += write(fd, &remain, 1);
 	return (count);
 }

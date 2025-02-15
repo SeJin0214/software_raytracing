@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:46:14 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 16:35:18 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 19:37:28 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	is_hit_cylinder(const t_ray ray, const void *obj, t_hit_record *out)
 bool	is_hit_cylinder_end_cap(const t_ray ray, \
 const t_cylinder *cylinder, t_hit_record *out)
 {
-	const t_vector3	n = cylinder->normalized_orientation_vector_of_axis;
+	const t_vector3	n = cylinder->shape.local_basis.row[Z];
 	const t_ray		upward_ray = get_ray(cylinder->shape.coordinates, n);
 	const t_vector3	up_c = get_point_in_ray(upward_ray, cylinder->height / 2);
 	t_vector3		down_c;
@@ -73,9 +73,9 @@ bool	is_hit_up_cap(const t_ray ray, const t_cylinder *cylinder, \
 const t_vector3 up_c, t_hit_record *out)
 {
 	const float		numerator = dot_product3x3(cylinder->\
-	normalized_orientation_vector_of_axis, subtract_vector3(up_c, ray.origin));
+	shape.local_basis.row[Z], subtract_vector3(up_c, ray.origin));
 	const float		denominator = dot_product3x3(\
-	cylinder->normalized_orientation_vector_of_axis, ray.direction);
+	cylinder->shape.local_basis.row[Z], ray.direction);
 	float			solution;
 	t_vector3		p;
 	t_vector3		p_sub_c;
@@ -91,7 +91,7 @@ const t_vector3 up_c, t_hit_record *out)
 		return (false);
 	out->t = solution;
 	out->point = p;
-	out->normal = cylinder->normalized_orientation_vector_of_axis;
+	out->normal = cylinder->shape.local_basis.row[Z];
 	out->color = cylinder->shape.colors;
 	out->object = (void *)cylinder;
 	return (true);
@@ -101,10 +101,9 @@ bool	is_hit_down_cap(const t_ray ray, const t_cylinder *cylinder, \
 const t_vector3 down_c, t_hit_record *out)
 {
 	const float		numerator = dot_product3x3(cylinder->\
-	normalized_orientation_vector_of_axis, \
-	subtract_vector3(down_c, ray.origin));
+	shape.local_basis.row[Z], subtract_vector3(down_c, ray.origin));
 	const float		denominator = dot_product3x3(\
-	cylinder->normalized_orientation_vector_of_axis, ray.direction);
+	cylinder->shape.local_basis.row[Z], ray.direction);
 	float			solution;
 	t_vector3		p;
 	t_vector3		p_sub_c;
@@ -121,7 +120,7 @@ const t_vector3 down_c, t_hit_record *out)
 	out->t = solution;
 	out->point = p;
 	out->normal = multiply_vector3(\
-	cylinder->normalized_orientation_vector_of_axis, -1);
+	cylinder->shape.local_basis.row[Z], -1);
 	out->color = cylinder->shape.colors;
 	out->object = (void *)cylinder;
 	return (true);

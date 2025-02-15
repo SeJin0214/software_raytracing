@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:28:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/14 13:17:37 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/15 19:52:41 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ int	load_pixel_color(t_world *world, const t_ray ray)
 	hit_record = get_hit_record();
 	while (i < world->solid_shapes.count)
 	{
-		shape = world->solid_shapes.get_element_or_null(\
-		&world->solid_shapes, i);
+		shape = get_element_or_null_in_list(&world->solid_shapes, i);
 		(*shape)->is_hit(ray, *shape, &hit_record);
 		++i;
 	}

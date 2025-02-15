@@ -1,0 +1,845 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 31.94      0.46     0.46 59342519     0.00     0.00  subtract_vector3
+ 23.61      0.80     0.34 36118942     0.00     0.00  multiply_vector3
+ 14.58      1.01     0.21 26431658     0.00     0.00  add_vector3
+  4.17      1.07     0.06 14129274     0.00     0.00  is_hit_sphere
+  4.17      1.13     0.06  9525492     0.00     0.00  get_ray
+  2.78      1.17     0.04 101383019     0.00     0.00  dot_product3x3
+  2.78      1.21     0.04  2293911     0.00     0.00  divide_vector3
+  2.08      1.24     0.03  4843629     0.00     0.00  load_hit_cylinder_equation
+  2.08      1.27     0.03  3000000     0.00     0.00  load_pixel_color
+  1.39      1.29     0.02 15821402     0.00     0.00  get_point_in_ray
+  1.39      1.31     0.02  7164555     0.00     0.00  normalize_vector3
+  1.39      1.33     0.02  4443216     0.00     0.00  is_hit_down_cap
+  1.39      1.35     0.02  2082276     0.00     0.00  add_color
+  1.39      1.37     0.02  2082276     0.00     0.00  is_shadowed_surface
+  1.39      1.39     0.02        3     6.67   476.67  render
+  0.69      1.40     0.01  6246828     0.00     0.00  reflect_light
+  0.69      1.41     0.01  4583146     0.00     0.00  get_length_in_vector3
+  0.69      1.42     0.01  4167597     0.00     0.00  is_hit_plane
+  0.69      1.43     0.01  2082276     0.00     0.00  multiply_ivector3
+  0.69      1.44     0.01                             _init
+  0.00      1.44     0.00 25222783     0.00     0.00  get_element_or_null_in_list
+  0.00      1.44     0.00 15246829     0.00     0.00  ft_memset
+  0.00      1.44     0.00  6246829     0.00     0.00  get_min
+  0.00      1.44     0.00  6000000     0.00     0.00  get_radian
+  0.00      1.44     0.00  5082276     0.00     0.00  get_hit_record
+  0.00      1.44     0.00  4843629     0.00     0.00  is_hit_cylinder
+  0.00      1.44     0.00  4610256     0.00     0.00  calculate_cylinder_hit_height
+  0.00      1.44     0.00  4443216     0.00     0.00  is_hit_cylinder_end_cap
+  0.00      1.44     0.00  4443216     0.00     0.00  is_hit_up_cap
+  0.00      1.44     0.00  3003000     0.00     0.00  lerp
+  0.00      1.44     0.00  3000000     0.00     0.00  convert_colors
+  0.00      1.44     0.00  3000000     0.00     0.00  get_ivector3
+  0.00      1.44     0.00  3000000     0.00     0.00  get_ray_mappied_to_pixel
+  0.00      1.44     0.00  2082276     0.00     0.00  load_ambient_color
+  0.00      1.44     0.00  2082276     0.00     0.00  load_diffuse_color
+  0.00      1.44     0.00      200     0.00     0.00  ft_strlen
+  0.00      1.44     0.00       92     0.00     0.00  ft_strlcpy
+  0.00      1.44     0.00       75     0.00     0.00  ft_isdigit
+  0.00      1.44     0.00       59     0.00     0.00  try_atoi
+  0.00      1.44     0.00       38     0.00     0.00  get_digit
+  0.00      1.44     0.00       38     0.00     0.00  indexof
+  0.00      1.44     0.00       38     0.00     0.00  try_atof
+  0.00      1.44     0.00       34     0.00     0.00  ft_strcmp
+  0.00      1.44     0.00       34     0.00     0.00  get_value_or_null
+  0.00      1.44     0.00       30     0.00     0.00  ft_strndup_malloc
+  0.00      1.44     0.00       29     0.00     0.00  ft_bzero
+  0.00      1.44     0.00       29     0.00     0.00  ft_calloc
+  0.00      1.44     0.00       28     0.00     0.00  clear_words
+  0.00      1.44     0.00       28     0.00     0.00  ft_split
+  0.00      1.44     0.00       17     0.00     0.00  get_count_words
+  0.00      1.44     0.00       12     0.00     0.00  cross_product3x3
+  0.00      1.44     0.00       12     0.00     0.00  get_next_line
+  0.00      1.44     0.00       12     0.00     0.00  update_key
+  0.00      1.44     0.00       11     0.00     0.00  find_next_line_malloc
+  0.00      1.44     0.00       10     0.00     0.00  try_parse_vector3
+  0.00      1.44     0.00        8     0.00     0.00  ft_atol
+  0.00      1.44     0.00        8     0.00     0.00  ft_strdup
+  0.00      1.44     0.00        8     0.00     0.00  get_count_to_words
+  0.00      1.44     0.00        8     0.00     0.00  try_parse_attributes
+  0.00      1.44     0.00        7     0.00     0.00  get_vector3
+  0.00      1.44     0.00        7     0.00     0.00  try_parse_color
+  0.00      1.44     0.00        6     0.00     0.00  get_local_basis
+  0.00      1.44     0.00        6     0.00     0.00  is_uneqaul_vector3
+  0.00      1.44     0.00        5     0.00     0.00  add_in_list
+  0.00      1.44     0.00        5     0.00     0.00  ft_memcpy
+  0.00      1.44     0.00        3     0.00     0.00  copy_construction_to_sphere
+  0.00      1.44     0.00        3     0.00     0.00  delete_sphere
+  0.00      1.44     0.00        3     0.00   317.78  input_key
+  0.00      1.44     0.00        3     0.00     0.00  try_add_sphere_to_world
+  0.00      1.44     0.00        2     0.00     0.00  is_invalid_normalized_vector3
+  0.00      1.44     0.00        2     0.00     0.00  is_invalid_ratio_in_range
+  0.00      1.44     0.00        2     0.00     0.00  move_shape
+  0.00      1.44     0.00        2     0.00     0.00  read_line_in_file_malloc
+  0.00      1.44     0.00        1     0.00     0.00  copy_construction_to_cylinder
+  0.00      1.44     0.00        1     0.00     0.00  copy_construction_to_plane
+  0.00      1.44     0.00        1     0.00     0.00  delete_cylinder
+  0.00      1.44     0.00        1     0.00     0.00  delete_plane
+  0.00      1.44     0.00        1     0.00     0.00  destroy_shapes
+  0.00      1.44     0.00        1     0.00     0.00  destroy_world
+  0.00      1.44     0.00        1     0.00     0.00  free_canvas
+  0.00      1.44     0.00        1     0.00     0.00  init_array_list
+  0.00      1.44     0.00        1     0.00     0.00  init_camera
+  0.00      1.44     0.00        1     0.00     0.00  init_canvas
+  0.00      1.44     0.00        1     0.00     0.00  init_world
+  0.00      1.44     0.00        1     0.00     0.00  is_invalid_value_in_cylinder
+  0.00      1.44     0.00        1     0.00     0.00  remove_key
+  0.00      1.44     0.00        1     0.00     0.00  try_add_ambient_light_to_world
+  0.00      1.44     0.00        1     0.00     0.00  try_add_camera_to_world
+  0.00      1.44     0.00        1     0.00     0.00  try_add_cylinder_to_world
+  0.00      1.44     0.00        1     0.00     0.00  try_add_light_to_world
+  0.00      1.44     0.00        1     0.00     0.00  try_add_plane_to_world
+  0.00      1.44     0.00        1     0.00     0.00  try_parse
+  0.00      1.44     0.00        1     0.00     0.00  try_parse_file
+  0.00      1.44     0.00        1     0.00     0.00  try_update_shape_scale
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.69% of 1.44 seconds
+
+index % time    self  children    called     name
+                0.01    0.47       1/3           main [6]
+                0.01    0.94       2/3           input_key [3]
+[1]     99.3    0.02    1.41       3         render [1]
+                0.03    1.25 3000000/3000000     load_pixel_color [2]
+                0.00    0.13 3000000/3000000     get_ray_mappied_to_pixel [15]
+                0.00    0.00 3003000/3003000     lerp [43]
+-----------------------------------------------
+                0.03    1.25 3000000/3000000     render [1]
+[2]     88.8    0.03    1.25 3000000         load_pixel_color [2]
+                0.02    0.49 2082276/2082276     is_shadowed_surface [5]
+                0.00    0.23 3000000/4843629     is_hit_cylinder [8]
+                0.04    0.14 9000000/14129274     is_hit_sphere [10]
+                0.00    0.15 2632278/4443216     is_hit_cylinder_end_cap [11]
+                0.01    0.06 3000000/4167597     is_hit_plane [17]
+                0.01    0.04 2632278/4443216     is_hit_down_cap [18]
+                0.00    0.03 2082276/2082276     load_diffuse_color [23]
+                0.02    0.00 2082276/2082276     add_color [25]
+                0.01    0.00 4164552/6246828     reflect_light [26]
+                0.00    0.00 2082276/2082276     load_ambient_color [30]
+                0.00    0.00 15000000/25222783     get_element_or_null_in_list [38]
+                0.00    0.00 3000000/5082276     get_hit_record [42]
+                0.00    0.00 3000000/3000000     convert_colors [44]
+                0.00    0.00  917724/3000000     get_ivector3 [45]
+-----------------------------------------------
+                0.00    0.95       3/3           mlx_loop [4]
+[3]     66.2    0.00    0.95       3         input_key [3]
+                0.01    0.94       2/3           render [1]
+                0.00    0.00       2/2           move_shape [31]
+                0.00    0.00       2/25222783     get_element_or_null_in_list [38]
+                0.00    0.00       1/1           try_update_shape_scale [96]
+-----------------------------------------------
+                                                 <spontaneous>
+[4]     66.2    0.00    0.95                 mlx_loop [4]
+                0.00    0.95       3/3           input_key [3]
+-----------------------------------------------
+                0.02    0.49 2082276/2082276     load_pixel_color [2]
+[5]     35.3    0.02    0.49 2082276         is_shadowed_surface [5]
+                0.00    0.14 1843629/4843629     is_hit_cylinder [8]
+                0.00    0.10 1810938/4443216     is_hit_cylinder_end_cap [11]
+                0.02    0.08 5129274/14129274     is_hit_sphere [10]
+                0.05    0.00 6665422/59342519     subtract_vector3 [7]
+                0.01    0.03 1810938/4443216     is_hit_down_cap [18]
+                0.00    0.02 1167597/4167597     is_hit_plane [17]
+                0.01    0.00 2082276/9525492     get_ray [20]
+                0.01    0.00 4583146/4583146     get_length_in_vector3 [27]
+                0.01    0.00 2082276/7164555     normalize_vector3 [24]
+                0.00    0.00 10222776/25222783     get_element_or_null_in_list [38]
+                0.00    0.00 2082276/5082276     get_hit_record [42]
+-----------------------------------------------
+                                                 <spontaneous>
+[6]     33.1    0.00    0.48                 main [6]
+                0.01    0.47       1/3           render [1]
+                0.00    0.00       1/1           try_parse [32]
+                0.00    0.00       1/1           init_canvas [90]
+                0.00    0.00       1/15246829     ft_memset [39]
+                0.00    0.00       1/1           free_canvas [88]
+                0.00    0.00       1/1           destroy_shapes [86]
+                0.00    0.00       1/1           destroy_world [87]
+-----------------------------------------------
+                0.00    0.00       2/59342519     move_shape [31]
+                0.00    0.00  167040/59342519     is_hit_cylinder [8]
+                0.02    0.00 2082276/59342519     load_diffuse_color [23]
+                0.03    0.00 4167597/59342519     is_hit_plane [17]
+                0.04    0.00 4610256/59342519     calculate_cylinder_hit_height [16]
+                0.04    0.00 5315324/59342519     is_hit_up_cap [19]
+                0.04    0.00 5547570/59342519     is_hit_down_cap [18]
+                0.05    0.00 6665422/59342519     is_shadowed_surface [5]
+                0.11    0.00 14530887/59342519     load_hit_cylinder_equation [12]
+                0.13    0.00 16256145/59342519     is_hit_sphere [10]
+[7]     31.9    0.46    0.00 59342519         subtract_vector3 [7]
+-----------------------------------------------
+                0.00    0.14 1843629/4843629     is_shadowed_surface [5]
+                0.00    0.23 3000000/4843629     load_pixel_color [2]
+[8]     25.6    0.00    0.37 4843629         is_hit_cylinder [8]
+                0.03    0.21 4843629/4843629     load_hit_cylinder_equation [12]
+                0.00    0.12 4610256/4610256     calculate_cylinder_hit_height [16]
+                0.00    0.00  167040/2293911     divide_vector3 [22]
+                0.00    0.00  167040/15821402     get_point_in_ray [14]
+                0.00    0.00  167040/26431658     add_vector3 [13]
+                0.00    0.00  167040/59342519     subtract_vector3 [7]
+-----------------------------------------------
+                0.00    0.00      26/36118942     is_hit_down_cap [18]
+                0.04    0.00 4610256/36118942     calculate_cylinder_hit_height [16]
+                0.06    0.00 6000000/36118942     get_ray_mappied_to_pixel [15]
+                0.09    0.00 9687258/36118942     load_hit_cylinder_equation [12]
+                0.15    0.00 15821402/36118942     get_point_in_ray [14]
+[9]     23.6    0.34    0.00 36118942         multiply_vector3 [9]
+-----------------------------------------------
+                0.02    0.08 5129274/14129274     is_shadowed_surface [5]
+                0.04    0.14 9000000/14129274     load_pixel_color [2]
+[10]    19.4    0.06    0.22 14129274         is_hit_sphere [10]
+                0.13    0.00 16256145/59342519     subtract_vector3 [7]
+                0.04    0.00 2126871/2293911     divide_vector3 [22]
+                0.00    0.02 2126871/15821402     get_point_in_ray [14]
+                0.02    0.00 2126871/26431658     add_vector3 [13]
+                0.02    0.00 42387822/101383019     dot_product3x3 [21]
+-----------------------------------------------
+                0.00    0.10 1810938/4443216     is_shadowed_surface [5]
+                0.00    0.15 2632278/4443216     load_pixel_color [2]
+[11]    17.7    0.00    0.25 4443216         is_hit_cylinder_end_cap [11]
+                0.01    0.08 8886432/15821402     get_point_in_ray [14]
+                0.07    0.00 8886432/26431658     add_vector3 [13]
+                0.00    0.06 4443216/4443216     is_hit_up_cap [19]
+                0.03    0.00 4443216/9525492     get_ray [20]
+-----------------------------------------------
+                0.03    0.21 4843629/4843629     is_hit_cylinder [8]
+[12]    16.9    0.03    0.21 4843629         load_hit_cylinder_equation [12]
+                0.11    0.00 14530887/59342519     subtract_vector3 [7]
+                0.09    0.00 9687258/36118942     multiply_vector3 [9]
+                0.01    0.00 24218145/101383019     dot_product3x3 [21]
+-----------------------------------------------
+                0.00    0.00  167040/26431658     is_hit_cylinder [8]
+                0.01    0.00  872108/26431658     is_hit_up_cap [19]
+                0.01    0.00 1104354/26431658     is_hit_down_cap [18]
+                0.02    0.00 2126871/26431658     is_hit_sphere [10]
+                0.02    0.00 2664597/26431658     is_hit_plane [17]
+                0.04    0.00 4610256/26431658     calculate_cylinder_hit_height [16]
+                0.05    0.00 6000000/26431658     get_ray_mappied_to_pixel [15]
+                0.07    0.00 8886432/26431658     is_hit_cylinder_end_cap [11]
+[13]    14.6    0.21    0.00 26431658         add_vector3 [13]
+-----------------------------------------------
+                0.00    0.00  167040/15821402     is_hit_cylinder [8]
+                0.00    0.01  872108/15821402     is_hit_up_cap [19]
+                0.00    0.01 1104354/15821402     is_hit_down_cap [18]
+                0.00    0.02 2126871/15821402     is_hit_sphere [10]
+                0.00    0.03 2664597/15821402     is_hit_plane [17]
+                0.01    0.08 8886432/15821402     is_hit_cylinder_end_cap [11]
+[14]    11.7    0.02    0.15 15821402         get_point_in_ray [14]
+                0.15    0.00 15821402/36118942     multiply_vector3 [9]
+-----------------------------------------------
+                0.00    0.13 3000000/3000000     render [1]
+[15]     9.1    0.00    0.13 3000000         get_ray_mappied_to_pixel [15]
+                0.06    0.00 6000000/36118942     multiply_vector3 [9]
+                0.05    0.00 6000000/26431658     add_vector3 [13]
+                0.02    0.00 3000000/9525492     get_ray [20]
+                0.01    0.00 3000000/7164555     normalize_vector3 [24]
+                0.00    0.00 6000000/6000000     get_radian [41]
+-----------------------------------------------
+                0.00    0.12 4610256/4610256     is_hit_cylinder [8]
+[16]     8.2    0.00    0.12 4610256         calculate_cylinder_hit_height [16]
+                0.04    0.00 4610256/36118942     multiply_vector3 [9]
+                0.04    0.00 4610256/26431658     add_vector3 [13]
+                0.04    0.00 4610256/59342519     subtract_vector3 [7]
+                0.00    0.00 4610256/101383019     dot_product3x3 [21]
+-----------------------------------------------
+                0.00    0.02 1167597/4167597     is_shadowed_surface [5]
+                0.01    0.06 3000000/4167597     load_pixel_color [2]
+[17]     6.6    0.01    0.09 4167597         is_hit_plane [17]
+                0.03    0.00 4167597/59342519     subtract_vector3 [7]
+                0.00    0.03 2664597/15821402     get_point_in_ray [14]
+                0.02    0.00 2664597/26431658     add_vector3 [13]
+                0.00    0.00 8335194/101383019     dot_product3x3 [21]
+-----------------------------------------------
+                0.01    0.03 1810938/4443216     is_shadowed_surface [5]
+                0.01    0.04 2632278/4443216     load_pixel_color [2]
+[18]     6.1    0.02    0.07 4443216         is_hit_down_cap [18]
+                0.04    0.00 5547570/59342519     subtract_vector3 [7]
+                0.00    0.01 1104354/15821402     get_point_in_ray [14]
+                0.01    0.00 1104354/26431658     add_vector3 [13]
+                0.00    0.00 9990786/101383019     dot_product3x3 [21]
+                0.00    0.00      26/36118942     multiply_vector3 [9]
+-----------------------------------------------
+                0.00    0.06 4443216/4443216     is_hit_cylinder_end_cap [11]
+[19]     4.3    0.00    0.06 4443216         is_hit_up_cap [19]
+                0.04    0.00 5315324/59342519     subtract_vector3 [7]
+                0.00    0.01  872108/15821402     get_point_in_ray [14]
+                0.01    0.00  872108/26431658     add_vector3 [13]
+                0.00    0.00 9758540/101383019     dot_product3x3 [21]
+-----------------------------------------------
+                0.01    0.00 2082276/9525492     is_shadowed_surface [5]
+                0.02    0.00 3000000/9525492     get_ray_mappied_to_pixel [15]
+                0.03    0.00 4443216/9525492     is_hit_cylinder_end_cap [11]
+[20]     4.2    0.06    0.00 9525492         get_ray [20]
+-----------------------------------------------
+                0.00    0.00 2082276/101383019     load_diffuse_color [23]
+                0.00    0.00 4610256/101383019     calculate_cylinder_hit_height [16]
+                0.00    0.00 8335194/101383019     is_hit_plane [17]
+                0.00    0.00 9758540/101383019     is_hit_up_cap [19]
+                0.00    0.00 9990786/101383019     is_hit_down_cap [18]
+                0.01    0.00 24218145/101383019     load_hit_cylinder_equation [12]
+                0.02    0.00 42387822/101383019     is_hit_sphere [10]
+[21]     2.8    0.04    0.00 101383019         dot_product3x3 [21]
+-----------------------------------------------
+                0.00    0.00  167040/2293911     is_hit_cylinder [8]
+                0.04    0.00 2126871/2293911     is_hit_sphere [10]
+[22]     2.8    0.04    0.00 2293911         divide_vector3 [22]
+-----------------------------------------------
+                0.00    0.03 2082276/2082276     load_pixel_color [2]
+[23]     2.3    0.00    0.03 2082276         load_diffuse_color [23]
+                0.02    0.00 2082276/59342519     subtract_vector3 [7]
+                0.01    0.00 2082276/2082276     multiply_ivector3 [28]
+                0.01    0.00 2082276/7164555     normalize_vector3 [24]
+                0.00    0.00 2082276/101383019     dot_product3x3 [21]
+-----------------------------------------------
+                0.00    0.00       1/7164555     init_camera [34]
+                0.00    0.00       1/7164555     try_add_plane_to_world [37]
+                0.00    0.00       1/7164555     try_add_cylinder_to_world [36]
+                0.01    0.00 2082276/7164555     is_shadowed_surface [5]
+                0.01    0.00 2082276/7164555     load_diffuse_color [23]
+                0.01    0.00 3000000/7164555     get_ray_mappied_to_pixel [15]
+[24]     1.4    0.02    0.00 7164555         normalize_vector3 [24]
+-----------------------------------------------
+                0.02    0.00 2082276/2082276     load_pixel_color [2]
+[25]     1.4    0.02    0.00 2082276         add_color [25]
+                0.00    0.00 6246828/6246829     get_min [40]
+-----------------------------------------------
+                0.00    0.00 2082276/6246828     load_ambient_color [30]
+                0.01    0.00 4164552/6246828     load_pixel_color [2]
+[26]     0.7    0.01    0.00 6246828         reflect_light [26]
+-----------------------------------------------
+                0.01    0.00 4583146/4583146     is_shadowed_surface [5]
+[27]     0.7    0.01    0.00 4583146         get_length_in_vector3 [27]
+-----------------------------------------------
+                0.01    0.00 2082276/2082276     load_diffuse_color [23]
+[28]     0.7    0.01    0.00 2082276         multiply_ivector3 [28]
+-----------------------------------------------
+                                                 <spontaneous>
+[29]     0.7    0.01    0.00                 _init [29]
+-----------------------------------------------
+                0.00    0.00 2082276/2082276     load_pixel_color [2]
+[30]     0.2    0.00    0.00 2082276         load_ambient_color [30]
+                0.00    0.00 2082276/6246828     reflect_light [26]
+                0.00    0.00 2082276/3000000     get_ivector3 [45]
+-----------------------------------------------
+                0.00    0.00       2/2           input_key [3]
+[31]     0.0    0.00    0.00       2         move_shape [31]
+                0.00    0.00       2/59342519     subtract_vector3 [7]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[32]     0.0    0.00    0.00       1         try_parse [32]
+                0.00    0.00       1/1           try_parse_file [33]
+                0.00    0.00       5/34          ft_strcmp [53]
+                0.00    0.00       1/1           init_array_list [89]
+                0.00    0.00       1/1           init_world [91]
+-----------------------------------------------
+                0.00    0.00       1/1           try_parse [32]
+[33]     0.0    0.00    0.00       1         try_parse_file [33]
+                0.00    0.00       1/1           try_add_cylinder_to_world [36]
+                0.00    0.00       1/1           try_add_plane_to_world [37]
+                0.00    0.00       1/1           try_add_camera_to_world [35]
+                0.00    0.00      12/12          get_next_line [62]
+                0.00    0.00      11/200         ft_strlen [46]
+                0.00    0.00      11/28          ft_split [59]
+                0.00    0.00      11/28          clear_words [58]
+                0.00    0.00       8/8           try_parse_attributes [69]
+                0.00    0.00       3/3           try_add_sphere_to_world [78]
+                0.00    0.00       1/1           try_add_light_to_world [95]
+                0.00    0.00       1/1           try_add_ambient_light_to_world [94]
+-----------------------------------------------
+                0.00    0.00       1/1           try_add_camera_to_world [35]
+[34]     0.0    0.00    0.00       1         init_camera [34]
+                0.00    0.00       1/7164555     normalize_vector3 [24]
+                0.00    0.00       1/6           get_local_basis [72]
+-----------------------------------------------
+                0.00    0.00       1/1           try_parse_file [33]
+[35]     0.0    0.00    0.00       1         try_add_camera_to_world [35]
+                0.00    0.00       1/1           init_camera [34]
+                0.00    0.00       2/17          get_count_words [60]
+                0.00    0.00       2/10          try_parse_vector3 [65]
+                0.00    0.00       1/8           get_count_to_words [68]
+                0.00    0.00       1/38          try_atof [52]
+-----------------------------------------------
+                0.00    0.00       1/1           try_parse_file [33]
+[36]     0.0    0.00    0.00       1         try_add_cylinder_to_world [36]
+                0.00    0.00       1/7164555     normalize_vector3 [24]
+                0.00    0.00       3/17          get_count_words [60]
+                0.00    0.00       1/8           get_count_to_words [68]
+                0.00    0.00       1/1           is_invalid_value_in_cylinder [92]
+                0.00    0.00       1/6           get_local_basis [72]
+                0.00    0.00       1/1           copy_construction_to_cylinder [82]
+                0.00    0.00       1/5           add_in_list [74]
+-----------------------------------------------
+                0.00    0.00       1/1           try_parse_file [33]
+[37]     0.0    0.00    0.00       1         try_add_plane_to_world [37]
+                0.00    0.00       1/7164555     normalize_vector3 [24]
+                0.00    0.00       3/17          get_count_words [60]
+                0.00    0.00       2/10          try_parse_vector3 [65]
+                0.00    0.00       1/8           get_count_to_words [68]
+                0.00    0.00       1/7           try_parse_color [71]
+                0.00    0.00       1/2           is_invalid_normalized_vector3 [79]
+                0.00    0.00       1/6           get_local_basis [72]
+                0.00    0.00       1/1           copy_construction_to_plane [83]
+                0.00    0.00       1/5           add_in_list [74]
+-----------------------------------------------
+                0.00    0.00       2/25222783     input_key [3]
+                0.00    0.00       5/25222783     destroy_shapes [86]
+                0.00    0.00 10222776/25222783     is_shadowed_surface [5]
+                0.00    0.00 15000000/25222783     load_pixel_color [2]
+[38]     0.0    0.00    0.00 25222783         get_element_or_null_in_list [38]
+-----------------------------------------------
+                0.00    0.00       1/15246829     main [6]
+                0.00    0.00 15246828/15246829     get_hit_record [42]
+[39]     0.0    0.00    0.00 15246829         ft_memset [39]
+-----------------------------------------------
+                0.00    0.00       1/6246829     init_canvas [90]
+                0.00    0.00 6246828/6246829     add_color [25]
+[40]     0.0    0.00    0.00 6246829         get_min [40]
+-----------------------------------------------
+                0.00    0.00 6000000/6000000     get_ray_mappied_to_pixel [15]
+[41]     0.0    0.00    0.00 6000000         get_radian [41]
+-----------------------------------------------
+                0.00    0.00 2082276/5082276     is_shadowed_surface [5]
+                0.00    0.00 3000000/5082276     load_pixel_color [2]
+[42]     0.0    0.00    0.00 5082276         get_hit_record [42]
+                0.00    0.00 15246828/15246829     ft_memset [39]
+-----------------------------------------------
+                0.00    0.00 3003000/3003000     render [1]
+[43]     0.0    0.00    0.00 3003000         lerp [43]
+-----------------------------------------------
+                0.00    0.00 3000000/3000000     load_pixel_color [2]
+[44]     0.0    0.00    0.00 3000000         convert_colors [44]
+-----------------------------------------------
+                0.00    0.00  917724/3000000     load_pixel_color [2]
+                0.00    0.00 2082276/3000000     load_ambient_color [30]
+[45]     0.0    0.00    0.00 3000000         get_ivector3 [45]
+-----------------------------------------------
+                0.00    0.00       8/200         try_atof [52]
+                0.00    0.00       8/200         ft_strdup [67]
+                0.00    0.00      11/200         try_parse_file [33]
+                0.00    0.00      11/200         find_next_line_malloc [64]
+                0.00    0.00      11/200         get_next_line [62]
+                0.00    0.00      59/200         try_atoi [49]
+                0.00    0.00      92/200         ft_strlcpy [47]
+[46]     0.0    0.00    0.00     200         ft_strlen [46]
+-----------------------------------------------
+                0.00    0.00       8/92          ft_strdup [67]
+                0.00    0.00      84/92          ft_split [59]
+[47]     0.0    0.00    0.00      92         ft_strlcpy [47]
+                0.00    0.00      92/200         ft_strlen [46]
+-----------------------------------------------
+                0.00    0.00       9/75          try_atof [52]
+                0.00    0.00      66/75          try_atoi [49]
+[48]     0.0    0.00    0.00      75         ft_isdigit [48]
+-----------------------------------------------
+                0.00    0.00      21/59          try_parse_color [71]
+                0.00    0.00      38/59          try_atof [52]
+[49]     0.0    0.00    0.00      59         try_atoi [49]
+                0.00    0.00      66/75          ft_isdigit [48]
+                0.00    0.00      59/200         ft_strlen [46]
+-----------------------------------------------
+                0.00    0.00      38/38          try_atof [52]
+[50]     0.0    0.00    0.00      38         get_digit [50]
+-----------------------------------------------
+                0.00    0.00      38/38          try_atof [52]
+[51]     0.0    0.00    0.00      38         indexof [51]
+-----------------------------------------------
+                0.00    0.00       1/38          try_add_ambient_light_to_world [94]
+                0.00    0.00       1/38          try_add_camera_to_world [35]
+                0.00    0.00       1/38          try_add_light_to_world [95]
+                0.00    0.00       2/38          is_invalid_value_in_cylinder [92]
+                0.00    0.00       3/38          try_add_sphere_to_world [78]
+                0.00    0.00      30/38          try_parse_vector3 [65]
+[52]     0.0    0.00    0.00      38         try_atof [52]
+                0.00    0.00      38/38          indexof [51]
+                0.00    0.00      38/59          try_atoi [49]
+                0.00    0.00      38/38          get_digit [50]
+                0.00    0.00       9/75          ft_isdigit [48]
+                0.00    0.00       8/30          ft_strndup_malloc [55]
+                0.00    0.00       8/8           ft_strdup [67]
+                0.00    0.00       8/200         ft_strlen [46]
+                0.00    0.00       8/8           ft_atol [66]
+-----------------------------------------------
+                0.00    0.00       5/34          try_parse [32]
+                0.00    0.00      29/34          try_parse_attributes [69]
+[53]     0.0    0.00    0.00      34         ft_strcmp [53]
+-----------------------------------------------
+                0.00    0.00      11/34          find_next_line_malloc [64]
+                0.00    0.00      23/34          get_next_line [62]
+[54]     0.0    0.00    0.00      34         get_value_or_null [54]
+-----------------------------------------------
+                0.00    0.00       8/30          try_atof [52]
+                0.00    0.00      22/30          find_next_line_malloc [64]
+[55]     0.0    0.00    0.00      30         ft_strndup_malloc [55]
+-----------------------------------------------
+                0.00    0.00      29/29          ft_calloc [57]
+[56]     0.0    0.00    0.00      29         ft_bzero [56]
+-----------------------------------------------
+                0.00    0.00       1/29          init_array_list [89]
+                0.00    0.00      28/29          ft_split [59]
+[57]     0.0    0.00    0.00      29         ft_calloc [57]
+                0.00    0.00      29/29          ft_bzero [56]
+-----------------------------------------------
+                0.00    0.00       7/28          try_parse_color [71]
+                0.00    0.00      10/28          try_parse_vector3 [65]
+                0.00    0.00      11/28          try_parse_file [33]
+[58]     0.0    0.00    0.00      28         clear_words [58]
+-----------------------------------------------
+                0.00    0.00       7/28          try_parse_color [71]
+                0.00    0.00      10/28          try_parse_vector3 [65]
+                0.00    0.00      11/28          try_parse_file [33]
+[59]     0.0    0.00    0.00      28         ft_split [59]
+                0.00    0.00      84/92          ft_strlcpy [47]
+                0.00    0.00      28/29          ft_calloc [57]
+-----------------------------------------------
+                0.00    0.00       1/17          try_add_ambient_light_to_world [94]
+                0.00    0.00       2/17          try_add_camera_to_world [35]
+                0.00    0.00       2/17          try_add_light_to_world [95]
+                0.00    0.00       3/17          try_add_plane_to_world [37]
+                0.00    0.00       3/17          try_add_cylinder_to_world [36]
+                0.00    0.00       6/17          try_add_sphere_to_world [78]
+[60]     0.0    0.00    0.00      17         get_count_words [60]
+-----------------------------------------------
+                0.00    0.00      12/12          get_local_basis [72]
+[61]     0.0    0.00    0.00      12         cross_product3x3 [61]
+-----------------------------------------------
+                0.00    0.00      12/12          try_parse_file [33]
+[62]     0.0    0.00    0.00      12         get_next_line [62]
+                0.00    0.00      23/34          get_value_or_null [54]
+                0.00    0.00      11/11          find_next_line_malloc [64]
+                0.00    0.00      11/200         ft_strlen [46]
+                0.00    0.00       2/2           read_line_in_file_malloc [81]
+                0.00    0.00       1/12          update_key [63]
+                0.00    0.00       1/1           remove_key [93]
+-----------------------------------------------
+                0.00    0.00       1/12          get_next_line [62]
+                0.00    0.00      11/12          find_next_line_malloc [64]
+[63]     0.0    0.00    0.00      12         update_key [63]
+-----------------------------------------------
+                0.00    0.00      11/11          get_next_line [62]
+[64]     0.0    0.00    0.00      11         find_next_line_malloc [64]
+                0.00    0.00      22/30          ft_strndup_malloc [55]
+                0.00    0.00      11/34          get_value_or_null [54]
+                0.00    0.00      11/200         ft_strlen [46]
+                0.00    0.00      11/12          update_key [63]
+-----------------------------------------------
+                0.00    0.00       1/10          try_add_light_to_world [95]
+                0.00    0.00       2/10          try_add_plane_to_world [37]
+                0.00    0.00       2/10          is_invalid_value_in_cylinder [92]
+                0.00    0.00       2/10          try_add_camera_to_world [35]
+                0.00    0.00       3/10          try_add_sphere_to_world [78]
+[65]     0.0    0.00    0.00      10         try_parse_vector3 [65]
+                0.00    0.00      30/38          try_atof [52]
+                0.00    0.00      10/28          ft_split [59]
+                0.00    0.00      10/28          clear_words [58]
+-----------------------------------------------
+                0.00    0.00       8/8           try_atof [52]
+[66]     0.0    0.00    0.00       8         ft_atol [66]
+-----------------------------------------------
+                0.00    0.00       8/8           try_atof [52]
+[67]     0.0    0.00    0.00       8         ft_strdup [67]
+                0.00    0.00       8/200         ft_strlen [46]
+                0.00    0.00       8/92          ft_strlcpy [47]
+-----------------------------------------------
+                0.00    0.00       1/8           try_add_plane_to_world [37]
+                0.00    0.00       1/8           try_add_cylinder_to_world [36]
+                0.00    0.00       1/8           try_add_ambient_light_to_world [94]
+                0.00    0.00       1/8           try_add_camera_to_world [35]
+                0.00    0.00       1/8           try_add_light_to_world [95]
+                0.00    0.00       3/8           try_add_sphere_to_world [78]
+[68]     0.0    0.00    0.00       8         get_count_to_words [68]
+-----------------------------------------------
+                0.00    0.00       8/8           try_parse_file [33]
+[69]     0.0    0.00    0.00       8         try_parse_attributes [69]
+                0.00    0.00      29/34          ft_strcmp [53]
+-----------------------------------------------
+                0.00    0.00       7/7           get_local_basis [72]
+[70]     0.0    0.00    0.00       7         get_vector3 [70]
+-----------------------------------------------
+                0.00    0.00       1/7           try_add_plane_to_world [37]
+                0.00    0.00       1/7           is_invalid_value_in_cylinder [92]
+                0.00    0.00       1/7           try_add_ambient_light_to_world [94]
+                0.00    0.00       1/7           try_add_light_to_world [95]
+                0.00    0.00       3/7           try_add_sphere_to_world [78]
+[71]     0.0    0.00    0.00       7         try_parse_color [71]
+                0.00    0.00      21/59          try_atoi [49]
+                0.00    0.00       7/28          ft_split [59]
+                0.00    0.00       7/28          clear_words [58]
+-----------------------------------------------
+                0.00    0.00       1/6           init_camera [34]
+                0.00    0.00       1/6           try_add_plane_to_world [37]
+                0.00    0.00       1/6           try_add_cylinder_to_world [36]
+                0.00    0.00       3/6           try_add_sphere_to_world [78]
+[72]     0.0    0.00    0.00       6         get_local_basis [72]
+                0.00    0.00      12/12          cross_product3x3 [61]
+                0.00    0.00       7/7           get_vector3 [70]
+                0.00    0.00       6/6           is_uneqaul_vector3 [73]
+-----------------------------------------------
+                0.00    0.00       6/6           get_local_basis [72]
+[73]     0.0    0.00    0.00       6         is_uneqaul_vector3 [73]
+-----------------------------------------------
+                0.00    0.00       1/5           try_add_plane_to_world [37]
+                0.00    0.00       1/5           try_add_cylinder_to_world [36]
+                0.00    0.00       3/5           try_add_sphere_to_world [78]
+[74]     0.0    0.00    0.00       5         add_in_list [74]
+                0.00    0.00       5/5           ft_memcpy [75]
+-----------------------------------------------
+                0.00    0.00       5/5           add_in_list [74]
+[75]     0.0    0.00    0.00       5         ft_memcpy [75]
+-----------------------------------------------
+                0.00    0.00       3/3           try_add_sphere_to_world [78]
+[76]     0.0    0.00    0.00       3         copy_construction_to_sphere [76]
+-----------------------------------------------
+                0.00    0.00       3/3           destroy_shapes [86]
+[77]     0.0    0.00    0.00       3         delete_sphere [77]
+-----------------------------------------------
+                0.00    0.00       3/3           try_parse_file [33]
+[78]     0.0    0.00    0.00       3         try_add_sphere_to_world [78]
+                0.00    0.00       6/17          get_count_words [60]
+                0.00    0.00       3/8           get_count_to_words [68]
+                0.00    0.00       3/10          try_parse_vector3 [65]
+                0.00    0.00       3/38          try_atof [52]
+                0.00    0.00       3/7           try_parse_color [71]
+                0.00    0.00       3/6           get_local_basis [72]
+                0.00    0.00       3/3           copy_construction_to_sphere [76]
+                0.00    0.00       3/5           add_in_list [74]
+-----------------------------------------------
+                0.00    0.00       1/2           try_add_plane_to_world [37]
+                0.00    0.00       1/2           is_invalid_value_in_cylinder [92]
+[79]     0.0    0.00    0.00       2         is_invalid_normalized_vector3 [79]
+-----------------------------------------------
+                0.00    0.00       1/2           try_add_ambient_light_to_world [94]
+                0.00    0.00       1/2           try_add_light_to_world [95]
+[80]     0.0    0.00    0.00       2         is_invalid_ratio_in_range [80]
+-----------------------------------------------
+                0.00    0.00       2/2           get_next_line [62]
+[81]     0.0    0.00    0.00       2         read_line_in_file_malloc [81]
+-----------------------------------------------
+                0.00    0.00       1/1           try_add_cylinder_to_world [36]
+[82]     0.0    0.00    0.00       1         copy_construction_to_cylinder [82]
+-----------------------------------------------
+                0.00    0.00       1/1           try_add_plane_to_world [37]
+[83]     0.0    0.00    0.00       1         copy_construction_to_plane [83]
+-----------------------------------------------
+                0.00    0.00       1/1           destroy_shapes [86]
+[84]     0.0    0.00    0.00       1         delete_cylinder [84]
+-----------------------------------------------
+                0.00    0.00       1/1           destroy_shapes [86]
+[85]     0.0    0.00    0.00       1         delete_plane [85]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[86]     0.0    0.00    0.00       1         destroy_shapes [86]
+                0.00    0.00       5/25222783     get_element_or_null_in_list [38]
+                0.00    0.00       3/3           delete_sphere [77]
+                0.00    0.00       1/1           delete_cylinder [84]
+                0.00    0.00       1/1           delete_plane [85]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[87]     0.0    0.00    0.00       1         destroy_world [87]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[88]     0.0    0.00    0.00       1         free_canvas [88]
+-----------------------------------------------
+                0.00    0.00       1/1           try_parse [32]
+[89]     0.0    0.00    0.00       1         init_array_list [89]
+                0.00    0.00       1/29          ft_calloc [57]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[90]     0.0    0.00    0.00       1         init_canvas [90]
+                0.00    0.00       1/6246829     get_min [40]
+-----------------------------------------------
+                0.00    0.00       1/1           try_parse [32]
+[91]     0.0    0.00    0.00       1         init_world [91]
+-----------------------------------------------
+                0.00    0.00       1/1           try_add_cylinder_to_world [36]
+[92]     0.0    0.00    0.00       1         is_invalid_value_in_cylinder [92]
+                0.00    0.00       2/10          try_parse_vector3 [65]
+                0.00    0.00       2/38          try_atof [52]
+                0.00    0.00       1/2           is_invalid_normalized_vector3 [79]
+                0.00    0.00       1/7           try_parse_color [71]
+-----------------------------------------------
+                0.00    0.00       1/1           get_next_line [62]
+[93]     0.0    0.00    0.00       1         remove_key [93]
+-----------------------------------------------
+                0.00    0.00       1/1           try_parse_file [33]
+[94]     0.0    0.00    0.00       1         try_add_ambient_light_to_world [94]
+                0.00    0.00       1/8           get_count_to_words [68]
+                0.00    0.00       1/17          get_count_words [60]
+                0.00    0.00       1/38          try_atof [52]
+                0.00    0.00       1/2           is_invalid_ratio_in_range [80]
+                0.00    0.00       1/7           try_parse_color [71]
+-----------------------------------------------
+                0.00    0.00       1/1           try_parse_file [33]
+[95]     0.0    0.00    0.00       1         try_add_light_to_world [95]
+                0.00    0.00       2/17          get_count_words [60]
+                0.00    0.00       1/8           get_count_to_words [68]
+                0.00    0.00       1/10          try_parse_vector3 [65]
+                0.00    0.00       1/38          try_atof [52]
+                0.00    0.00       1/2           is_invalid_ratio_in_range [80]
+                0.00    0.00       1/7           try_parse_color [71]
+-----------------------------------------------
+                0.00    0.00       1/1           input_key [3]
+[96]     0.0    0.00    0.00       1         try_update_shape_scale [96]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [29] _init                  [68] get_count_to_words     [73] is_uneqaul_vector3
+  [25] add_color              [60] get_count_words        [43] lerp
+  [74] add_in_list            [50] get_digit              [30] load_ambient_color
+  [13] add_vector3            [38] get_element_or_null_in_list [23] load_diffuse_color
+  [16] calculate_cylinder_hit_height [42] get_hit_record  [12] load_hit_cylinder_equation
+  [58] clear_words            [45] get_ivector3            [2] load_pixel_color
+  [44] convert_colors         [27] get_length_in_vector3  [31] move_shape
+  [82] copy_construction_to_cylinder [72] get_local_basis [28] multiply_ivector3
+  [83] copy_construction_to_plane [40] get_min             [9] multiply_vector3
+  [76] copy_construction_to_sphere [62] get_next_line     [24] normalize_vector3
+  [61] cross_product3x3       [14] get_point_in_ray       [81] read_line_in_file_malloc
+  [84] delete_cylinder        [41] get_radian             [26] reflect_light
+  [85] delete_plane           [20] get_ray                [93] remove_key
+  [77] delete_sphere          [15] get_ray_mappied_to_pixel [1] render
+  [86] destroy_shapes         [54] get_value_or_null       [7] subtract_vector3
+  [87] destroy_world          [70] get_vector3            [94] try_add_ambient_light_to_world
+  [22] divide_vector3         [51] indexof                [35] try_add_camera_to_world
+  [21] dot_product3x3         [89] init_array_list        [36] try_add_cylinder_to_world
+  [64] find_next_line_malloc  [34] init_camera            [95] try_add_light_to_world
+  [88] free_canvas            [90] init_canvas            [37] try_add_plane_to_world
+  [66] ft_atol                [91] init_world             [78] try_add_sphere_to_world
+  [56] ft_bzero                [3] input_key              [52] try_atof
+  [57] ft_calloc               [8] is_hit_cylinder        [49] try_atoi
+  [48] ft_isdigit             [11] is_hit_cylinder_end_cap [32] try_parse
+  [75] ft_memcpy              [18] is_hit_down_cap        [69] try_parse_attributes
+  [39] ft_memset              [17] is_hit_plane           [71] try_parse_color
+  [59] ft_split               [10] is_hit_sphere          [33] try_parse_file
+  [53] ft_strcmp              [19] is_hit_up_cap          [65] try_parse_vector3
+  [67] ft_strdup              [79] is_invalid_normalized_vector3 [96] try_update_shape_scale
+  [47] ft_strlcpy             [80] is_invalid_ratio_in_range [63] update_key
+  [46] ft_strlen              [92] is_invalid_value_in_cylinder
+  [55] ft_strndup_malloc       [5] is_shadowed_surface

@@ -6,13 +6,13 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/14 20:33:28 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/15 21:30:09 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -O3 -march=native -mavx2 -fno-stack-protector -funroll-loops
 
 RM = rm
 RFLAGS = -rf
@@ -77,6 +77,7 @@ BONUS_SRCS = $(BONUS_DIR)/main_bonus.c \
 	$(BONUS_DIR)/light_bonus.c \
 
 OBJS = ${SRCS:.c=.o}
+ASM = ${SRCS:.c=.s}
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
 
@@ -97,6 +98,9 @@ $(NAME):$(OBJECTS)
 %.o: %.c
 	touch $<
 	$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(MLX_INCLUDE) $(INCLUDE) -c $< -o $@
+%.s: %.c
+	touch $<
+	$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(MLX_INCLUDE) $(INCLUDE) -S $< -o $@
 
 bonus:
 	make ON_BONUS_FLAG=1 all
