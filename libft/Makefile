@@ -6,13 +6,13 @@
 #    By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 10:11:40 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/15 21:17:52 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/18 13:29:32 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -O3 -march=native -mavx2 -fno-stack-protector -funroll-loops -pg
+CFLAGS = -Wall -Wextra -Werror -O3 -march=native -mavx2 -fno-stack-protector -funroll-loops
  
 
 AR = ar

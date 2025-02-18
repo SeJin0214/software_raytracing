@@ -6,14 +6,14 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:30:46 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 15:09:28 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:20:32 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "solid_shape.h"
 
-void		update_scale_diameter_sphere(void *obj, \
+void	update_scale_diameter_sphere(void *obj, \
 const t_action action)
 {
 	t_sphere	*sphere;
@@ -29,7 +29,7 @@ const t_action action)
 	}
 }
 
-void		update_scale_height_sphere(void *obj, \
+void	update_scale_height_sphere(void *obj, \
 const t_action action)
 {
 	(void) obj;

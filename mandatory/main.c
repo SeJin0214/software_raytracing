@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 21:35:05 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:18:52 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 #include "parse.h"
 #include "render.h"
 #include "input.h"
+#include <time.h>
+#include <sys/time.h>
+#include <unistd.h>
 
 int	main(int argc, char **argv)
 {
@@ -49,10 +52,6 @@ int	main(int argc, char **argv)
 
 int	input_key(int key, t_input *input)
 {
-	// 시간 
-	// 최적화 플래그 빼보고
-	// 메모리 정렬 빼보고
-	// 패딩 빼보고 체크
 	if (key == ESC)
 	{
 		mlx_loop_end(input->canvas->xvar);
@@ -64,7 +63,6 @@ int	input_key(int key, t_input *input)
 	{
 		render(input->world, input->canvas);
 	}
-	// 타임 끝
 	return (0);
 }
 
@@ -98,7 +96,7 @@ bool	try_rotate_shape(t_world *world, const int key)
 {
 	t_solid_shape	**shape;
 	t_action		action;
-	
+
 	if (key != 'f' && key != 'h' && key != 'v' && key != 'n' \
 	&& key != 'g' && key != 'b')
 		return (false);
@@ -124,7 +122,7 @@ bool	try_update_shape_scale(t_world *world, const int key)
 {
 	t_solid_shape	**shape;
 	t_action		action;
-	
+
 	if (key != 'u' && key != 'j' && key != 'i' && key != 'k')
 	{
 		return (false);

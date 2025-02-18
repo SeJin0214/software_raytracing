@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:08:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 18:26:05 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:51:48 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,11 @@
 # include <stdalign.h>
 # include "solid_shape.h"
 # include "array_list.h"
-# include "vector.h"
+# include "vector_struct.h"
 # include "canvas.h"
+# include "light.h"
 # define VECTOR_ATTRIBUTE_COUNT 3
 # define COLORS_ATTRIBUTE_COUNT 3
-
-typedef struct s_ambient_light
-{
-	float	ratio_in_range;
-	alignas(16) t_ivector3 colors;
-}	t_ambient_light;
 
 typedef enum ambient_attribute
 {
@@ -32,15 +27,6 @@ typedef enum ambient_attribute
 	AMBIENT_ATTRIBUTE_COLORS,
 	AMBIENT_ATTRIBUTE_LENGTH
 }	t_ambient_attribute;
-
-typedef struct s_camera
-{
-	alignas(16) t_vector3 coordinates;
-	t_matrix3x3	local_basis;
-	float		field_of_view;
-	float		x_theta;
-	float		y_theta;
-}	t_camera;
 
 typedef enum camera_attribute
 {
@@ -50,12 +36,22 @@ typedef enum camera_attribute
 	CAMERA_ATTRIBUTE_LENGTH
 }	t_camera_attribute;
 
-typedef struct s_light
+typedef enum light_attribute
 {
-	t_vector3	coordinates;
-	float		ratio_in_range;
-	t_ivector3	colors;
-}	t_light;
+	LIGHT_ATTRIBUTE_COORDINATES = 1,
+	LIGHT_ATTRIBUTE_RATIO_IN_RANGE,
+	LIGHT_ATTRIBUTE_COLORS,
+	LIGHT_ATTRIBUTE_LENGTH
+}	t_light_attribute;
+
+typedef struct s_camera
+{
+	alignas(16) t_vector3 coordinates;
+	t_matrix3x3	local_basis;
+	float		field_of_view;
+	float		x_theta;
+	float		y_theta;
+}	t_camera;
 
 typedef struct s_world
 {
@@ -68,14 +64,6 @@ typedef struct s_world
 	t_array_list	solid_shapes;
 	size_t			current_object_index;
 }	t_world;
-
-typedef enum light_attribute
-{
-	LIGHT_ATTRIBUTE_COORDINATES = 1,
-	LIGHT_ATTRIBUTE_RATIO_IN_RANGE,
-	LIGHT_ATTRIBUTE_COLORS,
-	LIGHT_ATTRIBUTE_LENGTH
-}	t_light_attribute;
 
 void	init_world(t_world *world);
 void	destroy_world(t_world *world);

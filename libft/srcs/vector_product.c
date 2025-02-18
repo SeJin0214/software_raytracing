@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:02:57 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 21:15:40 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:14:21 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,13 @@
 #include <stddef.h>
 #include "vector.h"
 
-float	dot_product3x3(const t_vector3 vector0, const t_vector3 vector1)
-{
-	float		result;
-	size_t		i;
-
-	result = 0.0f;
-	i = 0;
-	while (i < 3)
-	{
-		result += vector0.xyz[i] * vector1.xyz[i];
-		++i;
-	}
-	return (result);
-}
+extern inline float	dot_product3x3(const t_vector3 vector0, \
+const t_vector3 vector1);
 
 float	dot_product4x4(const t_vector4 vector0, const t_vector4 vector1)
 {
-	float		result;
-	size_t		i;
+	float	result;
+	size_t	i;
 
 	result = 0.0f;
 	i = 0;

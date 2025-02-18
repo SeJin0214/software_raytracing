@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:26:13 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 13:29:43 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:19:21 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "matrix.h"
 # include "ray.h"
 # include "hit_record.h"
+# include "libft.h"
+# include "light.h"
 # define PI 3.141592f
 
 /* render.c */
@@ -28,21 +30,24 @@ t_ray		get_ray_mappied_to_pixel(const t_camera camera, \
 const float x_angle_to_convert, const float y_angle_to_convert);
 bool		is_collision(const t_hit_record record);
 
-/* light.c */
-t_ivector3	load_diffuse_color(const t_light light, \
-const t_hit_record hit_record);
-t_ivector3	load_ambient_color(const t_ambient_light ambient, \
-const t_hit_record hit_record);
-
-/* shadow.c */
-bool		is_shadowed_surface(t_world *world, \
-const t_vector3 surface, void *object);
-t_ivector3	reflect_light(const t_ivector3 ligth_resource_color, \
-const t_ivector3 surface_color);
-
 /* render_util.c */
-int			convert_colors(t_ivector3 colors);
-t_ivector3	add_color(const t_ivector3 color0, const t_ivector3 color1);
-float		get_radian(const float degree);
+inline int	convert_colors(t_ivector3 colors)
+{
+	return ((colors.x << 16) + (colors.y << 8) + colors.z);
+}
+
+inline t_ivector3	add_color(const t_ivector3 color0, const t_ivector3 color1)
+{
+	t_ivector3	result;
+
+	result.x = get_min(color0.x + color1.x, 255);
+	result.y = get_min(color0.y + color1.y, 255);
+	result.z = get_min(color0.z + color1.z, 255);
+	return (result);
+}
+inline float	get_radian(const float degree)
+{
+	return (degree * PI / 180);
+}
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:00:54 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 16:41:09 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:14:54 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int	ft_putendl_fd(const char *s, int fd)
 {
 	const int	count = ft_putstr_fd(s, fd);
 	const int	add = write(fd, "\n", 1);
-	
+
 	return (count + add);
 }

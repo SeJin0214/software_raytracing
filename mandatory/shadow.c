@@ -6,24 +6,15 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:13:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 17:01:46 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:19:37 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "world.h"
+#include "render.h"
 
-t_ivector3	reflect_light(const t_ivector3 ligth_resource_color, \
-const t_ivector3 surface_color)
-{
-	const t_ivector3	refloection_color = \
-	{{\
-		ligth_resource_color.x * surface_color.x / 255, \
-		ligth_resource_color.y * surface_color.y / 255, \
-		ligth_resource_color.z * surface_color.z / 255, \
-	}};
-
-	return (refloection_color);
-}
+extern inline t_ivector3	reflect_light(\
+const t_ivector3 ligth_resource_color, const t_ivector3 surface_color);
 
 bool	is_shadowed_surface(t_world *world, \
 const t_vector3 surface, void *object)

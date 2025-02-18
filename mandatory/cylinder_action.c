@@ -6,14 +6,14 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:31:11 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 13:50:14 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:20:52 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "solid_shape.h"
 
-void		update_scale_diameter_cylinder(void *obj, \
+void	update_scale_diameter_cylinder(void *obj, \
 const t_action action)
 {
 	t_cylinder	*cylinder;
@@ -29,7 +29,7 @@ const t_action action)
 	}
 }
 
-void		update_scale_height_cylinder(void *obj, \
+void	update_scale_height_cylinder(void *obj, \
 const t_action action)
 {
 	t_cylinder	*cylinder;

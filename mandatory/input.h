@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:01:32 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 14:22:15 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:20:19 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 # include "canvas.h"
 
 typedef struct s_world	t_world;
-
 typedef	struct s_input
 {
 	t_world		*world;
