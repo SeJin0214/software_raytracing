@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 15:07:22 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 02:28:28 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ bool	is_hit_sphere(const t_ray ray, const void *obj, t_hit_record *out)
 		return (false);
 	solution = (-equation.b - sqrtf(equation.b * equation.b \
 	- 4 * equation.a * equation.c)) / (2 * equation.a);
-	if (solution <= 0 || out->t <= solution)
+	if (solution <= 0 || out->t < solution)
 	{
 		solution = (-equation.b + sqrtf(equation.b * equation.b \
 		- 4 * equation.a * equation.c)) / (2 * equation.a);
-		if (solution <= 0 || out->t <= solution)
+		if (solution <= 0 || out->t < solution)
 			return (false);
 	}
 	set_hit_record_by_sphere(out, solution, ray, sphere);

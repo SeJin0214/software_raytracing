@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   check_conversion_letter.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:58:01 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/07/22 11:58:03 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:03:10 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 #include <stdio.h>
+#include "ft_math.h"
 
 int	check_conversion(const char **str, va_list ap, t_data *data)
 {

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:58:59 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/07/24 11:00:50 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:03:51 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 #include "libft.h"
+#include "ft_math.h"
 
 void	*ft_realloc(void *pa, size_t src_size, size_t dest_size)
 {

@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/18 14:59:23 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/20 02:59:52 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,11 @@ SRCS = $(SRCS_DIR)/main.c \
 	$(SRCS_DIR)/sphere_action.c \
 	$(SRCS_DIR)/world.c \
 	$(SRCS_DIR)/render_util.c \
-	$(SRCS_DIR)/light.c
+	$(SRCS_DIR)/light.c \
+	$(SRCS_DIR)/quaternion.c \
+	$(SRCS_DIR)/input_object.c \
+	$(SRCS_DIR)/input_camera.c \
+	$(SRCS_DIR)/input_light.c \
 	
 BONUS_DIR = ./bonus
 

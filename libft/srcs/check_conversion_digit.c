@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_conversion_digit.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sejjeong <sejjeong@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:57:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2024/07/22 11:57:57 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:02:51 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
+#include "ft_math.h"
 #include <stdio.h>
 
 int	convert_digit(t_data *data, const char *num)

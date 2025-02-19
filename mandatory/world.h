@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:08:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/18 14:51:48 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 03:01:26 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ bool	try_add_ambient_light_to_world(char **attributes, t_world *world);
 bool	try_add_light_to_world(char **attributes, t_world *world);
 bool	try_add_camera_to_world(char **attributes, \
 t_world *world, t_canvas *canvas);
+
+/* camera.c */
 void	init_camera(t_world *world, t_canvas *canvas);
+void	move_camera(t_camera *camera, const t_action action);
+void	rotate_camera(t_camera *camera, const t_action action);
 
 #endif

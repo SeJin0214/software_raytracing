@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:46:14 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 19:37:28 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:48:46 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 bool	is_hit_cylinder(const t_ray ray, const void *obj, t_hit_record *out)
 {
-	const t_cylinder			*cylinder = obj;
-	const t_quadratic_equation	equation = \
-	load_hit_cylinder_equation(ray, *cylinder);
+	const t_cylinder			*cy = obj;
+	const t_quadratic_equation	equation = load_hit_cy_equation(ray, *cy);
 	float						solution;
-	float						height;
+	bool						is_hit;
 
+	is_hit = is_hit_cylinder_end_cap(ray, cy, out);
 	solution = (-equation.b - sqrtf(\
 	equation.b * equation.b - 4 * equation.a * equation.c)) / (2 * equation.a);
 	if (solution <= 0 || out->t <= solution)
@@ -29,17 +29,17 @@ bool	is_hit_cylinder(const t_ray ray, const void *obj, t_hit_record *out)
 		solution = (-equation.b + sqrtf(equation.b * \
 		equation.b - 4 * equation.a * equation.c)) / (2 * equation.a);
 		if (solution <= 0 || out->t <= solution)
-			return (false);
+			return (is_hit);
 	}
-	height = calculate_cylinder_hit_height(ray, *cylinder, solution);
-	if (equation.discriminant <= 0 || height > cylinder->height / 2)
-		return (is_hit_cylinder_end_cap(ray, cylinder, out));
+	if (equation.discriminant <= 0 || calculate_cylinder_hit_height(ray, \
+	*cy, solution) > cy->height / 2)
+		return (is_hit);
 	out->t = solution;
 	out->point = get_point_in_ray(ray, out->t);
 	out->normal = divide_vector3(subtract_vector3(\
-	out->point, cylinder->shape.coordinates), cylinder->diameter / 2);
-	out->color = cylinder->shape.colors;
-	out->object = (void *)cylinder;
+	out->point, cy->shape.coordinates), cy->diameter / 2);
+	out->color = cy->shape.colors;
+	out->object = (void *)cy;
 	return (true);
 }
 
@@ -49,25 +49,24 @@ const t_cylinder *cylinder, t_hit_record *out)
 	const t_vector3	n = cylinder->shape.local_basis.row[Z];
 	const t_ray		upward_ray = get_ray(cylinder->shape.coordinates, n);
 	const t_vector3	up_c = get_point_in_ray(upward_ray, cylinder->height / 2);
-	t_vector3		down_c;
+	const t_vector3	down_c = get_point_in_ray(upward_ray, \
+	-(cylinder->height / 2));
+	bool			is_hit;
 
-	if (is_hit_up_cap(ray, cylinder, up_c, out))
-	{
-		return (true);
-	}
-	down_c = get_point_in_ray(upward_ray, -(cylinder->height / 2));
-	if (is_hit_down_cap(ray, cylinder, down_c, out))
-	{
-		return (true);
-	}
-	return (false);
+	is_hit = is_hit_up_cap(ray, cylinder, up_c, out);
+	is_hit = is_hit_down_cap(ray, cylinder, down_c, out) || is_hit;
+	return (is_hit);
 }
 
 /** 
- * (p - c) * N = 0
- * (O + sD - (C + hB)) * N = 0
- * NO + sND - NC = 0
- * s = N(C + hB - O) / ND 
+ * P = O + tD
+ * c = C + hB 
+ * D = camera direction
+ * N = local_basis[Z]
+ * (P - c) * N = 0
+ * (O + tD - c) * N = 0
+ * NO + tND - Nc = 0
+ * t = N(c - O) / ND 
 */	
 bool	is_hit_up_cap(const t_ray ray, const t_cylinder *cylinder, \
 const t_vector3 up_c, t_hit_record *out)
@@ -80,13 +79,13 @@ const t_vector3 up_c, t_hit_record *out)
 	t_vector3		p;
 	t_vector3		p_sub_c;
 
-	if (denominator == 0 || numerator / denominator <= 0 \
+	if (denominator == 0 || numerator / denominator < 0 \
 	|| numerator / denominator >= out->t)
 		return (false);
 	solution = numerator / denominator;
 	p = get_point_in_ray(ray, solution);
 	p_sub_c = subtract_vector3(p, up_c);
-	if (dot_product3x3(p_sub_c, p_sub_c) >= \
+	if (get_length_in_vector3(p_sub_c) * get_length_in_vector3(p_sub_c) > \
 	(cylinder->diameter / 2) * (cylinder->diameter / 2))
 		return (false);
 	out->t = solution;
@@ -108,13 +107,13 @@ const t_vector3 down_c, t_hit_record *out)
 	t_vector3		p;
 	t_vector3		p_sub_c;
 
-	if (denominator == 0 || numerator / denominator <= 0 \
+	if (denominator == 0 || numerator / denominator < 0 \
 	|| numerator / denominator >= out->t)
 		return (false);
 	solution = numerator / denominator;
 	p = get_point_in_ray(ray, solution);
 	p_sub_c = subtract_vector3(p, down_c);
-	if (dot_product3x3(p_sub_c, p_sub_c) >= \
+	if (dot_product3x3(p_sub_c, p_sub_c) > \
 	(cylinder->diameter / 2) * (cylinder->diameter / 2))
 		return (false);
 	out->t = solution;

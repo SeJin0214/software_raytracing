@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:49:21 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/12 19:46:11 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 00:06:02 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,20 @@ bool			has_uppercase(const char *str);
 void			do_nothing(void *object);
 
 /* memory */
-void			*ft_memset(void *dest, int c, size_t n);
+inline void	*ft_memset(void *dest, int c, size_t n)
+{
+	char	*p;
+	size_t	count;
+
+	p = dest;
+	count = 0;
+	while (count++ < n)
+	{
+		*p++ = (char)c;
+	}
+	return (dest);
+}
+
 void			ft_bzero(void *dest, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
@@ -106,12 +119,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
 t_list			*ft_lst_prev_or_null(t_list *head, t_list *current);
 
 /* math */
-int				get_min(int num0, int num1);
-int				get_max(int num0, int num1);
-int				get_abs(int num0, int num1);
 unsigned int	generate_hash_65599(const char *str);
-int				lerp_int(int int1, int int2, float t);
-float			lerp(const float a, const float b, const float t);
 
 void			sprint_itoa(char *dest, int num);
 void			sprint_uitoa(char *dest, unsigned int num);

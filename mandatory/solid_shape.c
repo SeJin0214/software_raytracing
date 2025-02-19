@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 15:08:02 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 02:39:54 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "world.h"
 #include "solid_shape.h"
 #include "vector.h"
+#include "quaternion.h"
 
 void	move_shape(void *obj, const t_action action)
 {
@@ -45,28 +46,28 @@ void	move_shape(void *obj, const t_action action)
 
 void	rotate_shape(void *obj, const t_action action)
 {
+	t_quaternion	current;
 	t_solid_shape	*shape;
+	t_quaternion	q_delta;
 
 	shape = obj;
-	// 나중에 변경
+	current = convert_quaternion(shape->local_basis);
 	if (action == ACTION_X_AXIS_ROTATING_OBJECT_CLOCKWISE)
-		shape->coordinates = add_vector3(shape->coordinates, \
-		shape->local_basis.row[Y]);
+		q_delta = get_rotation_quaternion(shape->local_basis.row[X], 5);
 	else if (action == ACTION_X_AXIS_ROTATING_OBJECT_COUNTERCLOCKWISE)
-		shape->coordinates = subtract_vector3(shape->coordinates, \
-		shape->local_basis.row[Y]);
+		q_delta = get_rotation_quaternion(shape->local_basis.row[X], -5);
 	else if (action == ACTION_Y_AXIS_ROTATING_OBJECT_CLOCKWISE)
-		shape->coordinates = subtract_vector3(shape->coordinates, \
-		shape->local_basis.row[X]);
+		q_delta = get_rotation_quaternion(shape->local_basis.row[Y], 5);
 	else if (action == ACTION_Y_AXIS_ROTATING_OBJECT_COUNTERCLOCKWISE)
-		shape->coordinates = add_vector3(shape->coordinates, \
-		shape->local_basis.row[X]);
+		q_delta = get_rotation_quaternion(shape->local_basis.row[Y], -5);
 	else if (action == ACTION_Z_AXIS_ROTATING_OBJECT_CLOCKWISE)
-		shape->coordinates = add_vector3(shape->coordinates, \
-		shape->local_basis.row[Z]);
+		q_delta = get_rotation_quaternion(shape->local_basis.row[Z], 5);
 	else if (action == ACTION_Z_AXIS_ROTATING_OBJECT_COUNTERCLOCKWISE)
-		shape->coordinates = subtract_vector3(shape->coordinates, \
-		shape->local_basis.row[Z]);
+		q_delta = get_rotation_quaternion(shape->local_basis.row[Z], -5);
+	shape->local_basis = convert_matrix(hamilton_product(current, q_delta));
+	shape->local_basis.row[X] = normalize_vector3(shape->local_basis.row[X]);
+	shape->local_basis.row[Y] = normalize_vector3(shape->local_basis.row[Y]);
+	shape->local_basis.row[Z] = normalize_vector3(shape->local_basis.row[Z]);
 }
 
 t_matrix3x3	get_local_basis(t_vector3 n)

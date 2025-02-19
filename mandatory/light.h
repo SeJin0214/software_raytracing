@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:38:54 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/18 14:53:30 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 03:01:52 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ const t_hit_record hit_record)
 
 	return (result_color);
 }
+
+void	move_light(t_light *light, const t_action action);
 
 #endif

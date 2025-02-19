@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:22:38 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 19:34:42 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:32:02 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
  * c : (M┵ * M┵) - r^2
 */
 
-t_quadratic_equation	load_hit_cylinder_equation(const t_ray ray, \
+t_quadratic_equation	load_hit_cy_equation(const t_ray ray, \
 const t_cylinder cylinder)
 {
 	t_quadratic_equation	result;

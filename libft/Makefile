@@ -88,7 +88,6 @@ SRCS = $(SRC_DIR)/ft_isalpha.c \
 	$(SRC_DIR)/has_uppercase.c \
 	$(SRC_DIR)/clear_ints.c \
 	$(SRC_DIR)/exit_by_error.c \
-	$(SRC_DIR)/lerp.c \
 	$(SRC_DIR)/swap_type.c \
 	$(SRC_DIR)/string_builder.c \
 	$(SRC_DIR)/builder_buffer.c \

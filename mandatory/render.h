@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:26:13 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/18 15:19:21 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:01:57 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "hit_record.h"
 # include "libft.h"
 # include "light.h"
+# include "ft_math.h"
 # define PI 3.141592f
 
 /* render.c */
@@ -44,10 +45,6 @@ inline t_ivector3	add_color(const t_ivector3 color0, const t_ivector3 color1)
 	result.y = get_min(color0.y + color1.y, 255);
 	result.z = get_min(color0.z + color1.z, 255);
 	return (result);
-}
-inline float	get_radian(const float degree)
-{
-	return (degree * PI / 180);
 }
 
 #endif

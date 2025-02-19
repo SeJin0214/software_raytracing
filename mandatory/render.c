@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:28:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/18 14:49:20 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 00:58:24 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "libft.h"
 #include "solid_shape.h"
 #include "light.h"
+#include "ft_math.h"
 
 void	render(t_world *world, t_canvas *canvas)
 {
@@ -66,10 +67,10 @@ const float x_angle_to_convert, const float y_angle_to_convert)
 
 int	load_pixel_color(t_world *world, const t_ray ray)
 {
-	t_ivector3		color;
 	size_t			i;
 	t_hit_record	hit_record;
 	t_solid_shape	**shape;
+	t_ivector3		diffuse;
 
 	i = 0;
 	hit_record = get_hit_record();
@@ -81,15 +82,15 @@ int	load_pixel_color(t_world *world, const t_ray ray)
 	}
 	if (is_collision(hit_record) == false)
 		return (convert_colors(get_ivector3(0, 0, 0)));
-	color = add_color(load_diffuse_color(world->light, hit_record), \
-	load_ambient_color(world->ambient_light, hit_record));
-	if (is_shadowed_surface(world, hit_record.point, hit_record.object))
+	diffuse = load_diffuse_color(world->light, hit_record);
+	if (ft_memcmp(&diffuse, &((t_ivector3){{0, 0, 0}}), sizeof(t_ivector3)) \
+	== 0 || is_shadowed_surface(world, hit_record.point, hit_record.object))
 	{
-		color.x /= 2;
-		color.y /= 2;
-		color.z /= 2;
+		return (convert_colors(\
+		load_ambient_color(world->ambient_light, hit_record)));
 	}
-	return (convert_colors(color));
+	return (convert_colors(add_color(diffuse, \
+	load_ambient_color(world->ambient_light, hit_record))));
 }
 
 bool	is_collision(const t_hit_record record)

@@ -6,13 +6,14 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:38:37 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 19:08:01 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:02:26 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "canvas.h"
 #include "libft.h"
+#include "ft_math.h"
 
 void	init_canvas(t_canvas *out_canvas)
 {

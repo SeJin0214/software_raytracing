@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:42:46 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/18 14:19:35 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/19 13:15:26 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define MATRIX_H
 # include <stdalign.h>
 # include "vector.h"
+# define X 0
+# define Y 1
+# define Z 2
 
 typedef union __attribute__((aligned(16))) s_matrix3x3
 {

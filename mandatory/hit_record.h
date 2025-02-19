@@ -6,13 +6,16 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:25:48 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 13:45:05 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/19 22:13:30 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HIT_RECORD_H
 # define HIT_RECORD_H
+# include <limits.h>
 # include "vector.h"
+# include "libft.h"
+# include "float.h"
 
 typedef struct s_hit_record
 {
@@ -23,6 +26,15 @@ typedef struct s_hit_record
 	void		*object;
 }	t_hit_record;
 
-t_hit_record	get_hit_record(void);
+inline t_hit_record	get_hit_record(void)
+{
+	t_hit_record	result;
+
+	result.t = FLT_MAX;
+	ft_memset(&result.color, INT_MIN, sizeof(t_ivector3));
+	ft_memset(&result.point, INT_MIN, sizeof(t_vector3));
+	ft_memset(&result.normal, INT_MIN, sizeof(t_vector3));
+	return (result);
+}
 
 #endif
