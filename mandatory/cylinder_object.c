@@ -6,12 +6,12 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 16:31:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 13:36:37 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 04:30:09 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "solid_shape.h"
+#include "cylinder.h"
 
 t_cylinder	*copy_construction_to_cylinder(const t_cylinder cylinder)
 {

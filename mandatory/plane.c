@@ -6,12 +6,12 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:32:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 13:54:41 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:16:04 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "solid_shape.h"
+#include "plane.h"
 
 t_plane	*copy_construction_to_plane(const t_plane plane)
 {

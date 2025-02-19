@@ -6,12 +6,13 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 02:54:44 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 03:05:52 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:10:50 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input.h"
 #include "world.h"
+#include "light.h"
 
 bool	try_move_light(t_world *world, const int key)
 {

@@ -6,12 +6,12 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:30:46 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 02:39:53 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:00:23 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "solid_shape.h"
+#include "sphere.h"
 
 void	update_scale_diameter_sphere(void *obj, \
 const t_action action)

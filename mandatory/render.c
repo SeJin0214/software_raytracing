@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:28:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 00:58:24 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:00:38 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include "float.h"
 #include "libft.h"
 #include "solid_shape.h"
-#include "light.h"
 #include "ft_math.h"
+#include "shadow.h"
 
 void	render(t_world *world, t_canvas *canvas)
 {

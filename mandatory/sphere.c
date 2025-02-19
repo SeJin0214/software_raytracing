@@ -6,13 +6,13 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 02:28:28 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:01:42 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <math.h>
-#include "solid_shape.h"
+#include "sphere.h"
 #include "equation.h"
 
 t_sphere	*copy_construction_to_sphere(const t_sphere sphere)
@@ -63,13 +63,5 @@ bool	is_hit_sphere(const t_ray ray, const void *obj, t_hit_record *out)
 	return (true);
 }
 
-void	set_hit_record_by_sphere(t_hit_record *out, \
-const float solution, const t_ray ray, const t_sphere *sphere)
-{
-	out->t = solution;
-	out->point = get_point_in_ray(ray, out->t);
-	out->normal = divide_vector3(subtract_vector3(out->point, \
-	sphere->shape.coordinates), sphere->diameter);
-	out->color = sphere->shape.colors;
-	out->object = (void *)sphere;
-}
+extern inline void	set_hit_record_by_sphere(t_hit_record *out, \
+const float solution, const t_ray ray, const t_sphere *sphere);

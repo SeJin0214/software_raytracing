@@ -6,12 +6,12 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:31:11 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/19 17:26:27 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 04:26:24 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "solid_shape.h"
+#include "cylinder.h"
 
 void	update_scale_diameter_cylinder(void *obj, \
 const t_action action)

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:08:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 03:01:26 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:15:28 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "array_list.h"
 # include "vector_struct.h"
 # include "canvas.h"
-# include "light.h"
+# include "light_struct.h"
 # define VECTOR_ATTRIBUTE_COUNT 3
 # define COLORS_ATTRIBUTE_COUNT 3
 

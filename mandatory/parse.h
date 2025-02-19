@@ -6,13 +6,15 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:20:41 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 19:55:26 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 04:31:49 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSE_H
 # define PARSE_H
 # include "world.h"
+# include "plane.h"
+# include "cylinder.h"
 
 /* parse.c */
 bool	try_parse(int argc, char **argv, t_world *out_world, t_canvas *canvas);

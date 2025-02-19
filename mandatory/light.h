@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:38:54 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 03:01:52 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:08:41 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,7 @@
 # define LIGHT_H
 # include "vector.h"
 # include "shadow.h"
-
-typedef struct s_ambient_light
-{
-	float		ratio_in_range;
-	t_ivector3	colors;
-}	t_ambient_light;
-
-typedef struct s_light
-{
-	t_vector3	coordinates;
-	float		ratio_in_range;
-	t_ivector3	colors;
-}	t_light;
+# include "light_struct.h"
 
 inline t_ivector3	load_diffuse_color(const t_light light, \
 const t_hit_record hit_record)

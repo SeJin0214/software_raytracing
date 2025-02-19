@@ -6,12 +6,13 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:31:31 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 15:05:57 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/20 04:33:44 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "parse.h"
+#include "sphere.h"
 
 bool	try_add_sphere_to_world(char **attributes, t_world *world)
 {
