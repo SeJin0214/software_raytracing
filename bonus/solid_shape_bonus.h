@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 05:19:12 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 08:22:01 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,16 @@ typedef enum cylinder_attribute
 	CYLINDER_ATTRIBUTE_COLORS,
 	CYLINDER_ATTRIBUTE_LENGTH
 }	t_cylinder_attribute;
+
+typedef enum cone_attribute
+{
+	CONE_ATTRIBUTE_COORDINATES = 1,
+	CONE_ATTRIBUTE_NORMALIZED_VECTOR,
+	CONE_ATTRIBUTE_DIAMETER,
+	CONE_ATTRIBUTE_HEIGHT,
+	CONE_ATTRIBUTE_COLORS,
+	CONE_ATTRIBUTE_LENGTH
+}	t_cone_attribute;
 
 /* solid_shape.c */
 void		move_shape(void *obj, const t_action action);

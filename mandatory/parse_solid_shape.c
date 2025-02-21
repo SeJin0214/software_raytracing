@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:31:31 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 04:33:44 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 08:28:54 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	try_add_sphere_to_world(char **attributes, t_world *world)
 	attributes[SPHERE_ATTRIBUTE_CENTER], &sphere.shape.coordinates) == false \
 	|| try_atof(\
 	attributes[SPHERE_ATTRIBUTE_DIAMETER], &sphere.diameter) == false \
-	|| try_parse_color(\
+	|| sphere.diameter < __FLT_EPSILON__ || try_parse_color(\
 	attributes[SPHERE_ATTRIBUTE_COLORS], &sphere.shape.colors) == false;
 	if (is_invalid_value)
 		return (false);
@@ -122,8 +122,8 @@ bool	is_invalid_value_in_cylinder(char **attributes, t_cylinder *cylinder)
 	cylinder->shape.local_basis.row[Z]) \
 	|| try_atof(\
 	attributes[CYLINDER_ATTRIBUTE_DIAMETER], &cylinder->diameter) == false \
-	|| try_atof(\
+	|| cylinder->diameter < __FLT_EPSILON__ || try_atof(\
 	attributes[CYLINDER_ATTRIBUTE_HEIGHT], &cylinder->height) == false \
-	|| try_parse_color(\
+	|| cylinder->height < __FLT_EPSILON__ || try_parse_color(\
 	attributes[CYLINDER_ATTRIBUTE_COLORS], &cylinder->shape.colors) == false);
 }
