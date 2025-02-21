@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:46:48 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 01:50:50 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 04:52:48 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SHADOW_BONUS_H
 # include "world_bonus.h"
 
-inline bool	is_shadowed_surface(t_world *world, t_light light,
+inline bool	is_shadowed_surface(t_world *world, t_light light, \
 const t_vector3 surface, void *object)
 {
 	const t_ray		light_ray = get_ray(light.coordinates, \

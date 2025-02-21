@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:04:43 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 02:27:38 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 04:52:29 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,7 @@ t_world *world, t_canvas *canvas)
 
 bool	try_add_light_to_world(char **attributes, t_world *world)
 {
-	t_light	light;
-	
+	t_light		light;
 	bool		is_invalid_value;
 	const bool	is_invalid_format = \
 	get_count_to_words(attributes) != LIGHT_ATTRIBUTE_LENGTH \

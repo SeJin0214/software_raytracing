@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:38:54 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 02:31:16 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 04:51:14 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ const t_hit_record hit_record)
  * r = 2 * n * n * l - l
  * (r * v)^sh
 */
+
 inline t_ivector3	load_specular_color(const t_camera camera, \
 const t_light light, const t_hit_record hit_record)
 {
@@ -68,7 +69,7 @@ const t_light light, const t_hit_record hit_record)
 	const t_ivector3	specular_color = \
 	multiply_ivector3(light.colors, light_intensity);
 
-	return (specular_color);
+	return (multiply_ivector3(specular_color, light.brightness));
 }
 
 void	move_light(t_light *light, const t_action action);

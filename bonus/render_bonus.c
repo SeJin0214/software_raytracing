@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:28:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 01:57:24 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 04:53:34 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,45 +65,34 @@ const float x_angle_to_convert, const float y_angle_to_convert)
 	return (ray);
 }
 
-int	load_pixel_color(t_world *world, const t_ray ray)
+extern inline int	load_pixel_color(t_world *world, const t_ray ray);
+
+t_ivector3	load_pixel_color_by_light(t_world *world, \
+const t_hit_record hit_record)
 {
 	size_t			i;
-	t_hit_record	hit_record;
-	t_solid_shape	**shape;
 	t_light			*light;
 	t_ivector3		total_color;
 	t_ivector3		diffuse_color;
-	t_ivector3		ambient_color;
 	t_ivector3		specular_color;
 
 	i = 0;
-	hit_record = get_hit_record();
-	while (i < world->solid_shapes.count)
-	{
-		shape = get_element_or_null_in_list(&world->solid_shapes, i);
-		(*shape)->is_hit(ray, *shape, &hit_record);
-		++i;
-	}
-	if (is_collision(hit_record) == false)
-		return (convert_colors(get_ivector3(0, 0, 0)));
-	i = 0;
-	total_color = get_ivector3(0, 0, 0);
+	total_color = load_ambient_color(world->ambient_light, hit_record);
 	while (i < world->lights.count)
 	{
 		light = get_element_or_null_in_list(&world->lights, i);
-		diffuse_color = load_diffuse_color(*light, hit_record);
 		++i;
-		if (ft_memcmp(&diffuse_color, &((t_ivector3){{0, 0, 0}}), sizeof(t_ivector3)) == 0 \
-		|| is_shadowed_surface(world, *light, hit_record.point, hit_record.object))
+		if (is_shadowed_surface(world, *light, \
+		hit_record.point, hit_record.object))
 		{
 			continue ;
 		}
+		diffuse_color = load_diffuse_color(*light, hit_record);
 		specular_color = load_specular_color(world->camera, *light, hit_record);
 		total_color = add_color(total_color, specular_color);
 		total_color = add_color(total_color, diffuse_color);
 	}
-	ambient_color = load_ambient_color(world->ambient_light, hit_record);
-	return (convert_colors(add_color(total_color, ambient_color)));
+	return (total_color);
 }
 
 bool	is_collision(const t_hit_record record)
