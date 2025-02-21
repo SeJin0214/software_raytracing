@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:20:41 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 04:31:49 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 02:25:55 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool	is_invalid_value_in_cylinder(char **attributes, t_cylinder *cylinder);
 bool	try_parse_vector3(char *attribute, t_vector3 *out_result);
 bool	try_parse_color(char *attribute, t_ivector3 *out_result);
 bool	is_invalid_normalized_vector3(t_vector3 vector);
-bool	is_invalid_ratio_in_range(float ratio_in_range);
+bool	is_invalid_ratio_in_range(float brightness);
 bool	is_invalid_colors(t_ivector3 colors);
 
 #endif

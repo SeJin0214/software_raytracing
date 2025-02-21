@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:08:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:05:56 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 02:27:40 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ typedef struct s_world
 	bool			is_valid_camera;
 	t_ambient_light	ambient_light;
 	bool			is_valid_ambient_light;
-	t_light			light;
-	bool			is_valid_light;
+	t_array_list	lights;
 	t_array_list	solid_shapes;
 	size_t			current_object_index;
+	size_t			current_light_index;
 }	t_world;
 
 void	init_world(t_world *world);

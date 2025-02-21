@@ -7,7 +7,7 @@ void	print_world(t_world world)
 {
 	printf("---------------------ambient_light------------------\n");
 	printf("color->%d, %d, %d|\n", world.ambient_light.colors.x, world.ambient_light.colors.y, world.ambient_light.colors.z);
-	printf("ratio_in_range->%f|\n", world.ambient_light.ratio_in_range);
+	printf("brightness->%f|\n", world.ambient_light.brightness);
 	printf("\n\n\n");
 
 	printf("---------------------camera------------------\n");
@@ -25,7 +25,7 @@ void	print_world(t_world world)
 	printf("cordinate_x->%f\n", world.light.coordinates.x);
 	printf("cordinate_y->%f\n", world.light.coordinates.y);
 	printf("cordinate_z->%f\n", world.light.coordinates.z);
-	printf("ratio_in_range->%f|\n", world.light.ratio_in_range);
+	printf("brightness->%f|\n", world.light.brightness);
 	printf("\n\n\n");
 
 	printf("---------------------plane------------------\n");

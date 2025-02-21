@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 13:38:37 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:00:53 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/21 23:51:24 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	init_canvas(t_canvas *out_canvas)
 			(int *)&out_canvas->screen.width, \
 			(int *)&out_canvas->screen.height);
 	out_canvas->screen.height = get_min(out_canvas->screen.height, 1000);
-	out_canvas->screen.height = 1000;
 	out_canvas->screen.width = 1000;
+	out_canvas->screen.height = 1000;
 	out_canvas->win = mlx_new_window(out_canvas->xvar, \
 			out_canvas->screen.width, out_canvas->screen.height, "miniRT");
 	if (out_canvas->win == NULL)

@@ -6,12 +6,11 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:49:21 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 04:48:47 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/21 20:53:12 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-
 # define LIBFT_H
 # include <stddef.h>
 # include <stdbool.h>

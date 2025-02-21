@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:04:43 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:03:02 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 02:27:38 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ void	init_world(t_world *world)
 {
 	world->is_valid_ambient_light = false;
 	world->is_valid_camera = false;
-	world->is_valid_light = false;
 	world->current_object_index = 0;
+	world->current_light_index = 0;
 	init_array_list(&world->solid_shapes, sizeof(t_solid_shape *));
+	init_array_list(&world->lights, sizeof(t_light));
 }
 
 void	destroy_world(t_world *world)
 {
 	destroy_shapes(&world->solid_shapes);
+	world->lights.destroy(&world->lights, do_nothing);
 }
 
 bool	try_add_ambient_light_to_world(char **attributes, t_world *world)
@@ -45,8 +47,8 @@ bool	try_add_ambient_light_to_world(char **attributes, t_world *world)
 	}
 	is_invalid_value = \
 	try_atof(attributes[AMBIENT_ATTRIBUTE_RATIO_IN_RANGE], \
-	&world->ambient_light.ratio_in_range) == false \
-	|| is_invalid_ratio_in_range(world->ambient_light.ratio_in_range) \
+	&world->ambient_light.brightness) == false \
+	|| is_invalid_ratio_in_range(world->ambient_light.brightness) \
 	|| try_parse_color(attributes[AMBIENT_ATTRIBUTE_COLORS], \
 	&world->ambient_light.colors) == false;
 	if (is_invalid_value)
@@ -87,6 +89,8 @@ t_world *world, t_canvas *canvas)
 
 bool	try_add_light_to_world(char **attributes, t_world *world)
 {
+	t_light	light;
+	
 	bool		is_invalid_value;
 	const bool	is_invalid_format = \
 	get_count_to_words(attributes) != LIGHT_ATTRIBUTE_LENGTH \
@@ -95,20 +99,20 @@ bool	try_add_light_to_world(char **attributes, t_world *world)
 	|| get_count_words(attributes[LIGHT_ATTRIBUTE_COLORS], ',') \
 	!= COLORS_ATTRIBUTE_COUNT;
 
-	if (is_invalid_format || world->is_valid_light)
+	if (is_invalid_format)
 	{
 		return (false);
 	}
 	is_invalid_value = \
 	try_parse_vector3(attributes[LIGHT_ATTRIBUTE_COORDINATES], \
-	&world->light.coordinates) == false \
+	&light.coordinates) == false \
 	|| try_atof(attributes[LIGHT_ATTRIBUTE_RATIO_IN_RANGE], \
-	&world->light.ratio_in_range) == false \
-	|| is_invalid_ratio_in_range(world->light.ratio_in_range) \
+	&light.brightness) == false \
+	|| is_invalid_ratio_in_range(light.brightness) \
 	|| try_parse_color(attributes[LIGHT_ATTRIBUTE_COLORS], \
-	&world->light.colors) == false;
+	&light.colors) == false;
 	if (is_invalid_value)
 		return (false);
-	world->is_valid_light = true;
+	world->lights.add(&world->lights, &light);
 	return (true);
 }

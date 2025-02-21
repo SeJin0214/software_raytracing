@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:02:30 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 00:10:20 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,10 @@ t_matrix3x3	get_local_basis(t_vector3 n)
 	if (is_uneqaul_vector3(up, n) == false)
 	{
 		up = get_vector3(0.0f, 0.0f, -1.0f);
+	}
+	else if (is_uneqaul_vector3(n, (t_vector3){{0.0f, -1.0f, 0.0f}}) == false)
+	{
+		up = get_vector3(0.0f, 0.0f, 1.0f);
 	}
 	result.row[X] = cross_product3x3(up, n);
 	result.row[Y] = cross_product3x3(n, result.row[X]);

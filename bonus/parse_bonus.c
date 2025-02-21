@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:17:36 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:01:38 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:08:55 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	try_parse(int argc, char **argv, t_world *out_world, t_canvas *canvas)
 	if (try_parse_file(argv[1], out_world, canvas) == false \
 	|| out_world->is_valid_ambient_light == false \
 	|| out_world->is_valid_camera == false \
-	|| out_world->is_valid_light == false)
+	|| out_world->lights.get_count(&out_world->lights) == 0)
 	{
 		destroy_world(out_world);
 		return (false);

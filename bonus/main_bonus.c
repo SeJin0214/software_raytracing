@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:08:38 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/21 21:20:25 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 #include "render_bonus.h"
 #include "input_bonus.h"
 
-// 쓰레드 .. 
 int	main(int argc, char **argv)
 {
 	t_world		world;
@@ -60,7 +59,8 @@ int	input_key(int key, t_input *input)
 	|| try_change_shape(input->world, key) \
 	|| try_move_camera(input->world, key) \
 	|| try_rotate_camera(input->world, key) \
-	|| try_move_light(input->world, key))
+	|| try_move_light(input->world, key) \
+	|| try_change_light(input->world, key))
 	{
 		render(input->world, input->canvas);
 	}

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:01:32 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:06:12 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/21 21:13:42 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ typedef enum action
 	ACTION_LIGHT_MOVE_RIGHT,
 	ACTION_LIGHT_MOVE_FRONT,
 	ACTION_LIGHT_MOVE_BACK,
+	ACTION_NEXT_LIGHT,
+	ACTION_PREVIOUS_LIGHT,
 	ACTION_CAMERA_MOVE_UP,
 	ACTION_CAMERA_MOVE_DOWN,
 	ACTION_CAMERA_MOVE_LEFT,
@@ -106,5 +108,6 @@ bool	try_rotate_camera(t_world *world, const int key);
 
 /* input_light.c */
 bool	try_move_light(t_world *world, const int key);
+bool	try_change_light(t_world *world, const int key);
 
 #endif

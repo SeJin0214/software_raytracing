@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:04:43 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 05:00:25 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 02:25:41 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ bool	try_add_ambient_light_to_world(char **attributes, t_world *world)
 	}
 	is_invalid_value = \
 	try_atof(attributes[AMBIENT_ATTRIBUTE_RATIO_IN_RANGE], \
-	&world->ambient_light.ratio_in_range) == false \
-	|| is_invalid_ratio_in_range(world->ambient_light.ratio_in_range) \
+	&world->ambient_light.brightness) == false \
+	|| is_invalid_ratio_in_range(world->ambient_light.brightness) \
 	|| try_parse_color(attributes[AMBIENT_ATTRIBUTE_COLORS], \
 	&world->ambient_light.colors) == false;
 	if (is_invalid_value)
@@ -103,8 +103,8 @@ bool	try_add_light_to_world(char **attributes, t_world *world)
 	try_parse_vector3(attributes[LIGHT_ATTRIBUTE_COORDINATES], \
 	&world->light.coordinates) == false \
 	|| try_atof(attributes[LIGHT_ATTRIBUTE_RATIO_IN_RANGE], \
-	&world->light.ratio_in_range) == false \
-	|| is_invalid_ratio_in_range(world->light.ratio_in_range) \
+	&world->light.brightness) == false \
+	|| is_invalid_ratio_in_range(world->light.brightness) \
 	|| try_parse_color(attributes[LIGHT_ATTRIBUTE_COLORS], \
 	&world->light.colors) == false;
 	if (is_invalid_value)

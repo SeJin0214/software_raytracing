@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:19:04 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/13 20:08:59 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 02:25:41 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ bool	is_invalid_normalized_vector3(t_vector3 vector)
 	|| vector.z > 1.0f || vector.z < -1.0f);
 }
 
-bool	is_invalid_ratio_in_range(float ratio_in_range)
+bool	is_invalid_ratio_in_range(float brightness)
 {
-	return (ratio_in_range < 0.0f || ratio_in_range > 1.0f);
+	return (brightness < 0.0f || brightness > 1.0f);
 }
 
 bool	is_invalid_colors(t_ivector3 colors)
