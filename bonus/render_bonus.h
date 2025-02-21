@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:26:13 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 04:45:08 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 07:42:56 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,26 @@
 # include "libft.h"
 # include "light_bonus.h"
 # include "ft_math.h"
+# include "renderer_bonus.h"
 # define PI 3.141592f
 
 /* render.c */
-void		render(t_world *world, t_canvas *canvas);
+void		render_multi_thread(t_world *world, t_canvas *canvas);
+void		*render(void *obj);
 bool		is_collision(const t_hit_record record);
-t_ivector3	load_pixel_color_by_light(t_world *world, \
+t_ivector3	load_pixel_color_by_light(const t_world *world, \
 const t_hit_record hit_record);
-void		put_color_in_image_frame(t_canvas *canvas, \
-const int x, const int y, const int color);
+void		put_color_in_image_frame(t_renderer *renderer, const int x, \
+const int y, const int color);
 t_ray		get_ray_mappied_to_pixel(const t_camera camera, \
 const float x_angle_to_convert, const float y_angle_to_convert);
 
-inline int	convert_colors(t_ivector3 colors)
+inline int	convert_colors(const t_ivector3 colors)
 {
 	return ((colors.x << 16) + (colors.y << 8) + colors.z);
 }
 
-inline int	load_pixel_color(t_world *world, const t_ray ray)
+inline int	load_pixel_color(const t_world *world, const t_ray ray)
 {
 	size_t			i;
 	t_hit_record	hit_record;
@@ -47,7 +49,8 @@ inline int	load_pixel_color(t_world *world, const t_ray ray)
 	hit_record = get_hit_record();
 	while (i < world->solid_shapes.count)
 	{
-		shape = get_element_or_null_in_list(&world->solid_shapes, i);
+		shape = get_element_or_null_in_list(\
+		(t_array_list *)(&world->solid_shapes), i);
 		(*shape)->is_hit(ray, *shape, &hit_record);
 		++i;
 	}

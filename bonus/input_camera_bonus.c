@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 02:30:25 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:00:59 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 05:21:38 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 bool	try_move_camera(t_world *world, const int key)
 {
-	t_action		action;
+	t_action	action;
 
 	if (key == ARROW_UP)
 		action = ACTION_CAMERA_MOVE_FRONT;
@@ -37,7 +37,7 @@ bool	try_move_camera(t_world *world, const int key)
 
 bool	try_rotate_camera(t_world *world, const int key)
 {
-	t_action		action;
+	t_action	action;
 
 	if (key == TENKEY_4)
 		action = ACTION_Z_AXIS_ROTATING_CAMERA_COUNTERCLOCKWISE;

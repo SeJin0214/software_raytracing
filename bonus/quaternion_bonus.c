@@ -6,15 +6,16 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 13:13:00 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 19:51:55 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 05:28:47 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "quaternion_bonus.h"
 
-extern inline t_quaternion	get_rotation_quaternion(t_vector3 v, float degree);
+extern inline t_quaternion	get_rotation_quaternion(const t_vector3 v, \
+float degree);
 
-t_quaternion	hamilton_product(t_quaternion q1, t_quaternion q2)
+t_quaternion	hamilton_product(const t_quaternion q1, const t_quaternion q2)
 {
 	t_quaternion	q;
 
@@ -25,7 +26,7 @@ t_quaternion	hamilton_product(t_quaternion q1, t_quaternion q2)
 	return (q);
 }
 
-t_matrix3x3	convert_matrix(t_quaternion q)
+t_matrix3x3	convert_matrix(const t_quaternion q)
 {
 	t_matrix3x3	m;
 
@@ -41,7 +42,7 @@ t_matrix3x3	convert_matrix(t_quaternion q)
 	return (m);
 }
 
-t_quaternion	convert_quaternion(t_matrix3x3 m)
+t_quaternion	convert_quaternion(const t_matrix3x3 m)
 {
 	const float		tr = m.row_f[0][0] + m.row_f[1][1] + m.row_f[2][2];
 	float			s;
@@ -69,7 +70,7 @@ t_quaternion	convert_quaternion(t_matrix3x3 m)
 	return (get_quaternion_conjugate(convert_quaternion_extension(m)));
 }
 
-t_quaternion	convert_quaternion_extension(t_matrix3x3 m)
+t_quaternion	convert_quaternion_extension(const t_matrix3x3 m)
 {
 	float			s;
 	t_quaternion	q;
@@ -93,7 +94,7 @@ t_quaternion	convert_quaternion_extension(t_matrix3x3 m)
 	return (q);
 }
 
-t_quaternion	get_quaternion_conjugate(t_quaternion q)
+t_quaternion	get_quaternion_conjugate(const t_quaternion q)
 {
 	t_quaternion	result;
 

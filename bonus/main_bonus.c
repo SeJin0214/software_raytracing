@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 04:54:08 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 07:51:45 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@
 #include "parse_bonus.h"
 #include "render_bonus.h"
 #include "input_bonus.h"
+#include "renderer_bonus.h"
 #include <sys/time.h>
+#include <pthread.h>
 
 int	main(int argc, char **argv)
 {
@@ -39,7 +41,7 @@ int	main(int argc, char **argv)
 	}
 	input.canvas = &canvas;
 	input.world = &world;
-	render(&world, &canvas);
+	render_multi_thread(&world, &canvas);
 	mlx_hook(canvas.win, X_BUTTON, 0, mlx_loop_end, canvas.xvar);
 	mlx_key_hook(canvas.win, input_key, &input);
 	mlx_loop(canvas.xvar);
@@ -69,8 +71,9 @@ int	input_key(int key, t_input *input)
 	|| try_move_light(input->world, key) \
 	|| try_change_light(input->world, key))
 	{
-		render(input->world, input->canvas);
+		render_multi_thread(input->world, input->canvas);
 	}
+	
 	gettimeofday(&end, NULL);
 
     elapsedTime = (end.tv_sec - start.tv_sec) +
@@ -78,4 +81,33 @@ int	input_key(int key, t_input *input)
 
     printf("myFunction() 실행 시간: %f 초\n", elapsedTime);
 	return (0);
+}
+
+void	render_multi_thread(t_world *world, t_canvas *canvas)
+{
+	pthread_t	pids[16];
+	size_t		i;
+	t_renderer	renderer[16];
+
+	i = 0;
+	while (i < 16)
+	{
+		renderer[i].world = world;
+		renderer[i].canvas = canvas;
+		renderer[i].start_x = canvas->screen.width / 4.0f * (i % 4);
+		renderer[i].last_x = canvas->screen.width / 4.0f * (i % 4 + 1);
+		renderer[i].start_y = canvas->screen.height / 4.0f * (i / 4);
+		renderer[i].last_y = canvas->screen.height / 4.0f * (i / 4 + 1);
+		pthread_mutex_init(&renderer[i].canvas_lock, NULL);
+		pthread_create(&pids[i], NULL, render, &renderer[i]);
+		++i;
+	}
+	i = 0;
+	while (i < 16)
+	{
+		pthread_join(pids[i], NULL);
+		pthread_mutex_destroy(&renderer[i].canvas_lock);
+		++i;
+	}
+	mlx_put_image_to_window(canvas->xvar, canvas->win, canvas->img, 0, 0);
 }

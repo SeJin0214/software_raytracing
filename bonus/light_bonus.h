@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:38:54 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 04:51:14 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 08:00:33 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ const t_light light, const t_hit_record hit_record)
 	dot_product3x3(hit_record.normal, surface_to_light) * 2), \
 	surface_to_light));
 	const float			light_intensity = \
-	powf(fmaxf(dot_product3x3(reflection_v, surface_to_camera), 0.0f), 64);
+	powf(fmaxf(dot_product3x3(reflection_v, surface_to_camera), 0.0f), 32);
 	const t_ivector3	specular_color = \
 	multiply_ivector3(light.colors, light_intensity);
 

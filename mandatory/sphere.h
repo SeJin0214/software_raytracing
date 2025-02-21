@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 04:27:10 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 05:00:24 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 08:07:13 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ const float solution, const t_ray ray, const t_sphere *sphere)
 {
 	out->t = solution;
 	out->point = get_point_in_ray(ray, out->t);
-	out->normal = divide_vector3(subtract_vector3(out->point, \
-	sphere->shape.coordinates), sphere->diameter);
+	out->normal = normalize_vector3(subtract_vector3(out->point, \
+	sphere->shape.coordinates));
 	out->color = sphere->shape.colors;
 	out->object = (void *)sphere;
 }

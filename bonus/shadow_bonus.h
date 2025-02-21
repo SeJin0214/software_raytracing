@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:46:48 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 04:52:48 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 06:29:49 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SHADOW_BONUS_H
 # include "world_bonus.h"
 
-inline bool	is_shadowed_surface(t_world *world, t_light light, \
+inline bool	is_shadowed_surface(const t_world *world, const t_light light, \
 const t_vector3 surface, void *object)
 {
 	const t_ray		light_ray = get_ray(light.coordinates, \
@@ -29,17 +29,16 @@ const t_vector3 surface, void *object)
 	hit_record = get_hit_record();
 	while ((size_t)++i < world->solid_shapes.count)
 	{
-		shape = get_element_or_null_in_list(&world->solid_shapes, i);
+		shape = get_element_or_null_in_list(\
+		(t_array_list *)(&world->solid_shapes), i);
 		if (object == *shape)
 			continue ;
-		if ((*shape)->is_hit(light_ray, *shape, &hit_record))
-		{
-			if (get_length_squared(subtract_vector3(light.coordinates, \
-			add_vector3(surface, normalize_vector3(surface_to_light)))) \
-			> get_length_squared(subtract_vector3(\
-			hit_record.point, light.coordinates)))
-				return (true);
-		}
+		if ((*shape)->is_hit(light_ray, *shape, &hit_record) && \
+		get_length_squared(subtract_vector3(light.coordinates, \
+		add_vector3(surface, normalize_vector3(surface_to_light)))) \
+		> get_length_squared(subtract_vector3(hit_record.point, \
+		light.coordinates)))
+			return (true);
 	}
 	return (false);
 }

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:46:14 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 04:52:23 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 08:08:05 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ const void *obj, t_hit_record *out)
 		return (is_hit);
 	out->t = solution;
 	out->point = get_point_in_ray(ray, out->t);
-	out->normal = divide_vector3(subtract_vector3(\
-	out->point, cy->shape.coordinates), cy->diameter / 2);
+	out->normal = normalize_vector3(subtract_vector3(\
+	out->point, cy->shape.coordinates));
 	out->color = cy->shape.colors;
 	out->object = (void *)cy;
 	return (true);

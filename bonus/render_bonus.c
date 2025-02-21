@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:28:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 04:53:34 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 08:00:08 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,35 @@
 #include "solid_shape_bonus.h"
 #include "ft_math.h"
 #include "shadow_bonus.h"
+#include "renderer_bonus.h"
 
-void	render(t_world *world, t_canvas *canvas)
+void	*render(void *obj)
 {
-	size_t	y;
-	size_t	x;
-	float	y_angle_to_convert;
-	float	x_angle_to_convert;
-	int		color;
+	t_renderer	*renderer;
+	size_t		y;
+	size_t		x;
+	int			color;
 
-	y = 0;
-	while (y < canvas->screen.height)
+	renderer = obj;
+	y = renderer->start_y - 1;
+	while (++y < renderer->last_y)
 	{
-		y_angle_to_convert = lerp(world->camera.y_theta, \
-		-world->camera.y_theta, (float)y / canvas->screen.height);
-		x = 0;
-		while (x < canvas->screen.width)
+		renderer->y_angle_to_convert = lerp(renderer->world->camera.y_theta, \
+		-renderer->world->camera.y_theta, \
+		(float)y / renderer->canvas->screen.height);
+		x = renderer->start_x - 1;
+		while (++x < renderer->last_x)
 		{
-			x_angle_to_convert = lerp(-world->camera.x_theta, \
-			world->camera.x_theta, (float)x / canvas->screen.width);
-			color = load_pixel_color(world, get_ray_mappied_to_pixel(\
-			world->camera, x_angle_to_convert, y_angle_to_convert));
-			put_color_in_image_frame(canvas, (int)x, (int)y, color);
-			++x;
+			renderer->x_angle_to_convert = lerp(-renderer->world->\
+			camera.x_theta, renderer->world->camera.x_theta, \
+			(float)x / renderer->canvas->screen.width);
+			color = load_pixel_color(renderer->world, \
+			get_ray_mappied_to_pixel(renderer->world->camera, \
+			renderer->x_angle_to_convert, renderer->y_angle_to_convert));
+			put_color_in_image_frame(renderer, (int)x, (int)y, color);
 		}
-		++y;
 	}
-	mlx_put_image_to_window(canvas->xvar, canvas->win, \
-			canvas->img, 0, 0);
+	return (0);
 }
 
 t_ray	get_ray_mappied_to_pixel(const t_camera camera, \
@@ -65,9 +66,9 @@ const float x_angle_to_convert, const float y_angle_to_convert)
 	return (ray);
 }
 
-extern inline int	load_pixel_color(t_world *world, const t_ray ray);
+extern inline int	load_pixel_color(const t_world *world, const t_ray ray);
 
-t_ivector3	load_pixel_color_by_light(t_world *world, \
+t_ivector3	load_pixel_color_by_light(const t_world *world, \
 const t_hit_record hit_record)
 {
 	size_t			i;
@@ -80,7 +81,8 @@ const t_hit_record hit_record)
 	total_color = load_ambient_color(world->ambient_light, hit_record);
 	while (i < world->lights.count)
 	{
-		light = get_element_or_null_in_list(&world->lights, i);
+		light = get_element_or_null_in_list(\
+		(t_array_list *)(&world->lights), i);
 		++i;
 		if (is_shadowed_surface(world, *light, \
 		hit_record.point, hit_record.object))
@@ -100,16 +102,18 @@ bool	is_collision(const t_hit_record record)
 	return (FLT_MAX != record.t);
 }
 
-void	put_color_in_image_frame(t_canvas *canvas, const int x, \
+void	put_color_in_image_frame(t_renderer *renderer, const int x, \
 const int y, const int color)
 {
 	int			*image_frame_buffer;
-	const int	offset = canvas->screen.width * y + x;
+	const int	offset = renderer->canvas->screen.width * y + x;
 
-	image_frame_buffer = (int *)canvas->img->data;
-	if (x >= 0 && y >= 0 && y < (int)canvas->screen.height \
-			&& x < (int)canvas->screen.width)
+	image_frame_buffer = (int *)renderer->canvas->img->data;
+	if (x >= 0 && y >= 0 && y < (int)renderer->canvas->screen.height \
+			&& x < (int)renderer->canvas->screen.width)
 	{
+		pthread_mutex_lock(&renderer->canvas_lock);
 		*(image_frame_buffer + offset) = color;
+		pthread_mutex_unlock(&renderer->canvas_lock);
 	}
 }
