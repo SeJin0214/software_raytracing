@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:08:16 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:08:38 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
-#include "world.h"
+#include "world_bonus.h"
 #include "mlx.h"
 #include "mlx_int.h"
-#include "canvas.h"
-#include "parse.h"
-#include "render.h"
-#include "input.h"
-#include <time.h>
-#include <sys/time.h>
-#include <unistd.h>
+#include "canvas_bonus.h"
+#include "parse_bonus.h"
+#include "render_bonus.h"
+#include "input_bonus.h"
 
+// 쓰레드 .. 
 int	main(int argc, char **argv)
 {
 	t_world		world;

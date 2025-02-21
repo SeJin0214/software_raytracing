@@ -18,6 +18,16 @@
 		"ray.h": "c",
 		"ft_math.h": "c",
 		"plane.h": "c",
-		"shadow.h": "c"
+		"shadow.h": "c",
+		"mlx.h": "c",
+		"quaternion.h": "c",
+		"cylinder_bonus.h": "c",
+		"ray_bonus.h": "c",
+		"light_bonus.h": "c",
+		"parse_bonus.h": "c",
+		"sphere_bonus.h": "c",
+		"input.h": "c",
+		"input_bonus.h": "c",
+		"sphere.h": "c"
 	}
 }

@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/20 05:12:04 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/21 17:07:42 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ RFLAGS = -rf
 SRCS_DIR = ./mandatory
 LIBFT_DIR = ./libft
 MLX_DIR = ./mlx
+OBJS_NAME = objs
 
 INCLUDE = -I $(SRCS_DIR)
 LIBFT_INCLUDE = -I $(LIBFT_DIR)
@@ -64,6 +65,7 @@ BONUS_SRCS = $(BONUS_DIR)/main_bonus.c \
 	$(BONUS_DIR)/camera_bonus.c \
 	$(BONUS_DIR)/cylinder_bonus.c \
 	$(BONUS_DIR)/cylinder_object_bonus.c \
+	$(BONUS_DIR)/cylinder_action_bonus.c \
 	$(BONUS_DIR)/equation_bonus.c \
 	$(BONUS_DIR)/hit_record_bonus.c \
 	$(BONUS_DIR)/init_canvas_bonus.c \
@@ -71,14 +73,20 @@ BONUS_SRCS = $(BONUS_DIR)/main_bonus.c \
 	$(BONUS_DIR)/parse_util_bonus.c \
 	$(BONUS_DIR)/parse_solid_shape_bonus.c \
 	$(BONUS_DIR)/plane_bonus.c \
+	$(BONUS_DIR)/plane_action_bonus.c \
 	$(BONUS_DIR)/ray_bonus.c \
 	$(BONUS_DIR)/render_bonus.c \
 	$(BONUS_DIR)/shadow_bonus.c \
 	$(BONUS_DIR)/solid_shape_bonus.c \
 	$(BONUS_DIR)/sphere_bonus.c \
+	$(BONUS_DIR)/sphere_action_bonus.c \
 	$(BONUS_DIR)/world_bonus.c \
 	$(BONUS_DIR)/render_util_bonus.c \
 	$(BONUS_DIR)/light_bonus.c \
+	$(BONUS_DIR)/quaternion_bonus.c \
+	$(BONUS_DIR)/input_object_bonus.c \
+	$(BONUS_DIR)/input_camera_bonus.c \
+	$(BONUS_DIR)/input_light_bonus.c \
 
 OBJS = ${SRCS:.c=.o}
 ASM = ${SRCS:.c=.s}
@@ -92,9 +100,9 @@ else
 	OBJECTS = $(OBJS)
 endif
 
-all:$(NAME)
+all: $(NAME)
 
-$(NAME):$(OBJECTS)
+$(NAME): $(OBJECTS)
 		make -C $(MLX_DIR)
 		make -C $(LIBFT_DIR)
 		$(CC) $(CFLAGS) $(LIBFT_INCLUDE) $(MLX_INCLUDE) $(INCLUDE) $^ $(LINK) -o $@
