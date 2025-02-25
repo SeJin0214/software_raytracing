@@ -6,14 +6,16 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:02:52 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 04:47:01 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <assert.h>
 #include <stdlib.h>
 #include <math.h>
 #include "sphere_bonus.h"
 #include "equation_bonus.h"
+#include "render_bonus.h"
 
 t_sphere	*copy_construction_to_sphere(const t_sphere sphere)
 {
@@ -23,6 +25,7 @@ t_sphere	*copy_construction_to_sphere(const t_sphere sphere)
 	result->shape = sphere.shape;
 	result->shape.is_hit = is_hit_sphere;
 	result->shape.delete = delete_sphere;
+	result->shape.get_uv_coordinate = get_uv_coordinate_in_sphere;
 	result->shape.scale_diameter = update_scale_diameter_sphere;
 	result->shape.scale_height = update_scale_height_sphere;
 	result->diameter = sphere.diameter;
@@ -33,6 +36,9 @@ void	delete_sphere(void *obj)
 {
 	free(obj);
 }
+
+extern inline t_ivector2	get_uv_coordinate_in_sphere(\
+const void *sphere, const t_vector3 hit_point);
 
 bool	is_hit_sphere(const t_ray ray, const void *obj, t_hit_record *out)
 {
@@ -50,12 +56,10 @@ bool	is_hit_sphere(const t_ray ray, const void *obj, t_hit_record *out)
 	- 4 * equation.a * equation.c;
 	if (equation.discriminant <= 0)
 		return (false);
-	solution = (-equation.b - sqrtf(equation.b * equation.b \
-	- 4 * equation.a * equation.c)) / (2 * equation.a);
+	solution = get_quadtatic_root_minus(equation);
 	if (solution <= 0 || out->t < solution)
 	{
-		solution = (-equation.b + sqrtf(equation.b * equation.b \
-		- 4 * equation.a * equation.c)) / (2 * equation.a);
+		solution = get_quadtatic_root_plus(equation);
 		if (solution <= 0 || out->t < solution)
 			return (false);
 	}

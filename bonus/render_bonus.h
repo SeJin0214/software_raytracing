@@ -6,40 +6,32 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:26:13 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 07:42:56 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/25 22:58:46 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RENDER_BONUS_H
 # define RENDER_BONUS_H
 # include "world_bonus.h"
-# include "canvas_bonus.h"
-# include "matrix.h"
+# include "renderer_bonus.h"
 # include "ray_bonus.h"
 # include "hit_record_bonus.h"
-# include "libft.h"
+# include "render_util_bonus.h"
 # include "light_bonus.h"
-# include "ft_math.h"
-# include "renderer_bonus.h"
 # define PI 3.141592f
 
 /* render.c */
 void		render_multi_thread(t_world *world, t_canvas *canvas);
 void		*render(void *obj);
 bool		is_collision(const t_hit_record record);
-t_ivector3	load_pixel_color_by_light(const t_world *world, \
-const t_hit_record hit_record);
+t_ivector3	compute_reflection_lighting_recursive(const t_world *world, \
+const t_ray ray, const t_hit_record hit_record, size_t depth);
 void		put_color_in_image_frame(t_renderer *renderer, const int x, \
 const int y, const int color);
 t_ray		get_ray_mappied_to_pixel(const t_camera camera, \
 const float x_angle_to_convert, const float y_angle_to_convert);
 
-inline int	convert_colors(const t_ivector3 colors)
-{
-	return ((colors.x << 16) + (colors.y << 8) + colors.z);
-}
-
-inline int	load_pixel_color(const t_world *world, const t_ray ray)
+inline t_hit_record	load_hit_record(const t_world *world, const t_ray ray)
 {
 	size_t			i;
 	t_hit_record	hit_record;
@@ -54,21 +46,43 @@ inline int	load_pixel_color(const t_world *world, const t_ray ray)
 		(*shape)->is_hit(ray, *shape, &hit_record);
 		++i;
 	}
-	if (is_collision(hit_record) == false)
-	{
-		return (convert_colors(get_ivector3(0, 0, 0)));
-	}
-	return (convert_colors(load_pixel_color_by_light(world, hit_record)));
+	return (hit_record);
 }
 
-inline t_ivector3	add_color(const t_ivector3 color0, const t_ivector3 color1)
+inline t_ivector3	load_hit_point_color(const t_world *world, const t_ray ray)
 {
-	t_ivector3	result;
+	const t_hit_record	hit_record = load_hit_record(world, ray);
+	if (is_collision(hit_record) == false)
+	{
+		return (get_ivector3(0, 0, 0));
+	}
+	return (compute_reflection_lighting_recursive(world, ray, hit_record, 0));
+}
 
-	result.x = get_min(color0.x + color1.x, 255);
-	result.y = get_min(color0.y + color1.y, 255);
-	result.z = get_min(color0.z + color1.z, 255);
-	return (result);
+inline t_ivector3	trace_reflection_color(const t_world *world, \
+const t_ray ray, const t_hit_record hit_record, size_t depth)
+{
+	const t_vector3		r = get_reflection_vector3(ray.origin, hit_record);
+	const t_ray			reflection = get_ray(add_vector3(hit_record.point, \
+	multiply_vector3(r, 0.01f)), r);
+	const t_hit_record	next_record = load_hit_record(world, reflection);
+	t_ivector3			color;
+	t_light				reflection_light;
+
+	if (is_collision(next_record) == false || depth > 5)
+	{
+		return (get_ivector3(0, 0, 0));
+	}
+	color = compute_reflection_lighting_recursive(\
+	world, reflection, next_record, ++depth);
+	reflection_light.colors = color;
+	reflection_light.coordinates = next_record.point;
+	reflection_light.brightness = 0.5f;
+	color = load_diffuse_color(reflection_light, hit_record);
+	reflection_light.brightness = 0.5f;
+	color = add_color(color, \
+	load_specular_color(ray.origin, reflection_light, hit_record));
+	return (color);
 }
 
 #endif

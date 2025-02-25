@@ -6,13 +6,14 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 03:26:19 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:04:23 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 05:03:05 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CYLINDER_BONUS_H
 # define CYLINDER_BONUS_H
 # include "solid_shape_bonus.h"
+# include "solid_shape_getter_bonus.h"
 
 typedef struct s_cylinder
 {
@@ -81,9 +82,9 @@ const t_vector3 down_c, t_hit_record *out)
 		return (false);
 	out->t = solution;
 	out->point = p;
-	out->normal = multiply_vector3(\
-	cylinder->shape.local_basis.row[Z], -1);
-	out->color = cylinder->shape.colors;
+	out->normal = get_normal_at_hit_point(cylinder->shape, multiply_vector3(\
+	cylinder->shape.local_basis.row[Z], -1), out->point);
+	out->color = get_color_at_hit_point(cylinder->shape, out->point);
 	out->object = (void *)cylinder;
 	return (true);
 }
@@ -101,6 +102,17 @@ const t_cylinder *cylinder, t_hit_record *out)
 	is_hit = is_hit_up_cap(ray, cylinder, up_c, out);
 	is_hit = is_hit_down_cap(ray, cylinder, down_c, out) || is_hit;
 	return (is_hit);
+}
+
+inline t_ivector2	get_uv_coordinate_in_cylinder(const void *cylinder, const t_vector3 hit_point)
+{
+	t_ivector2	uv;
+	
+	uv.x = 0;
+	
+	(void) cylinder;
+	(void) hit_point;
+	return (uv);
 }
 
 bool		is_hit_cylinder(const t_ray ray, \

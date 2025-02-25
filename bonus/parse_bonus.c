@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:17:36 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 18:08:55 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 05:37:32 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@ bool	try_parse(int argc, char **argv, t_world *out_world, t_canvas *canvas)
 	{
 		return (false);
 	}
-	init_world(out_world);
-	if (try_parse_file(argv[1], out_world, canvas) == false \
+	;
+	if (init_world(out_world, canvas) == false \
+	|| try_parse_file(argv[1], out_world, canvas) == false \
 	|| out_world->is_valid_ambient_light == false \
 	|| out_world->is_valid_camera == false \
 	|| out_world->lights.get_count(&out_world->lights) == 0)
 	{
-		destroy_world(out_world);
+		destroy_world(out_world, canvas);
 		return (false);
 	}
 	return (true);
@@ -96,6 +97,8 @@ t_world *out_world, t_canvas *canvas)
 		is_succeed = try_add_plane_to_world(attributes, out_world);
 	else if (ft_strcmp(attributes[0], "cy") == 0)
 		is_succeed = try_add_cylinder_to_world(attributes, out_world);
+	else if (ft_strcmp(attributes[0], "co") == 0)
+		is_succeed = try_add_cone_to_world(attributes, out_world);
 	else
 		return (false);
 	return (is_succeed);

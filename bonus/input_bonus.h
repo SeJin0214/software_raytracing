@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 20:01:32 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 21:13:42 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:08:39 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,9 @@ typedef enum action
 	ACTION_Y_AXIS_ROTATING_CAMERA_COUNTERCLOCKWISE,
 	ACTION_Z_AXIS_ROTATING_CAMERA_CLOCKWISE,
 	ACTION_Z_AXIS_ROTATING_CAMERA_COUNTERCLOCKWISE,
+	ACTION_CHANGE_TEXTURE_BASIC,
+	ACTION_CHANGE_TEXTURE_CHECKERBOARD,
+	ACTION_CHANGE_TEXTURE_IMAGE,
 }	t_action;
 
 int		input_key(int key, t_input *input);
@@ -101,6 +104,7 @@ bool	try_move_shape(t_world *world, const int key);
 bool	try_rotate_shape(t_world *world, const int key);
 bool	try_update_shape_scale(t_world *world, const int key);
 bool	try_change_shape(t_world *world, const int key);
+bool	try_change_texture(t_world *world, const int key);
 
 /* input_camera.c */
 bool	try_move_camera(t_world *world, const int key);

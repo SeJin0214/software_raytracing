@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 05:22:07 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 04:49:37 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "libft.h"
 #include "world_bonus.h"
 #include "solid_shape_bonus.h"
+#include "solid_shape_getter_bonus.h"
 #include "vector.h"
 #include "quaternion_bonus.h"
 
@@ -70,6 +71,19 @@ void	rotate_shape(void *obj, const t_action action)
 	shape->local_basis.row[Z] = normalize_vector3(shape->local_basis.row[Z]);
 }
 
+void	set_texcture(void *obj, const t_action action)
+{
+	t_solid_shape	*shape;
+
+	shape = obj;
+	if (action == ACTION_CHANGE_TEXTURE_BASIC)
+		shape->texture_type = TEXTURE_BASIC;
+	else if (action == ACTION_CHANGE_TEXTURE_CHECKERBOARD)
+		shape->texture_type = TEXTURE_CHECKERBOARD;
+	else if (action == ACTION_CHANGE_TEXTURE_IMAGE)
+		shape->texture_type = TEXTURE_IMAGE;
+}
+
 t_matrix3x3	get_local_basis(t_vector3 n)
 {
 	t_matrix3x3	result;
@@ -105,3 +119,15 @@ void	destroy_shapes(t_array_list *list)
 	free(list->list);
 	list->list = NULL;
 }
+
+extern inline t_ivector3	get_color_at_hit_point(\
+const t_solid_shape shape, const t_vector3 hit_point);
+
+extern inline t_vector3	get_normal_at_hit_point(const t_solid_shape shape, \
+const t_vector3 n, const t_vector3 hit_point);
+
+extern inline t_ivector3	get_checkerboard_color_at_hit_point(\
+const t_solid_shape shape, const t_vector3 hit_point);
+
+extern inline t_ivector3	get_image_color_at_hit_point(\
+const t_solid_shape shape, const t_vector3 hit_point);

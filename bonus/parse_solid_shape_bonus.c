@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:31:31 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 08:30:28 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 05:47:00 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ bool	try_add_sphere_to_world(char **attributes, t_world *world)
 	const bool	is_invalid_format = \
 	get_count_to_words(attributes) != SPHERE_ATTRIBUTE_LENGTH \
 	|| get_count_words(attributes[SPHERE_ATTRIBUTE_CENTER], ',') \
-	!= VECTOR_ATTRIBUTE_COUNT \
-	|| get_count_words(attributes[SPHERE_ATTRIBUTE_COLORS], ',') \
-	!= COLORS_ATTRIBUTE_COUNT;
+	!= VECTOR_ATTRIBUTE_COUNT || get_count_words(\
+	attributes[SPHERE_ATTRIBUTE_COLORS], ',') != COLORS_ATTRIBUTE_COUNT;
 
 	if (is_invalid_format)
 		return (false);
 	is_invalid_value = try_parse_vector3(\
 	attributes[SPHERE_ATTRIBUTE_CENTER], &sphere.shape.coordinates) == false \
-	|| try_atof(\
-	attributes[SPHERE_ATTRIBUTE_DIAMETER], &sphere.diameter) == false \
-	|| sphere.diameter < __FLT_EPSILON__ || try_parse_color(\
+	|| try_atof(attributes[SPHERE_ATTRIBUTE_DIAMETER], &sphere.diameter) == \
+	false || sphere.diameter < __FLT_EPSILON__ || try_parse_color(\
 	attributes[SPHERE_ATTRIBUTE_COLORS], &sphere.shape.colors) == false;
 	if (is_invalid_value)
 		return (false);
 	sphere.shape.local_basis = \
 	get_local_basis((t_vector3){{0.0f, 0.0f, 1.0f}});
+	sphere.shape.texture_type = TEXTURE_BASIC;
+	sphere.shape.texture = world->texture;
 	sp = copy_construction_to_sphere(sphere);
 	world->solid_shapes.add(&world->solid_shapes, &sp);
 	return (true);
@@ -63,6 +63,9 @@ bool	try_add_plane_to_world(char **attributes, t_world *world)
 	plane.shape.local_basis.row[Z] = \
 	normalize_vector3(plane.shape.local_basis.row[Z]);
 	plane.shape.local_basis = get_local_basis(plane.shape.local_basis.row[Z]);
+	plane.shape.texture_type = TEXTURE_BASIC;
+	plane.shape.texture = world->texture;
+	printf("%p, %d, %d\n", plane.shape.texture.image, plane.shape.texture.width, plane.shape.texture.height);
 	pl = copy_construction_to_plane(plane);
 	world->solid_shapes.add(&world->solid_shapes, &pl);
 	return (true);
@@ -107,6 +110,8 @@ bool	try_add_cylinder_to_world(char **attributes, t_world *world)
 	normalize_vector3(cylinder.shape.local_basis.row[Z]);
 	cylinder.shape.local_basis = \
 	get_local_basis(cylinder.shape.local_basis.row[Z]);
+	cylinder.shape.texture_type = TEXTURE_BASIC;
+	cylinder.shape.texture = world->texture;
 	cy = copy_construction_to_cylinder(cylinder);
 	world->solid_shapes.add(&world->solid_shapes, &cy);
 	return (true);

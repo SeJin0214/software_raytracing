@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:24:34 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 04:51:49 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 10:21:14 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,22 @@ inline float	calculate_cylinder_hit_height(const t_ray ray, \
 const t_cylinder cylinder, float t)
 {
 	const t_vector3	n = cylinder.shape.local_basis.row[Z];
-	const t_vector3	p = add_vector3(ray.origin, \
-	multiply_vector3(ray.direction, t));
+	const t_vector3	p = get_point_in_ray(ray, t);
 
 	return (fabsf(dot_product3x3(n, \
 	subtract_vector3(p, cylinder.shape.coordinates))));
+}
+
+inline float	get_quadtatic_root_plus(const t_quadratic_equation quadtatic)
+{
+	return ((-quadtatic.b + sqrtf(quadtatic.b * quadtatic.b \
+	- 4 * quadtatic.a * quadtatic.c)) / (2 * quadtatic.a));
+}
+
+inline float	get_quadtatic_root_minus(const t_quadratic_equation quadtatic)
+{
+	return ((-quadtatic.b - sqrtf(quadtatic.b * quadtatic.b \
+	- 4 * quadtatic.a * quadtatic.c)) / (2 * quadtatic.a));
 }
 
 #endif

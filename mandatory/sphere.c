@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 05:01:42 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/22 10:21:16 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,10 @@ bool	is_hit_sphere(const t_ray ray, const void *obj, t_hit_record *out)
 	- 4 * equation.a * equation.c;
 	if (equation.discriminant <= 0)
 		return (false);
-	solution = (-equation.b - sqrtf(equation.b * equation.b \
-	- 4 * equation.a * equation.c)) / (2 * equation.a);
+	solution = get_quadtatic_root_minus(equation);
 	if (solution <= 0 || out->t < solution)
 	{
-		solution = (-equation.b + sqrtf(equation.b * equation.b \
-		- 4 * equation.a * equation.c)) / (2 * equation.a);
+		solution = get_quadtatic_root_plus(equation);
 		if (solution <= 0 || out->t < solution)
 			return (false);
 	}

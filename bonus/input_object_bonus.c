@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:52:13 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:01:09 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/25 22:27:33 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,31 @@ bool	try_change_shape(t_world *world, const int key)
 		return (true);
 	}
 	return (false);
+}
+
+bool	try_change_texture(t_world *world, const int key)
+{
+	t_solid_shape	**shape;
+	t_action		action;
+
+	if (key == '1')
+	{
+		action = ACTION_CHANGE_TEXTURE_BASIC;	
+	}
+	else if (key == '2')
+	{
+		action = ACTION_CHANGE_TEXTURE_CHECKERBOARD;
+	}
+	else if (key == '3')
+	{
+		action = ACTION_CHANGE_TEXTURE_IMAGE;
+	}
+	else
+	{
+		return (false);
+	}
+	shape = world->solid_shapes.get_element_or_null(\
+	&world->solid_shapes, world->current_object_index);
+	set_texcture(*shape, action);
+	return (true);
 }

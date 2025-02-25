@@ -6,12 +6,16 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:32:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 19:51:53 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 02:23:14 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "plane_bonus.h"
+# include "solid_shape_getter_bonus.h"
+
+extern inline t_ivector2	get_uv_coordinate_in_plane(\
+const void *plane, const t_vector3 hit_point);
 
 t_plane	*copy_construction_to_plane(const t_plane plane)
 {
@@ -21,6 +25,7 @@ t_plane	*copy_construction_to_plane(const t_plane plane)
 	result->shape = plane.shape;
 	result->shape.is_hit = is_hit_plane;
 	result->shape.delete = delete_plane;
+	result->shape.get_uv_coordinate = get_uv_coordinate_in_plane;
 	result->shape.scale_diameter = update_scale_diameter_plane;
 	result->shape.scale_height = update_scale_height_plane;
 	return (result);
@@ -56,8 +61,8 @@ bool	is_hit_plane(const t_ray ray, const void *obj, t_hit_record *out)
 	}
 	out->t = numerator / denominator;
 	out->point = get_point_in_ray(ray, out->t);
-	out->normal = n;
-	out->color = plane->shape.colors;
+	out->normal = get_normal_at_hit_point(plane->shape, n, out->point);
+	out->color = get_color_at_hit_point(plane->shape, out->point);
 	out->object = (void *)plane;
 	return (true);
 }

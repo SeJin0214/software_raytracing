@@ -6,13 +6,14 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:46:48 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 06:29:49 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 00:03:42 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHADOW_BONUS_H
 # define SHADOW_BONUS_H
 # include "world_bonus.h"
+# include "solid_shape_bonus.h"
 
 inline bool	is_shadowed_surface(const t_world *world, const t_light light, \
 const t_vector3 surface, void *object)

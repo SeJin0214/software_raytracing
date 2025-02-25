@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:28:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/20 05:00:38 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 04:43:35 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	render(t_world *world, t_canvas *canvas)
 		{
 			x_angle_to_convert = lerp(-world->camera.x_theta, \
 			world->camera.x_theta, (float)x / canvas->screen.width);
-			color = load_pixel_color(world, get_ray_mappied_to_pixel(\
+			color = load_hit_point_color(world, get_ray_mappied_to_pixel(\
 			world->camera, x_angle_to_convert, y_angle_to_convert));
 			put_color_in_image_frame(canvas, (int)x, (int)y, color);
 			++x;
@@ -65,7 +65,7 @@ const float x_angle_to_convert, const float y_angle_to_convert)
 	return (ray);
 }
 
-int	load_pixel_color(t_world *world, const t_ray ray)
+int	load_hit_point_color(t_world *world, const t_ray ray)
 {
 	size_t			i;
 	t_hit_record	hit_record;

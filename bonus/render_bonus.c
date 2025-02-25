@@ -6,18 +6,23 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:28:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 08:19:33 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 06:07:49 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "render_bonus.h"
 #include "float_bonus.h"
-#include "libft.h"
-#include "solid_shape_bonus.h"
-#include "ft_math.h"
 #include "shadow_bonus.h"
-#include "renderer_bonus.h"
+
+extern inline t_hit_record	load_hit_record(const t_world *world, \
+const t_ray ray);
+
+extern inline t_ivector3	load_hit_point_color(const t_world *world, \
+const t_ray ray);
+
+extern inline t_ivector3	trace_reflection_color(const t_world *world, \
+const t_ray ray, const t_hit_record hit_record, size_t depth);
 
 void	*render(void *obj)
 {
@@ -39,9 +44,9 @@ void	*render(void *obj)
 			renderer->x_angle_to_convert = lerp(-renderer->world->\
 			camera.x_theta, renderer->world->camera.x_theta, \
 			(float)x / renderer->canvas->screen.width);
-			color = load_pixel_color(renderer->world, \
+			color = convert_colors(load_hit_point_color(renderer->world, \
 			get_ray_mappied_to_pixel(renderer->world->camera, \
-			renderer->x_angle_to_convert, renderer->y_angle_to_convert));
+			renderer->x_angle_to_convert, renderer->y_angle_to_convert)));
 			put_color_in_image_frame(renderer, (int)x, (int)y, color);
 		}
 	}
@@ -66,10 +71,8 @@ const float x_angle_to_convert, const float y_angle_to_convert)
 	return (ray);
 }
 
-extern inline int	load_pixel_color(const t_world *world, const t_ray ray);
-
-t_ivector3	load_pixel_color_by_light(const t_world *world, \
-const t_hit_record hit_record)
+t_ivector3	compute_reflection_lighting_recursive(const t_world *world, \
+const t_ray ray, const t_hit_record hit_record, size_t depth)
 {
 	size_t			i;
 	t_light			*light;
@@ -77,8 +80,10 @@ const t_hit_record hit_record)
 	t_ivector3		diffuse_color;
 	t_ivector3		specular_color;
 
+	total_color = trace_reflection_color(world, ray, hit_record, depth);
+	total_color = add_color(total_color, \
+	load_ambient_color(world->ambient_light, hit_record));
 	i = 0;
-	total_color = load_ambient_color(world->ambient_light, hit_record);
 	while (i < world->lights.count)
 	{
 		light = get_element_or_null_in_list(\
@@ -86,11 +91,9 @@ const t_hit_record hit_record)
 		++i;
 		if (is_shadowed_surface(world, *light, \
 		hit_record.point, hit_record.object))
-		{
 			continue ;
-		}
 		diffuse_color = load_diffuse_color(*light, hit_record);
-		specular_color = load_specular_color(world->camera, *light, hit_record);
+		specular_color = load_specular_color(ray.origin, *light, hit_record);
 		total_color = add_color(total_color, specular_color);
 		total_color = add_color(total_color, diffuse_color);
 	}

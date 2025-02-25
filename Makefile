@@ -6,13 +6,15 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/22 07:44:46 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/24 09:36:05 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -O3 -march=native -mavx2 -fno-stack-protector -funroll-loops -pthread
+
+CFLAGS = -Wall -Wextra -Werror -O3 -march=native -mavx2 -fno-stack-protector -funroll-loops -pthread   -g
+
 RM = rm
 RFLAGS = -rf
 
@@ -65,12 +67,16 @@ BONUS_SRCS = $(BONUS_DIR)/main_bonus.c \
 	$(BONUS_DIR)/cylinder_bonus.c \
 	$(BONUS_DIR)/cylinder_object_bonus.c \
 	$(BONUS_DIR)/cylinder_action_bonus.c \
+	$(BONUS_DIR)/cone_bonus.c \
+	$(BONUS_DIR)/cone_object_bonus.c \
+	$(BONUS_DIR)/cone_action_bonus.c \
 	$(BONUS_DIR)/equation_bonus.c \
 	$(BONUS_DIR)/hit_record_bonus.c \
 	$(BONUS_DIR)/init_canvas_bonus.c \
 	$(BONUS_DIR)/parse_bonus.c \
 	$(BONUS_DIR)/parse_util_bonus.c \
 	$(BONUS_DIR)/parse_solid_shape_bonus.c \
+	$(BONUS_DIR)/parse_solid_shape2_bonus.c \
 	$(BONUS_DIR)/plane_bonus.c \
 	$(BONUS_DIR)/plane_action_bonus.c \
 	$(BONUS_DIR)/ray_bonus.c \

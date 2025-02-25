@@ -6,12 +6,13 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:21:41 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/21 17:00:19 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/25 22:45:12 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "world_bonus.h"
 #include "quaternion_bonus.h"
+#include "solid_shape_bonus.h"
 
 void	init_camera(t_world *world, t_canvas *canvas)
 {

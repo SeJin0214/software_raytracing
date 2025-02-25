@@ -6,24 +6,20 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 07:51:45 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 05:31:18 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <pthread.h>
 #include "libft.h"
-#include "world_bonus.h"
 #include "mlx.h"
 #include "mlx_int.h"
-#include "canvas_bonus.h"
 #include "parse_bonus.h"
 #include "render_bonus.h"
-#include "input_bonus.h"
-#include "renderer_bonus.h"
 #include <sys/time.h>
-#include <pthread.h>
 
 int	main(int argc, char **argv)
 {
@@ -41,12 +37,13 @@ int	main(int argc, char **argv)
 	}
 	input.canvas = &canvas;
 	input.world = &world;
+	// 버튼 눌렀을 때 무한루프로 움직이기 실행?
 	render_multi_thread(&world, &canvas);
 	mlx_hook(canvas.win, X_BUTTON, 0, mlx_loop_end, canvas.xvar);
 	mlx_key_hook(canvas.win, input_key, &input);
 	mlx_loop(canvas.xvar);
+	destroy_world(&world, &canvas);
 	free_canvas(&canvas);
-	destroy_world(&world);
 	return (0);
 }
 
@@ -69,7 +66,8 @@ int	input_key(int key, t_input *input)
 	|| try_move_camera(input->world, key) \
 	|| try_rotate_camera(input->world, key) \
 	|| try_move_light(input->world, key) \
-	|| try_change_light(input->world, key))
+	|| try_change_light(input->world, key) \
+	|| try_change_texture(input->world, key))
 	{
 		render_multi_thread(input->world, input->canvas);
 	}
