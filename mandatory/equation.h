@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:24:34 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/22 10:21:14 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 02:13:09 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ const t_cylinder cylinder, float t)
 	const t_vector3	n = cylinder.shape.local_basis.row[Z];
 	const t_vector3	p = get_point_in_ray(ray, t);
 
-	return (fabsf(dot_product3x3(n, \
-	subtract_vector3(p, cylinder.shape.coordinates))));
+	return (dot_product3x3(n, \
+	subtract_vector3(p, cylinder.shape.coordinates)));
 }
 
 inline float	get_quadtatic_root_plus(const t_quadratic_equation quadtatic)

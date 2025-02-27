@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 04:27:10 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 14:30:06 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:28:47 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <math.h>
 # include "solid_shape_bonus.h"
 # include "solid_shape_getter_bonus.h"
+# include "solid_shape_getter2_bonus.h"
 
 typedef struct s_sphere
 {

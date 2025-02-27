@@ -6,14 +6,14 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 03:26:19 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 17:23:10 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 02:06:22 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CYLINDER_BONUS_H
 # define CYLINDER_BONUS_H
 # include "solid_shape_bonus.h"
-# include "solid_shape_getter_bonus.h"
+# include "solid_shape_getter2_bonus.h"
 
 typedef struct s_cylinder
 {
@@ -54,7 +54,8 @@ const t_vector3 up_c, t_hit_record *out)
 		return (false);
 	out->t = solution;
 	out->point = p;
-	out->normal = get_normal_at_hit_point(cylinder, cylinder->shape.local_basis.row[Z], out->point);
+	out->normal = get_normal_at_hit_point(\
+	cylinder, cylinder->shape.local_basis.row[Z], out->point);
 	out->color = get_color_at_hit_point(cylinder, out->point);
 	out->object = (void *)cylinder;
 	return (true);

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:46:14 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 02:52:30 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:33:55 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "cylinder_bonus.h"
 #include "equation_bonus.h"
 #include "solid_shape_getter_bonus.h"
+#include "solid_shape_getter2_bonus.h"
 
 bool	is_hit_cylinder(const t_ray ray, \
 const void *obj, t_hit_record *out)

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:54:49 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/15 16:14:15 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:47:28 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ t_matrix3x3	multiply_matrix3x3(const t_matrix3x3 left, const t_matrix3x3 right)
 	return (result);
 }
 
+// 연산은 같음
+// 근데 내가 행벡터라면 
+// 열벡터 * 열벡터
+// 행벡터 * transpose(행 행렬)
 t_vector3	multiply_vector_and_matrix3x3(const t_vector3 left, \
 const t_matrix3x3 right)
 {

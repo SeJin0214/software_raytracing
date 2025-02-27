@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 02:56:09 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 02:09:01 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "world_bonus.h"
 #include "solid_shape_bonus.h"
 #include "solid_shape_getter_bonus.h"
+#include "solid_shape_getter2_bonus.h"
 #include "vector.h"
 #include "quaternion_bonus.h"
 
@@ -90,13 +91,9 @@ t_matrix3x3	get_local_basis(t_vector3 n)
 	t_vector3	up;
 
 	up = get_vector3(0.0f, 1.0f, 0.0f);
-	if (is_uneqaul_vector3(up, n) == false)
+	if (fabsf(n.y) > 0.9f)
 	{
-		up = get_vector3(0.0f, 0.0f, -1.0f);
-	}
-	else if (is_uneqaul_vector3(n, (t_vector3){{0.0f, -1.0f, 0.0f}}) == false)
-	{
-		up = get_vector3(0.0f, 0.0f, 1.0f);
+		up = get_vector3(1.0f, 0.0f, 0.0f);
 	}
 	result.row[X] = cross_product3x3(up, n);
 	result.row[Y] = cross_product3x3(n, result.row[X]);
@@ -120,6 +117,8 @@ void	destroy_shapes(t_array_list *list)
 	list->list = NULL;
 }
 
+extern inline t_ivector3	get_texel_color(const void *shape, int x, int y);
+
 extern inline t_ivector3	get_color_at_hit_point(\
 const void *shape, const t_vector3 hit_point);
 
@@ -131,3 +130,8 @@ const void *shape, const t_vector3 hit_point);
 
 extern inline t_ivector3	get_image_color_at_hit_point(\
 const void *shape, const t_vector3 hit_point);
+
+extern inline float	get_height(t_ivector3 color);
+
+extern inline t_vector3	get_bump_normal(const void *shape, const t_vector3 n, \
+int x, int y);

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:31:31 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 16:04:32 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:49:29 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ bool	try_add_plane_to_world(char **attributes, t_world *world)
 	plane.shape.local_basis = get_local_basis(plane.shape.local_basis.row[Z]);
 	plane.shape.texture_type = TEXTURE_BASIC;
 	plane.shape.texture = world->texture;
-	plane.shape.checkerboard_scale = pow(2, -6);
+	plane.shape.checkerboard_scale = 2;
 	printf("%p, %d, %d\n", plane.shape.texture.image, plane.shape.texture.width, plane.shape.texture.height);
 	pl = copy_construction_to_plane(plane);
 	world->solid_shapes.add(&world->solid_shapes, &pl);

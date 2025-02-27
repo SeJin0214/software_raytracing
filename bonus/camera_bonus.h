@@ -6,13 +6,12 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:35:12 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 00:06:16 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 01:53:58 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAMERA_BONUS_H
 # define CAMERA_BONUS_H
-# include <stdalign.h>
 # include "matrix.h"
 # include "input_bonus.h"
 
@@ -21,7 +20,7 @@ typedef struct s_canvas	t_canvas;
 
 typedef struct s_camera
 {
-	alignas(16) t_vector3 coordinates;
+	t_vector3	coordinates;
 	t_matrix3x3	local_basis;
 	float		field_of_view;
 	float		x_theta;

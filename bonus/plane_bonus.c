@@ -6,13 +6,14 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:32:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 02:51:37 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:28:36 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "plane_bonus.h"
-# include "solid_shape_getter_bonus.h"
+#include "solid_shape_getter_bonus.h"
+#include "solid_shape_getter2_bonus.h"
 
 extern inline t_vector2	get_uv_coordinate_in_plane(\
 const void *plane, const t_vector3 hit_point);
