@@ -6,13 +6,13 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 08:52:03 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 00:28:41 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:21:59 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cone_bonus.h"
 
-extern inline t_ivector2	get_uv_coordinate_in_cone(const void *cone, const t_vector3 hit_point);
+extern inline t_vector2	get_uv_coordinate_in_cone(const void *cone, const t_vector3 hit_point);
 
 t_cone	*copy_construction_to_cone(const t_cone cone)
 {

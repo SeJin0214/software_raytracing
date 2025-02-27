@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 08:53:56 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/25 22:25:40 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:18:59 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 #include "cylinder_bonus.h"
 #include "ft_math.h"
 #include <stdio.h>
+
+// t1      t2 
+// 0    r    t2 /  
+// r     lerp( (1 - t) * a + t * b ) ; 
+
+// n * x = r^2
+
 
 bool	is_hit_cone(const t_ray ray, \
 const void *obj, t_hit_record *out)
@@ -27,7 +34,6 @@ const void *obj, t_hit_record *out)
 
 	(void) ray;
 	(void) obj;
-
 	(void) out;
 	// is_hit = is_hit_down_cap(ray, cone, cone->shape.coordinates, out);
 	// // 무조건 원뿔로 판별식 세워야 해

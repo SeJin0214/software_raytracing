@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 04:47:01 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 02:50:52 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	delete_sphere(void *obj)
 	free(obj);
 }
 
-extern inline t_ivector2	get_uv_coordinate_in_sphere(\
+extern inline t_vector2	get_uv_coordinate_in_sphere(\
 const void *sphere, const t_vector3 hit_point);
 
 bool	is_hit_sphere(const t_ray ray, const void *obj, t_hit_record *out)

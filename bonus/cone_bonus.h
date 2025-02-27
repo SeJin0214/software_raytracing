@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 08:44:26 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 02:20:56 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:20:02 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ const void *obj, t_hit_record *out);
 /* cone_object_bonus.c */
 t_cone	*copy_construction_to_cone(const t_cone cone);
 void	delete_cone(void *obj);
-inline t_ivector2	get_uv_coordinate_in_cone(const void *cone, const t_vector3 hit_point)
+inline t_vector2	get_uv_coordinate_in_cone(const void *cone, const t_vector3 hit_point)
 {
-	t_ivector2	uv;
+	t_vector2	uv;
 	
 	
 	uv.x = 0;

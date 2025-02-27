@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:46:14 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 03:34:22 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 02:52:30 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ const void *obj, t_hit_record *out)
 		return (is_hit);
 	out->t = solution;
 	out->point = get_point_in_ray(ray, out->t);
-	out->normal = get_normal_at_hit_point(cy->shape, normalize_vector3(\
+	out->color = get_color_at_hit_point(cy, out->point);
+	out->normal = get_normal_at_hit_point(cy, normalize_vector3(\
 	subtract_vector3(out->point, get_point_in_ray(get_ray(cy->\
 	shape.coordinates, cy->shape.local_basis.row[Z]), height))), out->point);
-	out->color = get_color_at_hit_point(cy->shape, out->point);
 	out->object = (void *)cy;
 	return (true);
 }

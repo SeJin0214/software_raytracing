@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:28 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 05:32:53 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 01:53:24 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ typedef struct s_solid_shape
 	t_matrix3x3	local_basis;
 	t_texture	texture_type;
 	t_image		texture;
+	float		checkerboard_scale;
 	bool		(*is_hit)(const t_ray, const void *, t_hit_record *);
-	t_ivector2	(*get_uv_coordinate)(const void *, const t_vector3 hit_point);
+	t_vector2	(*get_uv_coordinate)(const void *, const t_vector3 hit_point);
 	void		(*delete)(void *);
 	void		(*scale_height)(void *, const t_action);
 	void		(*scale_diameter)(void *, const t_action);

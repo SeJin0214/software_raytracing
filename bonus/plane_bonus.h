@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 04:28:16 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 04:10:40 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:31:10 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ void		delete_plane(void *obj);
 bool		is_hit_plane(const t_ray ray, const void *plane, t_hit_record *out);
 
 // 플레인은 나도 이제 알겠다.
-inline t_ivector2	get_uv_coordinate_in_plane(\
+inline t_vector2	get_uv_coordinate_in_plane(\
 const void *plane, const t_vector3 hit_point)
 {
-	t_ivector2		uv;
+	t_vector2		uv;
 	const t_plane	*pl = plane;
 	const t_vector3	direction = (subtract_vector3(hit_point, \
 	pl->shape.coordinates));
 
-	uv.x = dot_product3x3(direction, pl->shape.local_basis.row[X]) / 2.5f;
-	uv.y = dot_product3x3(direction, pl->shape.local_basis.row[Y]) / 2.5f;
+	uv.x = roundf(dot_product3x3(direction, pl->shape.local_basis.row[X]));
+	uv.y = roundf(dot_product3x3(direction, pl->shape.local_basis.row[Y]));
 	return (uv);
 }
 

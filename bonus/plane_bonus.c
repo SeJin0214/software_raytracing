@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:32:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 02:23:14 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 02:51:37 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "plane_bonus.h"
 # include "solid_shape_getter_bonus.h"
 
-extern inline t_ivector2	get_uv_coordinate_in_plane(\
+extern inline t_vector2	get_uv_coordinate_in_plane(\
 const void *plane, const t_vector3 hit_point);
 
 t_plane	*copy_construction_to_plane(const t_plane plane)
@@ -61,8 +61,8 @@ bool	is_hit_plane(const t_ray ray, const void *obj, t_hit_record *out)
 	}
 	out->t = numerator / denominator;
 	out->point = get_point_in_ray(ray, out->t);
-	out->normal = get_normal_at_hit_point(plane->shape, n, out->point);
-	out->color = get_color_at_hit_point(plane->shape, out->point);
+	out->normal = get_normal_at_hit_point(plane, n, out->point);
+	out->color = get_color_at_hit_point(plane, out->point);
 	out->object = (void *)plane;
 	return (true);
 }

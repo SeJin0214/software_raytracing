@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 04:49:37 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 02:56:09 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,13 +121,13 @@ void	destroy_shapes(t_array_list *list)
 }
 
 extern inline t_ivector3	get_color_at_hit_point(\
-const t_solid_shape shape, const t_vector3 hit_point);
+const void *shape, const t_vector3 hit_point);
 
-extern inline t_vector3	get_normal_at_hit_point(const t_solid_shape shape, \
+extern inline t_vector3	get_normal_at_hit_point(const void *shape, \
 const t_vector3 n, const t_vector3 hit_point);
 
 extern inline t_ivector3	get_checkerboard_color_at_hit_point(\
-const t_solid_shape shape, const t_vector3 hit_point);
+const void *shape, const t_vector3 hit_point);
 
 extern inline t_ivector3	get_image_color_at_hit_point(\
-const t_solid_shape shape, const t_vector3 hit_point);
+const void *shape, const t_vector3 hit_point);

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 16:31:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 00:28:30 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:22:35 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ void	delete_cylinder(void *obj)
 	free(obj);
 }
 
-extern inline t_ivector2	get_uv_coordinate_in_cylinder(\
+extern inline t_vector2	get_uv_coordinate_in_cylinder(\
 const void *cylinder, const t_vector3 hit_point);

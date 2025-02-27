@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 08:37:51 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 05:22:02 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 02:12:17 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ bool	try_add_cone_to_world(char **attributes, t_world *world)
 	get_local_basis(cone.shape.local_basis.row[Z]);
 	cone.shape.texture_type = TEXTURE_BASIC;
 	cone.shape.texture = world->texture;
+	cone.shape.checkerboard_scale = 10;
 	co = copy_construction_to_cone(cone);
 	world->solid_shapes.add(&world->solid_shapes, &co);
 	return (true);

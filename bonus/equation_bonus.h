@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:24:34 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/25 15:11:09 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/27 01:51:52 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_quadratic_equation
  * || (M - N(M * N) + t0(D - N(D * N)) ||^2 = r^2
  * || M┵ + tD┴ ||^2 = r^2
  * (M┵ + tD┴) * (M┵ + tD┴) = r^2
- * (D┴ * D┴)t^2 + 2t(D┴ * M┵) + (M┵ * M┵) - r^2 = 0
+ * (D┴ * D┴)t^2 + 2t(D┴ * M┵) + (M┵ * M┵) - r^2 = 0, 2d
  * a : (D┴ * D┴)
  * b : 2 * (D┴ * M┵)
  * c : (M┵ * M┵) - r^2
