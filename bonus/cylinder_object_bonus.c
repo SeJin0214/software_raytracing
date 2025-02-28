@@ -6,12 +6,13 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 16:31:39 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 19:22:35 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 02:44:53 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "cylinder_bonus.h"
+#include "hit_cylinder_bonus.h"
 
 t_cylinder	*copy_construction_to_cylinder(const t_cylinder cylinder)
 {

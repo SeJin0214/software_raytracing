@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 02:50:52 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:01:09 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include "sphere_bonus.h"
 #include "equation_bonus.h"
 #include "render_bonus.h"
+
+extern inline void		set_hit_record_by_sphere(t_hit_record *out, \
+const float solution, const t_ray ray, const t_sphere *sphere);
 
 t_sphere	*copy_construction_to_sphere(const t_sphere sphere)
 {
@@ -66,6 +69,3 @@ bool	is_hit_sphere(const t_ray ray, const void *obj, t_hit_record *out)
 	set_hit_record_by_sphere(out, solution, ray, sphere);
 	return (true);
 }
-
-extern inline void	set_hit_record_by_sphere(t_hit_record *out, \
-const float solution, const t_ray ray, const t_sphere *sphere);

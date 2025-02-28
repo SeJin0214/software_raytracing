@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:26:13 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/28 01:19:44 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:04:34 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ inline t_hit_record	load_hit_record(const t_world *world, const t_ray ray)
 inline t_ivector3	load_hit_point_color(const t_world *world, const t_ray ray)
 {
 	const t_hit_record	hit_record = load_hit_record(world, ray);
+
 	if (is_collision(hit_record) == false)
 	{
 		return (get_ivector3(0, 0, 0));

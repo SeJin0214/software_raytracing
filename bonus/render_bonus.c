@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:28:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 17:47:02 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:04:46 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 #include "float_bonus.h"
 #include "shadow_bonus.h"
 
+extern inline t_ivector3		trace_reflection_color(const t_world *world, \
+const t_ray ray, const t_hit_record hit_record, size_t depth);
+
+extern inline t_ivector3		load_hit_point_color(const t_world *world, \
+const t_ray ray);
+
 extern inline t_hit_record	load_hit_record(const t_world *world, \
 const t_ray ray);
-
-extern inline t_ivector3	load_hit_point_color(const t_world *world, \
-const t_ray ray);
-
-extern inline t_ivector3	trace_reflection_color(const t_world *world, \
-const t_ray ray, const t_hit_record hit_record, size_t depth);
 
 void	*render(void *obj)
 {

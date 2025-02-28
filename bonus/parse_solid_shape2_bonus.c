@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 08:37:51 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 02:12:17 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:58:18 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 bool	try_add_cone_to_world(char **attributes, t_world *world)
 {
-	t_cone	cone;
-	t_cone	*co;
+	t_cone		cone;
+	t_cone		*co;
 	const bool	is_invalid_format = \
 	get_count_to_words(attributes) != CONE_ATTRIBUTE_LENGTH \
 	|| get_count_words(attributes[CONE_ATTRIBUTE_COORDINATES], ',') \

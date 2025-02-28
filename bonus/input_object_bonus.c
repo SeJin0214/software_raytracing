@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:52:13 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/25 22:27:33 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:50:45 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ bool	try_change_texture(t_world *world, const int key)
 
 	if (key == '1')
 	{
-		action = ACTION_CHANGE_TEXTURE_BASIC;	
+		action = ACTION_CHANGE_TEXTURE_BASIC;
 	}
 	else if (key == '2')
 	{

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:49:29 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/28 02:09:01 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:01:54 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ const void *shape, const t_vector3 hit_point);
 extern inline t_ivector3	get_image_color_at_hit_point(\
 const void *shape, const t_vector3 hit_point);
 
-extern inline float	get_height(t_ivector3 color);
+extern inline float		get_height(t_ivector3 color);
 
 extern inline t_vector3	get_bump_normal(const void *shape, const t_vector3 n, \
 int x, int y);

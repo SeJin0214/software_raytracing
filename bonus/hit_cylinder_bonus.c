@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder_bonus.c                                   :+:      :+:    :+:   */
+/*   hit_cylinder_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:46:14 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 23:33:55 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:55:10 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "cylinder_bonus.h"
 #include "equation_bonus.h"
+#include "hit_cylinder_bonus.h"
 #include "solid_shape_getter_bonus.h"
-#include "solid_shape_getter2_bonus.h"
 
 bool	is_hit_cylinder(const t_ray ray, \
 const void *obj, t_hit_record *out)
@@ -33,18 +32,19 @@ const void *obj, t_hit_record *out)
 		if (solution <= 0 || out->t <= solution)
 			return (is_hit);
 	}
-	height = calculate_cylinder_hit_height(ray, *cy, solution);
+	height = calculate_hit_height(ray, cy->shape.local_basis.row[Z], \
+	cy->shape.coordinates, solution);
 	if (quadratic.discriminant <= 0 || fabsf(height) > cy->height / 2)
 		return (is_hit);
-	out->t = solution;
-	out->point = get_point_in_ray(ray, out->t);
-	out->color = get_color_at_hit_point(cy, out->point);
-	out->normal = get_normal_at_hit_point(cy, normalize_vector3(\
-	subtract_vector3(out->point, get_point_in_ray(get_ray(cy->\
-	shape.coordinates, cy->shape.local_basis.row[Z]), height))), out->point);
-	out->object = (void *)cy;
+	set_hit_record_in_cylinder(ray, cy, solution, out);
 	return (true);
 }
+
+extern inline float	calculate_hit_height(const t_ray ray, \
+const t_vector3 n, const t_vector3 c, float t);
+
+extern inline void	set_hit_record_in_cylinder(const t_ray ray, \
+const t_cylinder *cy, const float solution, t_hit_record *out);
 
 extern inline bool	is_hit_cylinder_end_cap(const t_ray ray, \
 const t_cylinder *cylinder, t_hit_record *out);

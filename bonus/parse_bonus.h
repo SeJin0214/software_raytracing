@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:20:41 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 00:34:00 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:06:24 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define VECTOR_ATTRIBUTE_COUNT 3
 # define COLORS_ATTRIBUTE_COUNT 3
 
-typedef	struct s_canvas	t_canvas;
+typedef struct s_canvas	t_canvas;
 
 typedef enum ambient_attribute
 {

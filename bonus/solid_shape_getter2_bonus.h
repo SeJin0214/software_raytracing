@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 23:24:43 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/28 01:52:05 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:54:12 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int x, int y)
 	get_vector3(right_height - left_height, down_height - up_height, \
 	sqrtf(1.0f - powf(right_height - left_height, 2) \
 	- powf(down_height - up_height, 2))));
-	
+
 	return (normalize_vector3(multiply_vector_and_matrix3x3(normal, \
 	get_local_basis(n))));
 }

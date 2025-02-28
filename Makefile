@@ -6,7 +6,7 @@
 #    By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 15:07:14 by sejjeong          #+#    #+#              #
-#    Updated: 2025/02/24 09:36:05 by sejjeong         ###   ########.fr        #
+#    Updated: 2025/02/28 15:44:01 by sejjeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,11 +64,11 @@ BONUS_DIR = ./bonus
 
 BONUS_SRCS = $(BONUS_DIR)/main_bonus.c \
 	$(BONUS_DIR)/camera_bonus.c \
-	$(BONUS_DIR)/cylinder_bonus.c \
+	$(BONUS_DIR)/hit_cylinder_bonus.c \
 	$(BONUS_DIR)/cylinder_object_bonus.c \
 	$(BONUS_DIR)/cylinder_action_bonus.c \
 	$(BONUS_DIR)/cone_bonus.c \
-	$(BONUS_DIR)/cone_object_bonus.c \
+	$(BONUS_DIR)/hit_cone_bonus.c \
 	$(BONUS_DIR)/cone_action_bonus.c \
 	$(BONUS_DIR)/equation_bonus.c \
 	$(BONUS_DIR)/hit_record_bonus.c \

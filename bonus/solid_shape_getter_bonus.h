@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 00:14:03 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/27 23:34:09 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:54:58 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ const void *shape, const t_vector3 hit_point)
 inline t_ivector3	get_texel_color(const void *shape, int x, int y)
 {
 	const t_solid_shape	*sh = shape;
-	int					offset = sh->texture.width * y + x;
+	const int			offset = sh->texture.width * y + x;
 	int					*image_frame_buffer;
 	int					color;
 
@@ -59,8 +59,8 @@ const void *shape, const t_vector3 hit_point)
 inline t_ivector3	get_color_at_hit_point(const void *shape, \
 const t_vector3 hit_point)
 {
-	const t_solid_shape	*sh = shape; 
-	
+	const t_solid_shape	*sh = shape;
+
 	if (sh->texture_type == TEXTURE_BASIC)
 	{
 		return (sh->colors);
@@ -76,7 +76,5 @@ const t_vector3 hit_point)
 	ft_assert(false, "get_color_at_hit_point, invalid texture type");
 	return (sh->colors);
 }
-
-
 
 #endif

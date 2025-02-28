@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 05:18:55 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 05:22:56 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:57:08 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_image
 {
-	t_img	*image; 
+	t_img	*image;
 	int		width;
 	int		height;
 }	t_image;

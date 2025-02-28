@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 05:49:48 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/25 22:50:56 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:59:19 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define RENDERER_BONUS_H
 # include <pthread.h>
 
-typedef	struct s_world t_world;
-typedef	struct s_canvas t_canvas;
+typedef struct s_world	t_world;
+typedef struct s_canvas	t_canvas;
 
 typedef struct s_renderer
 {

@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:04:43 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 07:06:28 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:00:17 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,17 @@
 
 bool	init_world(t_world *world, t_canvas *canvas)
 {
-	int width;
+	int	width;
 	int	height;
 
 	world->is_valid_ambient_light = false;
 	world->is_valid_camera = false;
 	world->current_object_index = 0;
 	world->current_light_index = 0;
-	world->texture.image = mlx_xpm_file_to_image(canvas->xvar, "texture/earth_col.xpm", \
-	&width, &height);
+	world->texture.image = mlx_xpm_file_to_image(canvas->xvar, \
+	"texture/earth_col.xpm", &width, &height);
 	world->texture.width = width;
 	world->texture.height = height;
-	printf("%p, %d, %d\n", world->texture.image, world->texture.width, world->texture.height);
 	init_array_list(&world->solid_shapes, sizeof(t_solid_shape *));
 	init_array_list(&world->lights, sizeof(t_light));
 	return (world->texture.image != NULL);
