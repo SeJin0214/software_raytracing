@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:31:31 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/28 19:06:40 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:16:41 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,7 @@ bool	try_add_sphere_to_world(char **attributes, t_world *world)
 	attributes[SPHERE_ATTRIBUTE_COLORS], &sphere.shape.colors) == false;
 	if (is_invalid_value)
 		return (false);
-	sphere.shape.local_basis = \
-	get_local_basis((t_vector3){{0.0f, 0.0f, 1.0f}});
-	sphere.shape.texture_type = TEXTURE_BASIC;
-	sphere.shape.texture = world->texture;
-	sphere.shape.checkerboard_scale = 10;
-	sp = copy_construction_to_sphere(sphere);
+	sp = init_construction_to_sphere(sphere, world);
 	world->solid_shapes.add(&world->solid_shapes, &sp);
 	return (true);
 }
@@ -104,9 +99,7 @@ bool	try_add_cylinder_to_world(char **attributes, t_world *world)
 
 	if (is_invalid_format \
 	|| is_invalid_value_in_cylinder(attributes, &cylinder))
-	{
 		return (false);
-	}
 	cylinder.shape.local_basis.row[Z] = \
 	normalize_vector3(cylinder.shape.local_basis.row[Z]);
 	cylinder.shape.local_basis = \

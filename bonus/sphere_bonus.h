@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 04:27:10 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/28 19:00:30 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:22:26 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef struct s_sphere
 }	t_sphere;
 
 /* sphere.c */
-t_sphere	*copy_construction_to_sphere(const t_sphere sphere);
+t_sphere	*init_construction_to_sphere(const t_sphere sphere, \
+t_world *world);
 void		delete_sphere(void *obj);
 bool		is_hit_sphere(const t_ray ray, \
 const void *sphere, t_hit_record *out);

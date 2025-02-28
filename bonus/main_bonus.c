@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:08:45 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 05:31:18 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:19:15 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int argc, char **argv)
 	}
 	input.canvas = &canvas;
 	input.world = &world;
-	// 버튼 눌렀을 때 무한루프로 움직이기 실행?
 	render_multi_thread(&world, &canvas);
 	mlx_hook(canvas.win, X_BUTTON, 0, mlx_loop_end, canvas.xvar);
 	mlx_key_hook(canvas.win, input_key, &input);
@@ -49,12 +48,6 @@ int	main(int argc, char **argv)
 
 int	input_key(int key, t_input *input)
 {
-	struct timeval start, end;
-    double elapsedTime;
-
-    gettimeofday(&start, NULL);
-
-
 	if (key == ESC)
 	{
 		mlx_loop_end(input->canvas->xvar);
@@ -71,13 +64,6 @@ int	input_key(int key, t_input *input)
 	{
 		render_multi_thread(input->world, input->canvas);
 	}
-	
-	gettimeofday(&end, NULL);
-
-    elapsedTime = (end.tv_sec - start.tv_sec) +
-                  (end.tv_usec - start.tv_usec) / 1000000.0;
-
-    printf("myFunction() 실행 시간: %f 초\n", elapsedTime);
 	return (0);
 }
 

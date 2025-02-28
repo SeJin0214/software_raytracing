@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 08:37:51 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/28 18:58:18 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:16:07 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ bool	try_add_cone_to_world(char **attributes, t_world *world)
 	|| get_count_words(attributes[CONE_ATTRIBUTE_COLORS], ',') \
 	!= COLORS_ATTRIBUTE_COUNT;
 
-	if (is_invalid_format \
-	|| is_invalid_value_in_cone(attributes, &cone))
+	if (is_invalid_format || is_invalid_value_in_cone(attributes, &cone))
 	{
 		return (false);
 	}

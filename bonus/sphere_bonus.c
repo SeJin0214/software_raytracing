@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:59:06 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/28 19:01:09 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:16:16 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@
 extern inline void		set_hit_record_by_sphere(t_hit_record *out, \
 const float solution, const t_ray ray, const t_sphere *sphere);
 
-t_sphere	*copy_construction_to_sphere(const t_sphere sphere)
+t_sphere	*init_construction_to_sphere(const t_sphere sphere, t_world *world)
 {
 	t_sphere	*result;
 
 	result = malloc(sizeof(t_sphere));
 	result->shape = sphere.shape;
+	result->shape.local_basis = \
+	get_local_basis((t_vector3){{0.0f, 0.0f, 1.0f}});
+	result->shape.texture_type = TEXTURE_BASIC;
+	result->shape.texture = world->texture;
+	result->shape.checkerboard_scale = 10;
 	result->shape.is_hit = is_hit_sphere;
 	result->shape.delete = delete_sphere;
 	result->shape.get_uv_coordinate = get_uv_coordinate_in_sphere;
