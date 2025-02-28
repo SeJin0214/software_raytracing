@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 18:18:05 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/19 23:15:39 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:34:43 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ inline float	get_length_in_vector3(const t_vector3 v)
 	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
 }
 
-inline float	dot_product3x3(const t_vector3 vector0, const t_vector3 vector1)
+inline float	dot_product3x3(const t_vector3 vector0, \
+const t_vector3 vector1)
 {
 	return (vector0.x * vector1.x + vector0.y * vector1.y \
 	+ vector0.z * vector1.z);

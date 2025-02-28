@@ -6,7 +6,7 @@
 /*   By: sejjeong <sejjeong@student.42gyeongsan>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:29:16 by sejjeong          #+#    #+#             */
-/*   Updated: 2025/02/26 04:23:43 by sejjeong         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:34:49 by sejjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef union __attribute__((aligned(16))) s_ivector2
 	};
 	int	xy[4];
 }	t_ivector2;
-
 
 typedef union __attribute__((aligned(16))) s_vector3
 {
