@@ -1,35 +1,35 @@
 
 # software_raytracing
-> C로 구현한 소프트웨어 레이 트레이서
-> 광원/카메라/ → 레이 생성 → 교차 판정 → 조명/그림자
+> C로 구현한 소프트웨어 레이 트레이서  
+> 광원/카메라/ → 레이 생성 → 교차 판정 → 조명/그림자  
 
 ## 환경
-OS       : Ubuntu 22.04.3 LTS
-Language : C
-Build    : makefile
+OS       : Ubuntu 22.04.3 LTS  
+Language : C  
+Build    : makefile  
 
 ## 실행 (bonus가 핵심)
-  make bonus
-  ./miniRT scene.rt
+  make bonus  
+  ./miniRT scene.rt  
 
 ## 실행 환경 세팅 (추후에 Docker 사용)
-<X11/Xlib.h> 없는 경우 
-sudo apt update
-sudo apt install build-essential libx11-dev pkg-config
-
-<X11/extensions/XShm.h> 없는 경우
-sudo apt update
-sudo apt install libxext-dev libx11-dev pkg-config
-
-libbsd 없는 경우
-sudo apt update
-sudo apt install libbsd-dev
+<X11/Xlib.h> 없는 경우   
+sudo apt update  
+sudo apt install build-essential libx11-dev pkg-config  
+  
+<X11/extensions/XShm.h> 없는 경우  
+sudo apt update  
+sudo apt install libxext-dev libx11-dev pkg-config  
+  
+libbsd 없는 경우  
+sudo apt update  
+sudo apt install libbsd-dev  
 
 #### 누수 확인
-valgrind --leak=check=full ./miniRT scene.rt (매우 느림)
-
-valgrind 없는 경우
-sudo apt install valgrind
+valgrind --leak=check=full ./miniRT scene.rt (매우 느림)  
+  
+valgrind 없는 경우  
+sudo apt install valgrind  
 
 
 ## 주요 특징
