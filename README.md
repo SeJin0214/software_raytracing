@@ -28,6 +28,9 @@ https://github.com/user-attachments/assets/34023a9e-f23d-4acf-9fc8-4229448e9fa5
 
 
 ## 실행 환경 세팅 (추후에 Docker 사용)
+GNU make가 없는 경우  
+sudo apt install -y make  
+  
 <X11/Xlib.h> 없는 경우   
 sudo apt update  
 sudo apt install build-essential libx11-dev pkg-config  
