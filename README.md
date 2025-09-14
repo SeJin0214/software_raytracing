@@ -15,6 +15,12 @@ Build    : makefile
 ## 실행 화면
 [Software RT](https://www.youtube.com/embed/cbi0bdQTtr4)   
 
+### 조작키
+<img width="1524" height="508" alt="image" src="https://github.com/user-attachments/assets/eea250d5-8950-4934-b346-a7a98f167cc1" />  
+
+  
+
+
 ## 실행 환경 세팅 (추후에 Docker 사용)
 <X11/Xlib.h> 없는 경우   
 sudo apt update  
