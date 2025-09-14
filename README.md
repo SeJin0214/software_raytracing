@@ -4,10 +4,10 @@
 > 광원/카메라/ → 레이 생성 → 교차 판정 → 조명/그림자  
 
 ## 환경
-OS       : Ubuntu 22.04.3 LTS  
-Language : C  
-Build    : makefile  
-
+OS           : Ubuntu 22.04.3 LTS  
+Language     : C  
+Build system : GNU Make  
+  
 ## 실행 (bonus가 핵심)
   make bonus  
   ./miniRT scene.rt  
