@@ -13,8 +13,7 @@ Build    : makefile
   ./miniRT scene.rt  
 
 ## 실행 화면
-https://youtu.be/cbi0bdQTtr4
-  
+<iframe width="765" height="574" src="https://www.youtube.com/embed/cbi0bdQTtr4" title="Software RT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## 실행 환경 세팅 (추후에 Docker 사용)
 <X11/Xlib.h> 없는 경우   
