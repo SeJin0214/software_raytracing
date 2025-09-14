@@ -12,6 +12,10 @@ Build    : makefile
   make bonus  
   ./miniRT scene.rt  
 
+## 실행 화면
+https://youtu.be/cbi0bdQTtr4
+  
+
 ## 실행 환경 세팅 (추후에 Docker 사용)
 <X11/Xlib.h> 없는 경우   
 sudo apt update  
