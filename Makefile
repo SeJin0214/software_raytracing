@@ -13,7 +13,7 @@
 NAME = miniRT
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -O3 -march=native -mavx2 -fno-stack-protector -funroll-loops -pthread   -g
+CFLAGS = -Wall -Wextra -Werror -O3 -march=native -mavx2 -fno-stack-protector -funroll-loops -pthread
 
 RM = rm
 RFLAGS = -rf
