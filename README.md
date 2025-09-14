@@ -56,7 +56,7 @@ sudo apt install valgrind
 - [O] 로컬 좌표계 (요구사항 x)
 - [O] 전역 조명 (요구사항 x)
 - [O] 타일 렌더링(16분할 멀티쓰레딩, 요구사항 x)
-> `mandatory/`, `bonus/`, `texture/` 폴더 구조를 따릅니다.
+
 
 ## 구조
 ├─ mandatory/  : 필수 과제 소스  
