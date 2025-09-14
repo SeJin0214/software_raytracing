@@ -13,7 +13,13 @@ Build    : makefile
   ./miniRT scene.rt  
 
 ## 실행 화면
-[Software RT](https://www.youtube.com/embed/cbi0bdQTtr4)   
+
+https://github.com/user-attachments/assets/10b060a1-c602-4779-81de-a84e04e80fec  
+
+
+https://github.com/user-attachments/assets/34023a9e-f23d-4acf-9fc8-4229448e9fa5  
+
+
 
 ### 조작키
 <img width="1524" height="508" alt="image" src="https://github.com/user-attachments/assets/eea250d5-8950-4934-b346-a7a98f167cc1" />  
