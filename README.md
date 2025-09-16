@@ -7,6 +7,7 @@
 OS           : Ubuntu 22.04.3 LTS  
 Language     : C  
 Build system : GNU Make  
+Coding Standard : norminette  
   
 ## 실행 (bonus가 핵심)
   make bonus  
