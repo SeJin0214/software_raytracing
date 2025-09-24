@@ -62,7 +62,7 @@ sudo apt install valgrind
 - [O] 타일 렌더링(16분할 멀티쓰레딩, 요구사항 x)
 
 
-## 구조
+## 폴더 구조
 ├─ mandatory/  : 필수 과제 소스  
 ├─ bonus/      : 보너스 구현  
 ├─ libft/      : 직접 만든 라이브러리 파일, 의존성  
