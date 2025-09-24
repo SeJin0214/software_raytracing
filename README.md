@@ -9,7 +9,7 @@ Language     : C
 Build system : GNU Make  
 Coding Standard : 42norminette  
   
-## 실행 (bonus가 핵심)
+## 실행
   make bonus  
   ./miniRT scene.rt  
 
