@@ -5,9 +5,9 @@
 
 ## 환경
 OS           : Ubuntu 22.04.3 LTS  
-Language     : C  
-Build system : GNU Make  
-Coding Standard : 42norminette  
+언어     : C  
+빌드 시스템 : GNU Make  
+코딩 표준 : 42norminette  
   
 ## 실행
   make bonus  
