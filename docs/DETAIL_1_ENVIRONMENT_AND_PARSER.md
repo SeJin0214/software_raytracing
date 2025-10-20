@@ -25,12 +25,13 @@
 ## Parser
 .rt 파일 형식에 맞춰 Object 초기화를 위해 parser를 만들었습니다.  
 
-<details><summary>call stack</summary>
+<details><summary>실행, call stack</summary>
 https://github.com/SeJin0214/software_raytracing/blob/e3334c43b6227cf48d3079cd3b6f320f2e70e4b9/bonus/main_bonus.c#L32
 https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L53
 https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L82
-https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L87
+https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L87-L113
 </details>
+
 
 
 
