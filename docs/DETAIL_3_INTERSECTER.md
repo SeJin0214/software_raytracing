@@ -7,14 +7,15 @@
 발사된 Ray에 어떤 구와 교차하는 지 판별하려 합니다.
 
 <details>
-  <summary>call stack 및 설명</summary>
-  https://github.com/SeJin0214/software_raytracing/blob/1edeffc7ce8ad6c8f460188826a69a7d20f27729/bonus/render_bonus.c#L27
-  https://github.com/SeJin0214/software_raytracing/blob/1edeffc7ce8ad6c8f460188826a69a7d20f27729/bonus/render_bonus.h#L52
-  https://github.com/SeJin0214/software_raytracing/blob/1edeffc7ce8ad6c8f460188826a69a7d20f27729/bonus/render_bonus.h#L34
-  <br>
-  구의 방정식을 이용하여 판별합니다.
-  https://github.com/SeJin0214/software_raytracing/blob/1edeffc7ce8ad6c8f460188826a69a7d20f27729/bonus/sphere_bonus.c#L51-L76
+  <summary>call stack 및 설명</summary>  
+  https://github.com/SeJin0214/software_raytracing/blob/1edeffc7ce8ad6c8f460188826a69a7d20f27729/bonus/render_bonus.c#L27  
+  https://github.com/SeJin0214/software_raytracing/blob/1edeffc7ce8ad6c8f460188826a69a7d20f27729/bonus/render_bonus.h#L52  
+  https://github.com/SeJin0214/software_raytracing/blob/1edeffc7ce8ad6c8f460188826a69a7d20f27729/bonus/render_bonus.h#L34  
+  <br>  
+  구의 방정식을 이용하여 판별합니다.  
+  https://github.com/SeJin0214/software_raytracing/blob/1edeffc7ce8ad6c8f460188826a69a7d20f27729/bonus/sphere_bonus.c#L51-L76  
   
   
 </details>
+
 
