@@ -3,6 +3,7 @@
 > C로 구현한 소프트웨어 레이 트레이서  
 > 광원/카메라/ → 레이 생성 → 교차 판정 → 조명/그림자  
 
+  
 ## 주요 특징  
 - [O] `.rt` 씬 파일 파서 (ambient, camera, light, objects)  
 - [O] 조명, 카메라, 오브젝트 회전 및 이동  
@@ -13,7 +14,8 @@
 - [O] 전역 조명 (요구사항 x)  
 - [O] 타일 렌더링(16분할 멀티쓰레딩, 요구사항 x)  
 > `mandatory/`, `bonus/`, `texture/` 폴더 구조를 따릅니다.  
-  
+
+      
 ## 구조  
 ├─ mandatory/ # 필수 과제 소스  
 ├─ bonus/ # 보너스 구현  
@@ -27,6 +29,7 @@
 └─ scene.rt # 샘플 씬  
 
 
+
 ## 환경  
 OS       : Ubuntu 22.04.3 LTS  
 Language : C  
@@ -35,6 +38,18 @@ Build    : makefile
 ## 실행  
   make bonus  
   ./miniRT scene.rt  
+
+
+
+https://github.com/user-attachments/assets/ec823d54-804c-46b0-99a2-9c509b6be8e8
+
+
+
+
+## 조작키
+<img width="3508" height="2480" alt="MiniRT_Controls_A4_v11_fixH_noTopLabels" src="https://github.com/user-attachments/assets/5785cf76-1430-434a-941f-f499588e7242" />
+
+  
 
 ## 실행 환경 세팅 (추후에 Docker 사용)  
 <X11/Xlib.h> 없는 경우   
