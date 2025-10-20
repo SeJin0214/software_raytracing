@@ -43,8 +43,10 @@ for (int i = 0; i < planes.size(); ++i)
 또한 구, 평면, 원기둥, 여기에 원뿔도 추가될 계획이 있었고, 오브젝트마다 이동, 회전, 스케일 연산도 만들어야 하기 때문에 <mark>일반화에 대한 필요성</mark>을 느꼈습니다.  
 함수포인터를 활용한 동적 바인딩을 사용할 경우, <mark>성능은 조금 느리더라도 유지보수와 확장성이 좋은 구조</mark>가 나올 거라 생각했습니다.  
 이에 따라 <mark>OOP의 상속 및 다형성을 흉내내는 구조</mark>를 작성했습니다.  
+상속은 메모리가 한 덩어리인 것을 이용하였습니다.  
 https://github.com/SeJin0214/software_raytracing/blob/b69682ad74367df9f454c8dda0824674aa019e6a/bonus/solid_shape_bonus.h#L33-L46
 https://github.com/SeJin0214/software_raytracing/blob/54ec9ae3f66594c3f45a19fca00351bca7730691/bonus/render_bonus.h#L38-L49
+https://github.com/SeJin0214/software_raytracing/blob/0b300d6ad47a2156e04f05fb2f8aff8ea39063ae/bonus/sphere_bonus.h#L20-L24
 
 
 
