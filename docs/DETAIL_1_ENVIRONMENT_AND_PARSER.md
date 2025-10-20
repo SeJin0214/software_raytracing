@@ -36,11 +36,12 @@ https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564
 
 > 구, 평면, 원뿔 모두 비슷한 코드로 동작합니다.
 https://github.com/SeJin0214/software_raytracing/blob/0737dd26129d40eaf5ab1bea73a2a7b2ff1e713d/bonus/parse_bonus.h#L63-L71  
-https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L87-L98  
-https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L115-L128
+https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L87-L95  
+https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L115-L125
 </details>
 
 올바른 오브젝트는 직접 만든 ArrayList에 넣어 world 내에서 관리했습니다.  https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L110-L111
+
 
 
 
