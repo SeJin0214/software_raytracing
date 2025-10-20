@@ -43,7 +43,5 @@ for (int i = 0; i < planes.size(); ++i)
 함수포인터를 활용한 동적 바인딩을 사용할 경우, 성능은 조금 느리더라도 유지보수와 확장성이 좋은 구조가 나올 거라 생각했습니다.  
 이에 따라 OOP의 상속 및 다형성을 흉내내는 구조를 작성했습니다.  
 https://github.com/SeJin0214/software_raytracing/blob/b69682ad74367df9f454c8dda0824674aa019e6a/bonus/solid_shape_bonus.h#L33-L46
-
-
-
+https://github.com/SeJin0214/software_raytracing/blob/54ec9ae3f66594c3f45a19fca00351bca7730691/bonus/render_bonus.h#L38-L49
 
