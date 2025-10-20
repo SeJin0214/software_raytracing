@@ -29,7 +29,7 @@ https://github.com/SeJin0214/software_raytracing/blob/d544078fce1685fb2c4598b6e9
   https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485b7db2cc978e1d4/mandatory/shadow.h#L47-L58  
   
 </details>
-<details><summary>specular</summary>
+<details><summary>specular description</summary>
   표면의 빛 반사각과 표면에서 카메라로 향하는 벡터가 15도 이내 정도로 닮을 때만 하이라이트가 보이게 해주었습니다.
 https://github.com/SeJin0214/software_raytracing/blob/d544078fce1685fb2c4598b6e944ffeddbe124da/bonus/light_bonus.h#L69-L82
 </details>  
@@ -42,6 +42,7 @@ https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485
 ### 참고 자료
 
 [한정현 컴퓨터그래픽스](https://www.youtube.com/watch?v=_uIjVpAM9l8&list=PLYEC1V9tJOl03WLDoUEKbiYW_Xt4W6LTl&index=10)
+
 
 
 
