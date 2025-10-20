@@ -46,9 +46,8 @@ https://github.com/user-attachments/assets/ec823d54-804c-46b0-99a2-9c509b6be8e8
 
 
 ## 조작키
-<img width="3508" height="2480" alt="MiniRT_Controls_A4_v11_fixH_noTopLabels" src="https://github.com/user-attachments/assets/5785cf76-1430-434a-941f-f499588e7242" />
+  <img width="3373" height="1127" alt="RT_Controls" src="https://github.com/user-attachments/assets/4aeab5d4-0435-497e-bb05-cb7d25032e91" />
 
-  
 
 ## 실행 환경 세팅 (추후에 Docker 사용)  
 <X11/Xlib.h> 없는 경우   
