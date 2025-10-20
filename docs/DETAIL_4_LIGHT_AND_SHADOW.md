@@ -15,7 +15,8 @@ color를 0 ~ 1이 아닌 0 ~ 255의 범위로 잡았습니다.
 diffuse + ambient + specular = pixel color
 https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485b7db2cc978e1d4/bonus/render_bonus.c#L84-L100
 <details><summary>diffuse and ambient</summary>
-https://github.com/SeJin0214/software_raytracing/blob/d544078fce1685fb2c4598b6e944ffeddbe124da/bonus/light_bonus.h#L19-L31
+https://github.com/SeJin0214/software_raytracing/blob/d544078fce1685fb2c4598b6e944ffeddbe124da/bonus/light_bonus.h#L19-L31  
+  표면의 노멀 벡터와 중심에서 빛으로 가는 벡터의 내적을 구하여 빛의 세기를 구하였습니다.  
 https://github.com/SeJin0214/software_raytracing/blob/d544078fce1685fb2c4598b6e944ffeddbe124da/bonus/light_bonus.h#L33-L49
 
   albedo는 물체가 빛을 반사하는 정도를 나타내는 척도이며, 두 조명 모두 albedo 연산을 추가로 해줬습니다.  
@@ -33,6 +34,7 @@ https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485
 ### 참고 자료
 
 [한정현 컴퓨터그래픽스](https://www.youtube.com/watch?v=_uIjVpAM9l8&list=PLYEC1V9tJOl03WLDoUEKbiYW_Xt4W6LTl&index=10)
+
 
 
 
