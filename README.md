@@ -1,57 +1,61 @@
 
 # software_raytracing
-> C로 구현한 소프트웨어 레이 트레이서
-> 광원/카메라/ → 레이 생성 → 교차 판정 → 조명/그림자
+> C로 구현한 소프트웨어 레이 트레이서  
+> 광원/카메라/ → 레이 생성 → 교차 판정 → 조명/그림자  
 
-## 환경
-OS       : Ubuntu 22.04.3 LTS
-Language : C
-Build    : makefile
-
-## 실행 (bonus가 핵심)
-  make bonus
-  ./miniRT scene.rt
-
-## 실행 환경 세팅 (추후에 Docker 사용)
-<X11/Xlib.h> 없는 경우 
-sudo apt update
-sudo apt install build-essential libx11-dev pkg-config
-
-<X11/extensions/XShm.h> 없는 경우
-sudo apt update
-sudo apt install libxext-dev libx11-dev pkg-config
-
-libbsd 없는 경우
-sudo apt update
-sudo apt install libbsd-dev
-
-#### 누수 확인
-valgrind --leak=check=full ./miniRT scene.rt (매우 느림)
-
-valgrind 없는 경우
-sudo apt install valgrind
+## 주요 특징  
+- [O] `.rt` 씬 파일 파서 (ambient, camera, light, objects)  
+- [O] 조명, 카메라, 오브젝트 회전 및 이동  
+- [O] 퐁 조명 모델(ambient + diffuse : 기본 요구사항 + specular (보너스 요구사항)) , 그림자  
+- [O] 프리미티브: Sphere / Plane / Cylinder (기본 요구사항), Cone (보너스 요구사항)  
+- [O] 텍스처/노멀맵 (보너스, `texture/` 활용)  
+- [O] 로컬 좌표계 (요구사항 x)  
+- [O] 전역 조명 (요구사항 x)  
+- [O] 타일 렌더링(16분할 멀티쓰레딩, 요구사항 x)  
+> `mandatory/`, `bonus/`, `texture/` 폴더 구조를 따릅니다.  
+  
+## 구조  
+├─ mandatory/ # 필수 과제 소스  
+├─ bonus/ # 보너스 구현  
+├─ libft/ # 직접 만든 라이브러리 파일, 의존성  
+├─ mlx/ # MiniLibX 관련 (X11)  
+├─ texture/ # 텍스처 리소스  
+├─ .vscode/ # 개발 환경 설정  
+├─ Makefile # 빌드  
+├─ wrong_file_test.sh # 잘못된 포맷 파일 자동화 테스트   
+├─ wrong_file_in_mandatory # 실행되면 안되는 포맷  
+└─ scene.rt # 샘플 씬  
 
 
-## 주요 특징
-- [O] `.rt` 씬 파일 파서 (ambient, camera, light, objects)
-- [O] 조명, 카메라, 오브젝트 회전 및 이동
-- [O] 퐁 조명 모델(ambient + diffuse : 기본 요구사항 + specular (보너스 요구사항)) , 그림자
-- [O] 프리미티브: Sphere / Plane / Cylinder (기본 요구사항), Cone (보너스 요구사항)
-- [O] 텍스처/노멀맵 (보너스, `texture/` 활용)
-- [O] 로컬 좌표계 (요구사항 x)
-- [O] 전역 조명 (요구사항 x)
-- [O] 타일 렌더링(16분할 멀티쓰레딩, 요구사항 x)
-> `mandatory/`, `bonus/`, `texture/` 폴더 구조를 따릅니다.
+## 환경  
+OS       : Ubuntu 22.04.3 LTS  
+Language : C  
+Build    : makefile  
 
-## 구조
-├─ mandatory/ # 필수 과제 소스
-├─ bonus/ # 보너스 구현
-├─ libft/ # 직접 만든 라이브러리 파일, 의존성
-├─ mlx/ # MiniLibX 관련 (X11)
-├─ texture/ # 텍스처 리소스
-├─ .vscode/ # 개발 환경 설정
-├─ Makefile # 빌드
-├─ wrong_file_test.sh # 잘못된 포맷 파일 자동화 테스트 
-├─ wrong_file_in_mandatory # 실행되면 안되는 포맷
-└─ scene.rt # 샘플 씬
+## 실행  
+  make bonus  
+  ./miniRT scene.rt  
 
+## 실행 환경 세팅 (추후에 Docker 사용)  
+<X11/Xlib.h> 없는 경우   
+sudo apt update  
+sudo apt install build-essential libx11-dev pkg-config  
+
+<X11/extensions/XShm.h> 없는 경우  
+sudo apt update  
+sudo apt install libxext-dev libx11-dev pkg-config  
+
+libbsd 없는 경우  
+sudo apt update  
+sudo apt install libbsd-dev  
+
+#### 누수 확인  
+valgrind --leak=check=full ./miniRT scene.rt (매우 느림)  
+
+valgrind 없는 경우  
+sudo apt install valgrind  
+
+
+
+  
+  
