@@ -14,9 +14,12 @@ https://github.com/SeJin0214/software_raytracing/blob/404ea5975b53e841f67571cd5a
 
 Pixel마다 Ray를 어떻게 발사해야 할 지 고민하다가 다음과 같은 코드를 작성하게 되었습니다.  
 <details><summary>mappied_ray</summary>
+  선형 보간 공식에 t = field of view / Pixel length를 넣어, Pixel마다 카메라 각도를 구했습니다.
 https://github.com/SeJin0214/software_raytracing/blob/404ea5975b53e841f67571cd5a40ba96f3e82728/bonus/render_bonus.c#L36-L46
+  이후 tan를 이용하여 카메라 각도에 해당하는 x와 y를 구하여 Ray의 방향을 지정해주었습니다.
 https://github.com/SeJin0214/software_raytracing/blob/404ea5975b53e841f67571cd5a40ba96f3e82728/bonus/render_bonus.c#L56-L71
 </details>
+
 
 
 
