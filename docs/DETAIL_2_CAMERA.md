@@ -1,6 +1,6 @@
 
 ## 좌표계
-DirectX로 학습 전이를 위해 왼손 좌표계를 사용했습니다.
+DirectX로 학습 전이를 위해 왼손 좌표계를 사용했습니다.  
 <img width="245" height="290" alt="image" src="https://github.com/user-attachments/assets/c904ef1b-84b3-41df-9294-750fd2f5ccf1" />
 
 
@@ -16,6 +16,7 @@ https://github.com/SeJin0214/software_raytracing/blob/404ea5975b53e841f67571cd5a
 https://github.com/SeJin0214/software_raytracing/blob/404ea5975b53e841f67571cd5a40ba96f3e82728/bonus/render_bonus.c#L36-L46
 https://github.com/SeJin0214/software_raytracing/blob/404ea5975b53e841f67571cd5a40ba96f3e82728/bonus/render_bonus.c#L56-L71
 </details>
+
 
 
 
