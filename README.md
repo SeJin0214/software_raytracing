@@ -14,18 +14,6 @@
 - [O] 전역 조명 (요구사항 x)  
 - [O] 타일 렌더링(16분할 멀티쓰레딩, 요구사항 x)  
 
-      
-## 구조  
-├─ mandatory/ --필수 과제 소스  
-├─ bonus/     --보너스 구현  
-├─ libft/     --직접 만든 라이브러리 파일, 의존성  
-├─ mlx/       --MiniLibX 관련 (X11)  
-├─ texture/   --텍스처 리소스  
-├─ .vscode/   --개발 환경 설정  
-├─ Makefile   --빌드  
-├─ wrong_file_test.sh       --잘못된 포맷 파일 자동화 테스트   
-├─ wrong_file_in_mandatory  --실행되면 안되는 포맷  
-└─ scene.rt   --샘플 씬  
 
 
 
