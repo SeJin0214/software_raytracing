@@ -23,6 +23,9 @@
 
 
 ## Parser
+.rt 파일 형식에 맞춰 Object Init을 해야 한다.  
+https://github.com/SeJin0214/software_raytracing/blob/e3334c43b6227cf48d3079cd3b6f320f2e70e4b9/bonus/main_bonus.c#L32
+
 
 
 
