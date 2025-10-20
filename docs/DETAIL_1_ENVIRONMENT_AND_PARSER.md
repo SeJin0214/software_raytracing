@@ -23,8 +23,12 @@
 
 
 ## Parser
-.rt 파일 형식에 맞춰 Object Init을 해야 한다.  
+.rt 파일 형식에 맞춰 Object Init을 하기 위해 parser를 만들었다.  
+
+#### call stack
 https://github.com/SeJin0214/software_raytracing/blob/e3334c43b6227cf48d3079cd3b6f320f2e70e4b9/bonus/main_bonus.c#L32
+https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L53
+https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L82
 
 
 
