@@ -20,7 +20,7 @@ https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485
 </details>  
 
 
-<details><summary>diffuse and ambient</summary>
+<details><summary>diffuse and ambient description</summary>
 https://github.com/SeJin0214/software_raytracing/blob/d544078fce1685fb2c4598b6e944ffeddbe124da/bonus/light_bonus.h#L19-L31  
   표면의 노멀 벡터와 중심에서 빛으로 가는 벡터의 내적을 구하여 빛의 세기를 구하였습니다.  
 https://github.com/SeJin0214/software_raytracing/blob/d544078fce1685fb2c4598b6e944ffeddbe124da/bonus/light_bonus.h#L33-L49
@@ -40,6 +40,7 @@ https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485
 ### 참고 자료
 
 [한정현 컴퓨터그래픽스](https://www.youtube.com/watch?v=_uIjVpAM9l8&list=PLYEC1V9tJOl03WLDoUEKbiYW_Xt4W6LTl&index=10)
+
 
 
 
