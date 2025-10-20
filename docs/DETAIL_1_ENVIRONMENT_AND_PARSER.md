@@ -24,6 +24,7 @@
 
 ## Parser
 .rt 파일 형식에 맞춰 Object 초기화를 위해 parser를 만들었습니다.  
+올바른 오브젝트는 직접 만든 ArrayList에 넣어 world 내에서 관리했습니다.  https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L110-L111
 
 <details><summary>Parsing call stack 및 설명</summary>
 https://github.com/SeJin0214/software_raytracing/blob/e3334c43b6227cf48d3079cd3b6f320f2e70e4b9/bonus/main_bonus.c#L32  
@@ -41,7 +42,8 @@ https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb
 https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L115-L125
 </details>
 
-올바른 오브젝트는 직접 만든 ArrayList에 넣어 world 내에서 관리했습니다.  https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L110-L111
+
+
 
 
 
