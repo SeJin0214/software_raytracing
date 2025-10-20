@@ -25,12 +25,17 @@
 ## Parser
 .rt 파일 형식에 맞춰 Object 초기화를 위해 parser를 만들었습니다.  
 
-<details><summary>실행, call stack</summary>
+<details><summary>call stack 및 설명</summary>
 https://github.com/SeJin0214/software_raytracing/blob/e3334c43b6227cf48d3079cd3b6f320f2e70e4b9/bonus/main_bonus.c#L32
 https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L53
 https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L82
-https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L87-L113
+https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L87-L98  
+https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L115-L128
+  
+  vector3의 포맷(x,y,z의 요소의 개수)이 올바르지 않거나, value 값이 올바르지 않으면 실패하도록 하였습니다.  
+  성공 시, 직접 만든 ArrayList에 넣어 world 내에서 관리했습니다.  https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L110-L111
 </details>
+
 
 
 
