@@ -18,9 +18,31 @@
 
   > 평면, 원기둥, 원뿔 모두 각자의 방정식을 이용해 판별합니다.
   
-  
 </details>
 
+
+## 확장성
+
+구, 평면, 원기둥, 여기에 원뿔도 추가될 계획이 있었습니다.
+오브젝트마다 담을 ArrayList를 만들게 될 경우 아래의 코드처럼 반복문도 추가로 작성해야 하는 번거로움이 있었습니다.   
+```
+// 의사 코드
+for (int i = 0; i < spheres.size(); ++i)
+{
+      // is_hit
+}
+
+for (int i = 0; i < planes.size(); ++i)
+{
+      // is_hit
+}
+
+...
+
+```
+함수포인터를 활용한 동적 바인딩을 사용할 경우, 성능은 조금 느리더라도 유지보수와 확장성이 좋은 구조가 나올 거라 생각했습니다.  
+이에 따라 OOP의 상속 및 다형성을 흉내내는 구조를 작성했습니다.  
+https://github.com/SeJin0214/software_raytracing/blob/b69682ad74367df9f454c8dda0824674aa019e6a/bonus/solid_shape_bonus.h#L33-L46
 
 
 
