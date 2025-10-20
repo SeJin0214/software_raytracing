@@ -26,19 +26,20 @@
 .rt 파일 형식에 맞춰 Object 초기화를 위해 parser를 만들었습니다.  
 
 <details><summary>Parsing call stack 및 설명</summary>
-https://github.com/SeJin0214/software_raytracing/blob/e3334c43b6227cf48d3079cd3b6f320f2e70e4b9/bonus/main_bonus.c#L32
-https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L53
-https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L82
-유지보수와 가독성을 위해 Enum으로 attribute를 명시해주었습니다.
+https://github.com/SeJin0214/software_raytracing/blob/e3334c43b6227cf48d3079cd3b6f320f2e70e4b9/bonus/main_bonus.c#L32  
+https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L53  
+https://github.com/SeJin0214/software_raytracing/blob/5ce16e5bdffa75c7007f522564e2123fa6595858/bonus/parse_bonus.c#L82  
+유지보수와 가독성을 위해 Enum으로 attribute를 명시해주었습니다.  
 attribute의 포맷(x,y,z의 요소의 개수 등)이 올바르지 않거나, value 값이 올바르지 않으면 실패하도록 하였습니다.   
   
-구, 평면, 원뿔 모두 비슷한 코드로 동작합니다.  
-https://github.com/SeJin0214/software_raytracing/blob/0737dd26129d40eaf5ab1bea73a2a7b2ff1e713d/bonus/parse_bonus.h#L63-L71
+> 구, 평면, 원뿔 모두 비슷한 코드로 동작합니다.  
+https://github.com/SeJin0214/software_raytracing/blob/0737dd26129d40eaf5ab1bea73a2a7b2ff1e713d/bonus/parse_bonus.h#L63-L71  
 https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L87-L98  
 https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L115-L128
 </details>
 
 올바른 오브젝트는 직접 만든 ArrayList에 넣어 world 내에서 관리했습니다.  https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L110-L111
+
 
 
 
