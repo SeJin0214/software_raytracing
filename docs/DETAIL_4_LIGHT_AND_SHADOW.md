@@ -37,8 +37,9 @@ https://github.com/SeJin0214/software_raytracing/blob/d544078fce1685fb2c4598b6e9
   
 ## 그림자
 해당 표면이 그림자 져야 하는지 판단하는 코드입니다.  
-빛에서 표면까지 Ray를 쏘았을 때, 부딪히는 Object가 있다면, 그 Object에서 빛까지의 거리와 표면에서 빛까지 거리를 비교합니다.  
-표면에서 빛까지의 거리가 더 크다면 Object에 가려져 있는 것이므로 그림자가 지는 것으로 판단합니다.  
+1. 빛에서 표면까지 Ray를 쏩니다.  
+2. 부딪히는 Object가 있다면, 그 Object에서 빛까지의 거리와 표면에서 빛까지 거리를 비교합니다.  
+3. 표면에서 빛까지의 거리가 더 크다면 Object에 가려져 있는 것이므로 그림자가 지는 것으로 판단합니다.  
 https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485b7db2cc978e1d4/mandatory/shadow.h#L17-L45
 
 
@@ -46,6 +47,7 @@ https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485
 ### 참고 자료
 
 [한정현 컴퓨터그래픽스](https://www.youtube.com/watch?v=_uIjVpAM9l8&list=PLYEC1V9tJOl03WLDoUEKbiYW_Xt4W6LTl&index=10)
+
 
 
 
