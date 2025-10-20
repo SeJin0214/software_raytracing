@@ -15,9 +15,12 @@
   모든 구 오브젝트를 직선의 벡터 방정식과 구의 방정식을 이용하여 판별합니다.  
   해가 2개라면 교차되는 것이고, 해가 양수여야 앞에 있어야 합니다. 또한 기존의 값보다 작아야 카메라에 제일 가까운 것으로 판별됩니다.  
   https://github.com/SeJin0214/software_raytracing/blob/1edeffc7ce8ad6c8f460188826a69a7d20f27729/bonus/sphere_bonus.c#L51-L76  
+
+  > 평면, 원기둥, 원뿔 모두 각자의 방정식을 이용해 판별합니다.
   
   
 </details>
+
 
 
 
