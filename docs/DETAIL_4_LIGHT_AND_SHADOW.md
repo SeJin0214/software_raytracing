@@ -3,8 +3,8 @@
 ## 조명
 
 Phong light model의 4개의 조명 3개의 조명을 구현해야 합니다.  
-1. diffuse : 주변광이라 하며, 공간 전체에 은은하게 퍼져있는 빛  
-2. ambient : 난반사라 하며, 여러 방향으로 균일하게 흩어져 어느 방향으로 봐도 동일하게 보인다.  
+1. diffuse : 난반사라 하며, 여러 방향으로 균일하게 흩어져 어느 방향으로 봐도 동일하게 보인다.  
+2. ambient : 주변광이라 하며, 공간 전체에 은은하게 퍼져있는 빛     
 3. specular : 정반사라 하며, 카메라 각도에 따라 하이라이트가 보인다.  
   
 color를 0 ~ 1이 아닌 0 ~ 255의 범위로 잡았습니다.  
@@ -33,6 +33,7 @@ https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485
 ### 참고 자료
 
 [한정현 컴퓨터그래픽스](https://www.youtube.com/watch?v=_uIjVpAM9l8&list=PLYEC1V9tJOl03WLDoUEKbiYW_Xt4W6LTl&index=10)
+
 
 
 
