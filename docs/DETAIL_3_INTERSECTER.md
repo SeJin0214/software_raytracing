@@ -2,9 +2,9 @@
 
 ## 교차
 
-이제 카메라에 보이는 Object가 무엇인지 판별해야 합니다.  
+카메라에서 쏘는 Ray와 교차하는 Object만이 화면에 Rendering 되는 것입니다.  
 
-발사된 Ray에 어떤 구와 교차하는 지 판별하려 합니다.
+발사된 Ray에 어떤 구와 교차하는 지 판별해야 합니다.
 
 <details>
   <summary>call stack 및 설명</summary>  
@@ -18,6 +18,7 @@
   
   
 </details>
+
 
 
 
