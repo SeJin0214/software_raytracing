@@ -12,11 +12,11 @@ DirectX로 학습 전이를 위해 왼손 좌표계를 사용했습니다.
 발사된 Ray로 해당 Pixel의 Color 값을 가져오고, Image buffer에 값을 넣습니다.  
 https://github.com/SeJin0214/software_raytracing/blob/404ea5975b53e841f67571cd5a40ba96f3e82728/bonus/render_bonus.c#L47-L50
 
-<detail>
-  <summary>mappied_ray</summary>
+<detail><summary>mappied_ray</summary>
 https://github.com/SeJin0214/software_raytracing/blob/404ea5975b53e841f67571cd5a40ba96f3e82728/bonus/render_bonus.c#L36-L46
 https://github.com/SeJin0214/software_raytracing/blob/404ea5975b53e841f67571cd5a40ba96f3e82728/bonus/render_bonus.c#L56-L71
 </detail>
+
 
 
 
