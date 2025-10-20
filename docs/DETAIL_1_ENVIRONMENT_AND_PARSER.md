@@ -1,7 +1,8 @@
 
 
 ## 환경  
-OS       : Ubuntu 22.04.3 LTS  
-Language : C  
-Build    : makefile  
-Coding Standard : 42 norminette  
+운영체제       : Ubuntu 22.04.3 LTS  
+언어 : C  
+빌드    : makefile  
+코딩 표준 : 42 norminette  
+
