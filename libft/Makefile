@@ -12,7 +12,8 @@
 
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -O3 -march=native -mavx2 -fno-stack-protector -funroll-loops
+CFLAGS = -Wall -Wextra -Werror -O3 -march=native 
+#-fno-stack-protector
 
 AR = ar
 AR_FLAGS = rc
