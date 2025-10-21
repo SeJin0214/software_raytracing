@@ -9,5 +9,16 @@
 | 스케일 | O | X | X |  
   
 
-그에 따라 키보드를 매핑하였습니다.  
-<img width="1680" height="1048" alt="image" src="https://github.com/user-attachments/assets/8f56c910-2c95-4094-b40a-b295ba1074aa" />
+<details>
+  <summary>
+    키 매핑
+  </summary>
+  이미지와 같이 키보드를 매핑했습니다.
+  <img width="840" height="528" alt="image" src="https://github.com/user-attachments/assets/8f56c910-2c95-4094-b40a-b295ba1074aa" />  
+</details>
+
+
+
+
+  
+
