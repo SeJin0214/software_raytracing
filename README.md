@@ -5,11 +5,11 @@
 
   
 ## 주요 구현 기능  
-- `.rt` 씬 파일 파서 (ambient, camera, light, objects) : [Detail 보러 가기](docs/DETAIL_1_ENVIRONMENT_AND_PARSER.md)  
-- 카메라 : [Detail 보러 가기](docs/DETAIL_2_CAMERA.md)  
-- 교차 판별, Sphere / Plane / Cylinder / Cone : [Detail 보러 가기](docs/DETAIL_3_INTERSECTER_AND_SCALABILITY.md)   
-- 퐁 조명 모델(ambient + diffuse : 기본 요구사항 + specular (보너스 요구사항)) , 그림자 : [Detail 보러 가기](docs/DETAIL_4_LIGHT_AND_SHADOW.md)   
-- 전역 조명 (요구사항 x)  :  [Detail 보러 가기](docs/DETAIL_5_GI.md)  
+- `.rt` 씬 파일 파서 (ambient, camera, light, objects) : [DETAIL_1_ENVIRONMENT_AND_PARSER](docs/DETAIL_1_ENVIRONMENT_AND_PARSER.md)  
+- 카메라 : [DETAIL_2_CAMERA](docs/DETAIL_2_CAMERA.md)  
+- 교차 판별, Sphere / Plane / Cylinder / Cone : [DETAIL_3_INTERSECTER_AND_SCALABILITY](docs/DETAIL_3_INTERSECTER_AND_SCALABILITY.md)   
+- 퐁 조명 모델(ambient + diffuse : 기본 요구사항 + specular (보너스 요구사항)) , 그림자 : [DETAIL_4_LIGHT_AND_SHADOW](docs/DETAIL_4_LIGHT_AND_SHADOW.md)   
+- 전역 조명 (요구사항 x)  :  [DETAIL_5_GI](docs/DETAIL_5_GI.md)  
 - 오브젝트 회전 및 이동  
 - 텍스처 
 - 로컬 좌표계 (요구사항 x)  
