@@ -14,8 +14,7 @@ Specular 까지 구현하게 되면, 아래의 사진처럼 하이라이트가 �
   <summary>call stack and description</summary>
   https://github.com/SeJin0214/software_raytracing/blob/b5600b1a699ecfe3b0b033581ef3527a187a6b5b/bonus/render_bonus.c#L74-L75
 https://github.com/SeJin0214/software_raytracing/blob/b5600b1a699ecfe3b0b033581ef3527a187a6b5b/bonus/render_bonus.c#L83
-표면의 색상을 구할 때,[조명 참고](docs/DETAIL_4_LIGHT_AND_SHADOW.md) trace_reflection_color 함수도 호출하여 반사된 물체의 빛까지 같이 추가해줍니다.
-  https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485b7db2cc978e1d4/bonus/render_bonus.h#L63-L87
+표면의 색상을 구할 때, trace_reflection_color 함수도 호출하여 반사된 물체의 빛까지 같이 추가해줍니다.  https://github.com/SeJin0214/software_raytracing/blob/aab4f628e9528c4f39fa238485b7db2cc978e1d4/bonus/render_bonus.h#L63-L87
   
 </details>
 
@@ -25,4 +24,5 @@ https://github.com/SeJin0214/software_raytracing/blob/b5600b1a699ecfe3b0b033581e
 ## 참고 자료
 
 [한정현 컴퓨터그래픽스 16장](https://www.youtube.com/watch?v=E35m-vRm_KY&list=PLYEC1V9tJOl03WLDoUEKbiYW_Xt4W6LTl&index=17)
+
 
