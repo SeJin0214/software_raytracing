@@ -7,4 +7,7 @@
 | 이동   |    O   |    O   |   O  |  
 | 회전   | O | O | X |  
 | 스케일 | O | X | X |  
+  
+
+그에 따라 키보드를 매핑하였습니다.  
 <img width="1680" height="1048" alt="image" src="https://github.com/user-attachments/assets/8f56c910-2c95-4094-b40a-b295ba1074aa" />
