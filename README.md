@@ -5,13 +5,13 @@
 
   
 ## 주요 구현 기능  
-- `.rt` 씬 파일 파서 (ambient, camera, light, objects)  [Detail 보러 가기](docs/DETAIL_1_ENVIRONMENT_AND_PARSER.md)
+- `.rt` 씬 파일 파서 (ambient, camera, light, objects) : [Detail 보러 가기](docs/DETAIL_1_ENVIRONMENT_AND_PARSER.md)
 - [O] 조명, 카메라, 오브젝트 회전 및 이동  
 - [O] 퐁 조명 모델(ambient + diffuse : 기본 요구사항 + specular (보너스 요구사항)) , 그림자  
 - [O] 프리미티브: Sphere / Plane / Cylinder (기본 요구사항), Cone (보너스 요구사항)  
 - [O] 텍스처/노멀맵 (보너스, `texture/` 활용)  
 - [O] 로컬 좌표계 (요구사항 x)  
-- [O] 전역 조명 (요구사항 x)  
+- [O] 전역 조명 (요구사항 x)  :  [Detail 보러 가기](docs/DETAIL_6_GI.md)
 - [O] 타일 렌더링(16분할 멀티쓰레딩, 요구사항 x)  
 
 
