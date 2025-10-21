@@ -41,10 +41,11 @@ specular와 GI도 구현하기 전, 1회 렌더링 성능입니다.
   </summary>
     
   
-    <img width="175" height="496" alt="image" src="https://github.com/user-attachments/assets/9526297e-20eb-4e2b-886e-79f5e70d5fec" />
+  <img width="175" height="496" alt="image" src="https://github.com/user-attachments/assets/9526297e-20eb-4e2b-886e-79f5e70d5fec" />
 
 
 </details>
+
 
 
 
