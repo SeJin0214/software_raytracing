@@ -1,4 +1,4 @@
-
+<img width="1176" height="680" alt="image (4)" src="https://github.com/user-attachments/assets/3c398c2f-9db4-4830-8686-324086551067" />
 
 ## 최적화
 
@@ -34,6 +34,17 @@ specular와 GI도 구현하기 전, 1회 렌더링 성능입니다.
 
 </details>
 
+
+<details>
+  <summary>
+    멀티쓰레드 16등분 렌더링
+  </summary>
+    
+  
+    <img width="175" height="496" alt="image" src="https://github.com/user-attachments/assets/9526297e-20eb-4e2b-886e-79f5e70d5fec" />
+
+
+</details>
 
 
 
