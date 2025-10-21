@@ -34,6 +34,20 @@ https://github.com/SeJin0214/software_raytracing/blob/f89a2f35d4aa5042f4379b0abe
   <summary>
     Local Basis
   </summary>
+  
+  이전에 봤던 추상화 시킨 부모 구조체입니다.  
+  local_basis 덕분에 object는 동일한 코드로 작동합니다.  
+https://github.com/SeJin0214/software_raytracing/blob/7399b55fbb3e059d91d4ac36e79503c58f0ca2b4/bonus/solid_shape_bonus.h#L33-L37
+
+  local_basis를 기준으로 x, y, z를 움직입니다.  
+https://github.com/SeJin0214/software_raytracing/blob/7399b55fbb3e059d91d4ac36e79503c58f0ca2b4/bonus/solid_shape_bonus.c#L24-L47
+
+  local_basis를 기준으로 회전합니다.  
+  회전은 쿼터니언 공식을 가져다 사용했습니다.  
+https://github.com/SeJin0214/software_raytracing/blob/7399b55fbb3e059d91d4ac36e79503c58f0ca2b4/bonus/solid_shape_bonus.c#L49-L73
+
+  다른 이동 및 회전 연산도 동일한 로직으로 작동합니다.
+
 </details>
   
 
