@@ -12,7 +12,7 @@
 - [DETAIL_3_INTERSECTER_AND_SCALABILITY](docs/DETAIL_3_INTERSECTER_AND_SCALABILITY.md)  
     - 교차 판별, Sphere / Plane / Cylinder / Cone
 - [DETAIL_4_LIGHT_AND_SHADOW](docs/DETAIL_4_LIGHT_AND_SHADOW.md)   
-    - 퐁 조명 모델(ambient + diffuse : 기본 요구사항 + specular (보너스 요구사항)) , 그림자  
+    - 퐁 조명 모델(ambient + diffuse + specular) , 그림자  
 - [DETAIL_5_GI](docs/DETAIL_5_GI.md)  
     - 전역 조명
 - [DETAIL_6_ACTION](docs/DETAIL_6_ACTION.md)
