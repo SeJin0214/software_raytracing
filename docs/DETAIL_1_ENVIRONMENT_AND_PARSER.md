@@ -14,7 +14,7 @@
   open, close, read, write, printf, malloc, free, perror, exit, math.h  
   
 2. .rt 파일 형식에 맞춰서 파싱할 것(요소가 올바르지 않거나 .rt가 파일이 아니면 유효하지 않음)  
-<img width="854" height="167" alt="image" src="https://github.com/user-attachments/assets/5385cea1-e4b8-41c1-8565-f8588d2f8ab3" />
+<img width="512" height="128" alt="image" src="https://github.com/user-attachments/assets/5385cea1-e4b8-41c1-8565-f8588d2f8ab3" />
 
 3. 구, 평면, 원기둥, 원뿔 등의 오브젝트 구현 할 것  
 4. 키 매핑에 따라 이동, 스케일, 회전 구현 할 것  
@@ -41,6 +41,7 @@ https://github.com/SeJin0214/software_raytracing/blob/0737dd26129d40eaf5ab1bea73
 https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L87-L95  
 https://github.com/SeJin0214/software_raytracing/blob/2feac11d4a3300c29a66d0eebb436d770b450469/bonus/parse_solid_shape_bonus.c#L115-L125
 </details>
+
 
 
 
