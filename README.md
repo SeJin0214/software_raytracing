@@ -15,10 +15,10 @@
     - 퐁 조명 모델(ambient + diffuse : 기본 요구사항 + specular (보너스 요구사항)) , 그림자  
 - [DETAIL_5_GI](docs/DETAIL_5_GI.md)  
     - 전역 조명
-- [DETAIL_6_OPTIMIZATION](docs/DETAIL_6_OPTIMIZATION.md)  
+- [DETAIL_6_ACTION](docs/DETAIL_6_ACTION.md)
+    - 로컬 좌표계를 이용한 오브젝트 회전 및 이동  
+- [DETAIL_7_OPTIMIZATION](docs/DETAIL_7_OPTIMIZATION.md)  
     - 최적화(타일 렌더링(4x4, 16분할 멀티쓰레딩 렌더링), 컴파일러 플래그, 인라인)  
-- [DETAIL_7_ACTION](docs/DETAIL_7_ACTION.md)
-    - 로컬 좌표계를 이용한 오브젝트 회전 및 이동
 - [DETAIL_8_TEXTURE](docs/DETAIL_8_TEXTURE.md)
     - 텍스처
 
