@@ -21,6 +21,8 @@ sphere의 경우
 https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/sphere_bonus.c#L51
 여기서 bump map을 위한 normal을 바꿔줍니다.  
 https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/sphere_bonus.h#L50-L59
+
+  <br>
 https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/solid_shape_getter_bonus.h#L59-L60
 https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/solid_shape_getter_bonus.h#L48-L49
 https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/solid_shape_getter_bonus.h#L52
@@ -33,12 +35,6 @@ https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a
 </details>
 
 
-
-<details>
-  <summary>
-    bump call stack and description
-  </summary>
-</details>
 
 
 
