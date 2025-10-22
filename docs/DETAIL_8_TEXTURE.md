@@ -26,8 +26,11 @@ https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a
 
 uv 좌표를 구하는 공식은 가져다 사용했습니다.  
 https://github.com/SeJin0214/software_raytracing/blob/7438b74905f9bfbb46bd6ae0f7109aed1b41ab39/bonus/sphere_bonus.h#L33-L47
-  
+이후 uv좌표에 맞게 texel color를 지정했습니다.  
+https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/solid_shape_getter_bonus.h#L32-L46
+
 </details>
+
 
 
 
