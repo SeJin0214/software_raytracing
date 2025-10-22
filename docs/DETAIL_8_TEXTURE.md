@@ -15,7 +15,6 @@ https://github.com/SeJin0214/software_raytracing/blob/7438b74905f9bfbb46bd6ae0f7
 https://github.com/SeJin0214/software_raytracing/blob/7438b74905f9bfbb46bd6ae0f7109aed1b41ab39/bonus/render_bonus.h#L52
 https://github.com/SeJin0214/software_raytracing/blob/7438b74905f9bfbb46bd6ae0f7109aed1b41ab39/bonus/render_bonus.h#L34
 https://github.com/SeJin0214/software_raytracing/blob/7438b74905f9bfbb46bd6ae0f7109aed1b41ab39/bonus/render_bonus.h#L46
-https://github.com/SeJin0214/software_raytracing/blob/7438b74905f9bfbb46bd6ae0f7109aed1b41ab39/bonus/solid_shape_getter_bonus.h#L59-L78
 
   <br>
 sphere의 경우  
@@ -29,6 +28,7 @@ uv 좌표를 구하는 공식은 가져다 사용했습니다.
 https://github.com/SeJin0214/software_raytracing/blob/7438b74905f9bfbb46bd6ae0f7109aed1b41ab39/bonus/sphere_bonus.h#L33-L47
   
 </details>
+
 
 
 
