@@ -5,7 +5,7 @@
 
 <details>
   <summary>
-    texturing call stack and description
+    bump, texturing call stack and description
   </summary>
 
 매핑된 키에 따라 texture 타입을 변경합니다.  
@@ -19,6 +19,7 @@ https://github.com/SeJin0214/software_raytracing/blob/7438b74905f9bfbb46bd6ae0f7
   <br>
 sphere의 경우  
 https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/sphere_bonus.c#L51
+여기서 bump map을 위한 normal을 바꿔줍니다.  
 https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/sphere_bonus.h#L50-L59
 https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/solid_shape_getter_bonus.h#L59-L60
 https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a27a5171c9cdc29/bonus/solid_shape_getter_bonus.h#L48-L49
@@ -38,6 +39,7 @@ https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a
     bump call stack and description
   </summary>
 </details>
+
 
 
 
