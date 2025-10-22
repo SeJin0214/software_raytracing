@@ -5,7 +5,7 @@
 
 <details>
   <summary>
-    call stack and description
+    texturing call stack and description
   </summary>
 
 매핑된 키에 따라 texture 타입을 변경합니다.  
@@ -32,6 +32,12 @@ https://github.com/SeJin0214/software_raytracing/blob/a8509ea4d3c6e71d1d3177496a
 </details>
 
 
+
+<details>
+  <summary>
+    bump call stack and description
+  </summary>
+</details>
 
 
 
