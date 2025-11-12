@@ -1,5 +1,14 @@
 
-# software_raytracing
+
+https://github.com/user-attachments/assets/ec823d54-804c-46b0-99a2-9c509b6be8e8
+
+
+
+## 조작키
+  <img width="3373" height="1127" alt="RT_Controls" src="https://github.com/user-attachments/assets/4aeab5d4-0435-497e-bb05-cb7d25032e91" />
+
+
+# software-raytracer
 > C로 구현한 소프트웨어 레이 트레이서  
 > 광원/카메라/ → 레이 생성 → 교차 판정 → 조명/그림자  
 
@@ -32,16 +41,6 @@
 ## 실행  
   make bonus  
   ./miniRT scene.rt  
-
-
-
-https://github.com/user-attachments/assets/ec823d54-804c-46b0-99a2-9c509b6be8e8
-
-
-
-
-## 조작키
-  <img width="3373" height="1127" alt="RT_Controls" src="https://github.com/user-attachments/assets/4aeab5d4-0435-497e-bb05-cb7d25032e91" />
 
 
 ## 실행 환경 세팅 (추후에 Docker 사용)  
